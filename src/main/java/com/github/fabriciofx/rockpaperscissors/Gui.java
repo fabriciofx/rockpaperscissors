@@ -14,6 +14,8 @@
  */
 package com.github.fabriciofx.rockpaperscissors;
 
+import java.util.NoSuchElementException;
+
 import javax.swing.JOptionPane;
 
 public final class Gui implements Ui {
@@ -25,6 +27,10 @@ public final class Gui implements Ui {
 
 	@Override
 	public char character(final String message, final String pattern) {
-		return JOptionPane.showInputDialog(message).charAt(0);
+		final String s = JOptionPane.showInputDialog(message);
+		if (!s.matches(pattern)) {
+			throw new NoSuchElementException();
+		}
+		return s.charAt(0);
 	}
 }

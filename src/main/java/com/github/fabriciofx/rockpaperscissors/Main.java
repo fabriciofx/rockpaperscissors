@@ -16,10 +16,11 @@ package com.github.fabriciofx.rockpaperscissors;
 
 public final class Main {
 	public static void main(String[] args) {
+		final Ui ui = new Gui();
 		new RockPaperScissors(
-			new Console(),
+			ui,
 			new Computer(),
-			new Human(),
+			new Human(ui),
 			3
 		).play();
 	}
