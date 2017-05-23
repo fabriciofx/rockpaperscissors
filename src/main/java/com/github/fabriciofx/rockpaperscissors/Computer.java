@@ -33,7 +33,7 @@ public final class Computer implements Player {
 	}
 	
 	@Override
-	public Move move(final Ui ui) {
+	public Move move() {
 		return this.moves[new Random().nextInt(3)];
 	}	
 }

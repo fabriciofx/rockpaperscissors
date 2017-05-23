@@ -18,10 +18,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class Human implements Player {
+	private final Ui ui;
 	private final Map<Character, Move> moves;
 	
 	public Human() {
-		this(new HashMap<Character, Move>() {
+		this(new Console());
+	}
+	
+	public Human(final Ui ui) {
+		this(ui,
+			new HashMap<Character, Move>() {
 			private static final long serialVersionUID = -4810641108913835343L;
 			{
 				put('R', new Move("Rock"));
@@ -31,7 +37,8 @@ public final class Human implements Player {
 		);
 	}
 	
-	public Human(final Map<Character, Move> moves) {
+	public Human(final Ui ui, final Map<Character, Move> moves) {
+		this.ui = ui;
 		this.moves = moves;
 	}
 	
@@ -41,10 +48,10 @@ public final class Human implements Player {
 	}
 	
 	@Override
-	public Move move(final Ui ui) {
+	public Move move() {
 		return this.moves.get(
 			Character.toUpperCase(
-				ui.character(
+				this.ui.character(
 					"What is your move (Rock, Paper or Scissors)? ",
 					"[rpsRPS]"
 				)

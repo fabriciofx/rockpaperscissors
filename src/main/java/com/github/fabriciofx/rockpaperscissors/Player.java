@@ -17,5 +17,5 @@ package com.github.fabriciofx.rockpaperscissors;
 public interface Player {
 	String name();
 	
-	Move move(Ui ui);
+	Move move();
 }

@@ -26,8 +26,8 @@ public final class Match {
 	}
 
 	public void start() {
-		final Move one = this.one.move(this.ui);
-		final Move two = this.two.move(this.ui);
+		final Move one = this.one.move();
+		final Move two = this.two.move();
 		switch(one.compareTo(two)) {
 		case -1:
 			ui.print(
