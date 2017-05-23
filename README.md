@@ -13,6 +13,16 @@ This application follows these four fundamental principles:
  3. not a single mutable class ([why they are bad?](http://www.yegor256.com/2014/06/09/objects-should-be-immutable.html))
  4. not a single `instanceof` keyword, type casting, or reflection ([why?](http://www.yegor256.com/2015/04/02/class-casting-is-anti-pattern.html))
 
+If you want to know more about true object-oriented programming, I recommend
+these books:
+
+- [Elegant Objects (Volume 1)](https://www.amazon.com/Elegant-Objects-1-Yegor-Bugayenko/dp/1519166915) by
+[Yegor Bugayenko](http://www.yegor256.com)
+- [Elegant Objects (Volume 2)](https://www.amazon.com/Elegant-Objects-2-Yegor-Bugayenko/dp/1534908307) by
+[Yegor Bugayenko](http://www.yegor256.com)
+- [Object Thinking](https://www.amazon.com/Object-Thinking-Developer-Reference-David/dp/0735619654)
+by [David West](http://davewest.us)
+
 
 ## How use it?
 
