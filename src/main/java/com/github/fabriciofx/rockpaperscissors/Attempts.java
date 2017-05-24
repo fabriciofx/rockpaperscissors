@@ -15,10 +15,10 @@
 package com.github.fabriciofx.rockpaperscissors;
 
 public final class Attempts {
-	private final Match match;
+	private final VerboseMatch match;
 	private final int max;
 	
-	public Attempts(final Match match, final int max) {
+	public Attempts(final VerboseMatch match, final int max) {
 		this.match = match;
 		this.max = max;
 	}
@@ -26,7 +26,7 @@ public final class Attempts {
 	public boolean matches() {
 		int t = 0;
 		while (t++ < this.max) {
-			this.match.start();
+			this.match.result();
 		}
 		return t <= this.max;
 	}

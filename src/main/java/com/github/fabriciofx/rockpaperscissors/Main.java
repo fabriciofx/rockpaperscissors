@@ -16,7 +16,7 @@ package com.github.fabriciofx.rockpaperscissors;
 
 public final class Main {
 	public static void main(String[] args) {
-		final Ui ui = new Gui();
+		final Ui ui = new Console();
 		new RockPaperScissors(
 			ui,
 			new Computer(),

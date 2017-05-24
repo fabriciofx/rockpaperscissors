@@ -46,10 +46,12 @@ public final class RockPaperScissors {
 	
 	public void play() {
 		new Attempts(
-			new Match(
-				this.ui,
-				this.one,
-				this.two
+			new VerboseMatch(
+				new Match(
+					this.one,
+					this.two
+				),
+				this.ui
 			),
 			this.matches
 		).matches();

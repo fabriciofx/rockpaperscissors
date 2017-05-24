@@ -14,29 +14,18 @@
  */
 package com.github.fabriciofx.rockpaperscissors;
 
-public final class Match {
-	private final Player one;
-	private final Player two;
+public final class VerboseMatch {
+	private final Ui ui;
+	private final Match match;
 
-	public Match(final Player one, final Player two) {
-		this.one = one;
-		this.two = two;
+	public VerboseMatch(final Match match, final Ui ui) {
+		this.match = match;
+		this.ui = ui;
 	}
 
 	public ResultMatch result() {
-		final Move one = this.one.move();
-		final Move two = this.two.move();
-		final ResultMatch result;
-		switch(one.compareTo(two)) {
-		case -1:
-			result = new WinMatch(this.one, one, this.two, two);
-			break;
-		case 1:
-			result = new WinMatch(this.two, two, this.one, one);
-			break;
-		default:
-			result = new TieMatch(this.one, one, this.two, two);
-		}
+		final ResultMatch result = this.match.result();
+		this.ui.print(result.toString());
 		return result;
 	}
 }
