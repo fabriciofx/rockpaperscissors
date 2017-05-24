@@ -20,7 +20,7 @@ public final class Computer implements Player {
 	private final Move[] moves;
 	
 	public Computer() {
-		this(new Move("Rock"), new Move("Paper"), new Move("Scissors"));
+		this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
 	}
 	
 	public Computer(final Move... moves) {

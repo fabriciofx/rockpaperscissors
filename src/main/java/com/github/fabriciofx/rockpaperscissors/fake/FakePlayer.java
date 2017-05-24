@@ -12,38 +12,31 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors.api;
+package com.github.fabriciofx.rockpaperscissors.fake;
 
-public final class Move implements Comparable<Move> {
-	private final int code;
-	private final String name;
+import com.github.fabriciofx.rockpaperscissors.api.Move;
+import com.github.fabriciofx.rockpaperscissors.api.Player;
 
-	public Move(final int code, final String name) {
-		this.code = code;
-		this.name = name;
+public final class FakePlayer implements Player {
+	private final int id;
+	private final Move move;
+
+	public FakePlayer(final Move move) {
+		this(1, move);
 	}
 
-	public int code() {
-		return this.code;
+	public FakePlayer(final int id, final Move move) {
+		this.id = id;
+		this.move = move;
+	}
+	
+	@Override
+	public String name() {
+		return String.format("Player %d", this.id);
 	}
 
 	@Override
-	public String toString() {
-		return this.name;
-	}
-
-	// This algorithm has been found here:
-	// https://stackoverflow.com/questions/11377117/rock-paper-scissors-determine-win-loss-tie-using-math
-	@Override
-	public int compareTo(final Move move) {
-		final int cmp;
-		if (this.code() == move.code()) {
-			cmp = 0;
-		} else if ((this.code() - move.code() + 3) % 3 == 1) {
-			cmp = -1;
-		} else {
-			cmp = 1;
-		}
-		return cmp;
+	public Move move() {
+		return this.move;
 	}
 }
