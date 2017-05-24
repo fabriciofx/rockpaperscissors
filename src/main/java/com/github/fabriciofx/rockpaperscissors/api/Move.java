@@ -32,6 +32,8 @@ public final class Move implements Comparable<Move> {
 		return this.name;
 	}
 
+	// This algorithm has been found here:
+	// https://stackoverflow.com/questions/11377117/rock-paper-scissors-determine-win-loss-tie-using-math
 	@Override
 	public int compareTo(final Move move) {
 		final int cmp;
