@@ -31,11 +31,11 @@ public final class TieMatch implements ResultMatch {
 	@Override
 	public String toString() {
 		return String.format(
-				"Tie!! %s played %s and %s played %s\n",
-				this.one.name(),
-				this.moveOne,
-				this.two.name(),
-				this.moveTwo
+			"Tie!! %s played %s and %s played %s\n",
+			this.one.name(),
+			this.moveOne,
+			this.two.name(),
+			this.moveTwo
 		);
 	}
 }
