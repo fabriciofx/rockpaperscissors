@@ -14,14 +14,29 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
-public final class Main {
-	public static void main(String[] args) {
-		final Ui ui = new SelectUi().select(args[1]);
-		new RockPaperScissors(
-			ui,
-			new Computer(),
-			new Human(ui),
-			3
-		).play();
+import java.util.HashMap;
+import java.util.Map;
+
+public final class SelectUi {
+	private final Map<String, Ui> uis;
+	
+	public SelectUi() {
+		this(
+			new HashMap<String, Ui>() {
+				private static final long serialVersionUID = -9006497991653108409L;
+				{
+					put("--console", new Console());
+					put("--gui", new Gui());
+				}
+			}
+		);
+	}
+	
+	public SelectUi(final Map<String, Ui> uis) {
+		this.uis = uis;
+	}
+	
+	public Ui select(final String flag) {
+		return this.uis.get(flag);
 	}
 }
