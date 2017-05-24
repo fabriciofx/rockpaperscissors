@@ -12,8 +12,10 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-public interface ResultMatch {
-	String toString();
+public interface Ui {
+	void print(String message);
+	
+	char character(String message, String pattern);
 }

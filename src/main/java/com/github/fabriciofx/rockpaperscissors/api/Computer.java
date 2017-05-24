@@ -12,25 +12,28 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-import java.util.NoSuchElementException;
+import java.util.Random;
 
-import javax.swing.JOptionPane;
-
-public final class Gui implements Ui {
-
-	@Override
-	public void print(final String message) {
-		JOptionPane.showMessageDialog(null, message);
+public final class Computer implements Player {
+	private final Move[] moves;
+	
+	public Computer() {
+		this(new Move("Rock"), new Move("Paper"), new Move("Scissors"));
 	}
-
-	@Override
-	public char character(final String message, final String pattern) {
-		final String s = JOptionPane.showInputDialog(message);
-		if (!s.matches(pattern)) {
-			throw new NoSuchElementException();
-		}
-		return s.charAt(0);
+	
+	public Computer(final Move... moves) {
+		this.moves = moves;
 	}
+	
+	@Override
+	public String name() {
+		return "The Computer";
+	}
+	
+	@Override
+	public Move move() {
+		return this.moves[new Random().nextInt(3)];
+	}	
 }

@@ -12,28 +12,31 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-import java.util.Random;
+public final class WinMatch implements ResultMatch {
+	private final Player winner;
+	private final Move winnerMove;
+	private final Player looser;
+	private final Move looserMove;
 
-public final class Computer implements Player {
-	private final Move[] moves;
-	
-	public Computer() {
-		this(new Move("Rock"), new Move("Paper"), new Move("Scissors"));
-	}
-	
-	public Computer(final Move... moves) {
-		this.moves = moves;
+	public WinMatch(final Player winner, final Move winnerMove, final Player looser,
+		final Move looserMove) {
+		this.winner = winner;
+		this.winnerMove = winnerMove;
+		this.looser = looser;
+		this.looserMove = looserMove;
 	}
 	
 	@Override
-	public String name() {
-		return "The Computer";
+	public String toString() {
+		return String.format(
+			"%s wins!! %s played %s and %s played %s\n",
+			this.winner.name(),
+			this.winner.name(),
+			this.winnerMove,
+			this.looser.name(),
+			this.looserMove
+		);
 	}
-	
-	@Override
-	public Move move() {
-		return this.moves[new Random().nextInt(3)];
-	}	
 }

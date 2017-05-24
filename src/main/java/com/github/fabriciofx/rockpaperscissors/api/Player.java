@@ -12,16 +12,10 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-public final class Main {
-	public static void main(String[] args) {
-		final Ui ui = new Console();
-		new RockPaperScissors(
-			ui,
-			new Computer(),
-			new Human(ui),
-			3
-		).play();
-	}
+public interface Player {
+	String name();
+	
+	Move move();
 }

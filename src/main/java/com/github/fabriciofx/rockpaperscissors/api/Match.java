@@ -12,48 +12,31 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-public final class RockPaperScissors {
-	private final Ui ui;
+public final class Match {
 	private final Player one;
 	private final Player two;
-	private final int matches;
 
-	public RockPaperScissors() {
-		this(new Console());
-	}
-
-	public RockPaperScissors(final Ui ui) {
-		this(ui, new Human());
-	}
-
-	public RockPaperScissors(final Ui ui, final Player one) {
-		this(ui, one, new Computer());
-	}
-
-	public RockPaperScissors(final Ui ui, final Player one, final Player two) {
-		this(ui, one, two, 3);
-	}
-
-	public RockPaperScissors(final Ui ui, final Player one, final Player two,
-		final int matches) {
-		this.ui = ui;
+	public Match(final Player one, final Player two) {
 		this.one = one;
 		this.two = two;
-		this.matches = matches;
 	}
-	
-	public void play() {
-		new Attempts(
-			new PrintedMatch(
-				new Match(
-					this.one,
-					this.two
-				),
-				this.ui
-			),
-			this.matches
-		).matches();
+
+	public ResultMatch result() {
+		final Move one = this.one.move();
+		final Move two = this.two.move();
+		final ResultMatch result;
+		switch(one.compareTo(two)) {
+		case -1:
+			result = new WinMatch(this.one, one, this.two, two);
+			break;
+		case 1:
+			result = new WinMatch(this.two, two, this.one, one);
+			break;
+		default:
+			result = new TieMatch(this.one, one, this.two, two);
+		}
+		return result;
 	}
 }

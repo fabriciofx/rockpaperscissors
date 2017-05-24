@@ -12,22 +12,20 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-public final class Attempts {
-	private final PrintedMatch match;
-	private final int max;
-	
-	public Attempts(final PrintedMatch match, final int max) {
+public final class PrintedMatch {
+	private final Ui ui;
+	private final Match match;
+
+	public PrintedMatch(final Match match, final Ui ui) {
 		this.match = match;
-		this.max = max;
+		this.ui = ui;
 	}
-	
-	public boolean matches() {
-		int t = 0;
-		while (t++ < this.max) {
-			this.match.result();
-		}
-		return t <= this.max;
+
+	public ResultMatch result() {
+		final ResultMatch result = this.match.result();
+		this.ui.print(result.toString());
+		return result;
 	}
 }

@@ -12,31 +12,25 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rockpaperscissors;
+package com.github.fabriciofx.rockpaperscissors.api;
 
-public final class Match {
-	private final Player one;
-	private final Player two;
+import java.util.NoSuchElementException;
 
-	public Match(final Player one, final Player two) {
-		this.one = one;
-		this.two = two;
+import javax.swing.JOptionPane;
+
+public final class Gui implements Ui {
+
+	@Override
+	public void print(final String message) {
+		JOptionPane.showMessageDialog(null, message);
 	}
 
-	public ResultMatch result() {
-		final Move one = this.one.move();
-		final Move two = this.two.move();
-		final ResultMatch result;
-		switch(one.compareTo(two)) {
-		case -1:
-			result = new WinMatch(this.one, one, this.two, two);
-			break;
-		case 1:
-			result = new WinMatch(this.two, two, this.one, one);
-			break;
-		default:
-			result = new TieMatch(this.one, one, this.two, two);
+	@Override
+	public char character(final String message, final String pattern) {
+		final String s = JOptionPane.showInputDialog(message);
+		if (!s.matches(pattern)) {
+			throw new NoSuchElementException();
 		}
-		return result;
+		return s.charAt(0);
 	}
 }
