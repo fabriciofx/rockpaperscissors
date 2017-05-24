@@ -16,7 +16,7 @@ package com.github.fabriciofx.rockpaperscissors.api;
 
 public final class Main {
 	public static void main(String[] args) {
-		final Ui ui = new SelectUi().select(args[1]);
+		final Ui ui = new SelectUi().select(args);
 		new RockPaperScissors(
 			ui,
 			new Computer(),

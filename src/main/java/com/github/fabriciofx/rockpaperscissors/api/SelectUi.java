@@ -36,7 +36,13 @@ public final class SelectUi {
 		this.uis = uis;
 	}
 	
-	public Ui select(final String flag) {
-		return this.uis.get(flag);
+	public Ui select(final String... args) {
+		final String selected;
+		if (args != null && args.length >= 1 && this.uis.containsKey(args[0])) {
+			selected = args[0];
+		} else {
+			selected = "--console";
+		}
+		return this.uis.get(selected);
 	}
 }
