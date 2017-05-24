@@ -74,7 +74,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.github.fabriciofx.rockpaperscissors.Main</mainClass>
+							<mainClass>com.github.fabriciofx.rockpaperscissors.api.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
