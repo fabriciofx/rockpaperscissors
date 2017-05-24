@@ -30,9 +30,9 @@ public final class Human implements Player {
 			new HashMap<Character, Move>() {
 			private static final long serialVersionUID = -4810641108913835343L;
 			{
-				put('R', new Move("Rock"));
-				put('P', new Move("Paper"));
-				put('S', new Move("Scissors"));
+				put('R', Moves.ROCK);
+				put('P', Moves.PAPER);
+				put('S', Moves.SCISSORS);
 			}}
 		);
 	}
