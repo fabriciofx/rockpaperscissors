@@ -46,7 +46,7 @@ public final class RockPaperScissors {
 	
 	public void play() {
 		new Attempts(
-			new VerboseMatch(
+			new PrintedMatch(
 				new Match(
 					this.one,
 					this.two

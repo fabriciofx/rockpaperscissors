@@ -14,11 +14,11 @@
  */
 package com.github.fabriciofx.rockpaperscissors;
 
-public final class VerboseMatch {
+public final class PrintedMatch {
 	private final Ui ui;
 	private final Match match;
 
-	public VerboseMatch(final Match match, final Ui ui) {
+	public PrintedMatch(final Match match, final Ui ui) {
 		this.match = match;
 		this.ui = ui;
 	}
