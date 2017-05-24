@@ -18,16 +18,4 @@ public interface Player {
 	String name();
 	
 	Move move();
-	
-	Player UNDEFINED = new Player() {
-		@Override
-		public String name() {
-			return "Undefined";
-		}
-
-		@Override
-		public Move move() {
-			throw new UnsupportedOperationException("#move");
-		}		
-	};
 }
