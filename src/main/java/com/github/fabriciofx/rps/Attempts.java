@@ -21,8 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.match;
+package com.github.fabriciofx.rps;
 
-public interface ResultMatch {
-	String toString();
+import com.github.fabriciofx.rps.match.PrintedMatch;
+
+public final class Attempts {
+	private final PrintedMatch match;
+	private final int max;
+	
+	public Attempts(final PrintedMatch match, final int max) {
+		this.match = match;
+		this.max = max;
+	}
+	
+	public boolean matches() {
+		int t = 0;
+		while (t++ < this.max) {
+			this.match.result();
+		}
+		return t <= this.max;
+	}
 }

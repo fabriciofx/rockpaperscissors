@@ -21,23 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.move;
+package com.github.fabriciofx.rps.move;
 
-public final class SafeMoves implements Moves {
-	private final Moves origin;
+public final class SmartMove implements Move {
+	private final int code;
+	private final String name;
 
-	public SafeMoves(final Moves origin) {
-		this.origin = origin;
+	public SmartMove(final int code, final String name) {
+		this.code = code;
+		this.name = name;
 	}
-	
+
 	@Override
-	public Move move(final int code) {
-		if (this.origin == null) {
-			throw new InvalidMovesException();
+	public int code() {
+		return this.code;
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
+	// This algorithm has been found here:
+	// https://stackoverflow.com/questions/11377117/rock-paper-scissors-determine-win-loss-tie-using-math
+	@Override
+	public int compareTo(final Move move) {
+		final int cmp;
+		if (this.code() == move.code()) {
+			cmp = 0;
+		} else if ((this.code() - move.code() + 3) % 3 == 1) {
+			cmp = -1;
+		} else {
+			cmp = 1;
 		}
-		if (code < 0 || code > 3) {
-			throw new InvalidMoveCodeException(code);
-		}
-		return this.origin.move(code);
+		return cmp;
 	}
 }

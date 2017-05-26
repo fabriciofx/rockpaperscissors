@@ -21,33 +21,53 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.match;
+package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.model.Player;
-import com.github.fabriciofx.rps.model.move.Move;
+import com.github.fabriciofx.rps.match.Match;
+import com.github.fabriciofx.rps.match.PrintedMatch;
+import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.view.Ui;
 
-public final class TieMatch implements ResultMatch {
+public final class RockPaperScissors {
+	private final Ui ui;
 	private final Player one;
-	private final Move moveOne;
 	private final Player two;
-	private final Move moveTwo;
+	private final int matches;
 
-	public TieMatch(final Player one, final Move moveOne,
-		final Player two, final Move moveTwo) {
-		this.one = one;
-		this.moveOne = moveOne;
-		this.two = two;
-		this.moveTwo = moveTwo;
+	public RockPaperScissors() {
+		this(new Console());
 	}
 
-	@Override
-	public String toString() {
-		return String.format(
-			"Tie!! %s played %s and %s played %s\n",
-			this.one.name(),
-			this.moveOne,
-			this.two.name(),
-			this.moveTwo
-		);
+	public RockPaperScissors(final Ui ui) {
+		this(ui, new Human());
+	}
+
+	public RockPaperScissors(final Ui ui, final Player one) {
+		this(ui, one, new Computer());
+	}
+
+	public RockPaperScissors(final Ui ui, final Player one, final Player two) {
+		this(ui, one, two, 3);
+	}
+
+	public RockPaperScissors(final Ui ui, final Player one, final Player two,
+		final int matches) {
+		this.ui = ui;
+		this.one = one;
+		this.two = two;
+		this.matches = matches;
+	}
+	
+	public void play() {
+		new Attempts(
+			new PrintedMatch(
+				new Match(
+					this.one,
+					this.two
+				),
+				this.ui
+			),
+			this.matches
+		).matches();
 	}
 }

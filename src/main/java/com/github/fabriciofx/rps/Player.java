@@ -21,53 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model;
+package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.model.match.Match;
-import com.github.fabriciofx.rps.model.match.PrintedMatch;
-import com.github.fabriciofx.rps.view.Console;
-import com.github.fabriciofx.rps.view.Ui;
+import com.github.fabriciofx.rps.move.Move;
 
-public final class RockPaperScissors {
-	private final Ui ui;
-	private final Player one;
-	private final Player two;
-	private final int matches;
-
-	public RockPaperScissors() {
-		this(new Console());
-	}
-
-	public RockPaperScissors(final Ui ui) {
-		this(ui, new Human());
-	}
-
-	public RockPaperScissors(final Ui ui, final Player one) {
-		this(ui, one, new Computer());
-	}
-
-	public RockPaperScissors(final Ui ui, final Player one, final Player two) {
-		this(ui, one, two, 3);
-	}
-
-	public RockPaperScissors(final Ui ui, final Player one, final Player two,
-		final int matches) {
-		this.ui = ui;
-		this.one = one;
-		this.two = two;
-		this.matches = matches;
-	}
+public interface Player {
+	String name();
 	
-	public void play() {
-		new Attempts(
-			new PrintedMatch(
-				new Match(
-					this.one,
-					this.two
-				),
-				this.ui
-			),
-			this.matches
-		).matches();
-	}
+	Move move();
 }

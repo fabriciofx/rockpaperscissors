@@ -21,33 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model;
+package com.github.fabriciofx.rps.match;
 
-import com.github.fabriciofx.rps.misc.StringAsMove;
-import com.github.fabriciofx.rps.model.move.Move;
-import com.github.fabriciofx.rps.view.Console;
-import com.github.fabriciofx.rps.view.Ui;
+import com.github.fabriciofx.rps.Player;
+import com.github.fabriciofx.rps.move.Move;
 
-public final class Human implements Player {
-	private final Ui ui;
-	
-	public Human() {
-		this(new Console());
+public final class TieMatch implements ResultMatch {
+	private final Player one;
+	private final Move moveOne;
+	private final Player two;
+	private final Move moveTwo;
+
+	public TieMatch(final Player one, final Move moveOne,
+		final Player two, final Move moveTwo) {
+		this.one = one;
+		this.moveOne = moveOne;
+		this.two = two;
+		this.moveTwo = moveTwo;
 	}
-	
-	public Human(final Ui ui) {
-		this.ui = ui;
-	}
-	
+
 	@Override
-	public String name() {
-		return "You";
-	}
-	
-	@Override
-	public Move move() {
-		return new StringAsMove(
-			this.ui.string("What is your move (Rock, Paper or Scissors)? ")
+	public String toString() {
+		return String.format(
+			"Tie!! %s played %s and %s played %s\n",
+			this.one.name(),
+			this.moveOne,
+			this.two.name(),
+			this.moveTwo
 		);
 	}
 }

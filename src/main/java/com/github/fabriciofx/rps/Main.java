@@ -21,24 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model;
+package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.model.match.PrintedMatch;
+import com.github.fabriciofx.rps.move.SafeMoves;
+import com.github.fabriciofx.rps.move.SmartMoves;
+import com.github.fabriciofx.rps.view.SelectUi;
+import com.github.fabriciofx.rps.view.Ui;
 
-public final class Attempts {
-	private final PrintedMatch match;
-	private final int max;
-	
-	public Attempts(final PrintedMatch match, final int max) {
-		this.match = match;
-		this.max = max;
-	}
-	
-	public boolean matches() {
-		int t = 0;
-		while (t++ < this.max) {
-			this.match.result();
-		}
-		return t <= this.max;
+public final class Main {
+	public static void main(String[] args) {
+		final Ui ui = new SelectUi().select(args);
+		new RockPaperScissors(
+			ui,
+			new Computer(
+				new SafeMoves(
+					new SmartMoves()
+				)
+			),
+			new Human(ui),
+			3
+		).play();
 	}
 }

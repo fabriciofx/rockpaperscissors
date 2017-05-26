@@ -21,12 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model;
+package com.github.fabriciofx.rps.move;
 
-import com.github.fabriciofx.rps.model.move.Move;
-
-public interface Player {
-	String name();
-	
-	Move move();
+public interface Move extends Comparable<Move> {
+	int code();
 }

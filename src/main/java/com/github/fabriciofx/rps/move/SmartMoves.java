@@ -21,18 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.move;
+package com.github.fabriciofx.rps.move;
 
-public final class InvalidMoveCodeException extends IllegalArgumentException {
-	private static final long serialVersionUID = 7380630554895576829L;
-	
-	public InvalidMoveCodeException(final int code) {
-		super(
-			String.format(
-				"invalid move code (%d). The code must " +
-				"be something between 0 or 2",
-				code
-			)
-		);
+public final class SmartMoves implements Moves {
+	private final Move[] all;
+
+	public SmartMoves() {
+		this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
+	}
+
+	public SmartMoves(final Move... all) {
+		this.all = all;
+	}
+
+	@Override
+	public Move move(final int code) {
+		return this.all[code];
 	}
 }

@@ -21,37 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model;
+package com.github.fabriciofx.rps.move;
 
-import java.util.Random;
-
-import com.github.fabriciofx.rps.model.move.Move;
-import com.github.fabriciofx.rps.model.move.Moves;
-import com.github.fabriciofx.rps.model.move.SafeMoves;
-import com.github.fabriciofx.rps.model.move.SmartMoves;
-
-public final class Computer implements Player {
-	private final Moves moves;
+public final class SafeMove implements Move {
+	private final Move origin;
 	
-	public Computer() {
-		this(
-			new SafeMoves(
-				new SmartMoves()
-			)
-		);
-	}
-	
-	public Computer(final Moves moves) {
-		this.moves = moves;
+	public SafeMove(final Move origin) {
+		this.origin = origin;
 	}
 	
 	@Override
-	public String name() {
-		return "The Computer";
+	public int code() {
+		if (this.origin == null) {
+			throw new InvalidMoveException();
+		}
+		return this.origin.code();
 	}
-	
+
 	@Override
-	public Move move() {
-		return this.moves.move(new Random().nextInt(3));
-	}	
+	public int compareTo(final Move move) {
+		if (this.origin == null || move == null) {
+			throw new InvalidMoveException();
+		}
+		return this.origin.compareTo(move);
+	}
 }

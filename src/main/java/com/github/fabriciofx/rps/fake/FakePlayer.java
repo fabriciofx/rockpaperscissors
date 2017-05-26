@@ -23,8 +23,8 @@
  */
 package com.github.fabriciofx.rps.fake;
 
-import com.github.fabriciofx.rps.model.Player;
-import com.github.fabriciofx.rps.model.move.Move;
+import com.github.fabriciofx.rps.Player;
+import com.github.fabriciofx.rps.move.Move;
 
 public final class FakePlayer implements Player {
 	private final int id;

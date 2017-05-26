@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.move;
+package com.github.fabriciofx.rps.move;
 
 public final class InvalidMoveException extends IllegalArgumentException {
 	private static final long serialVersionUID = 5814831787607231801L;

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.match;
+package com.github.fabriciofx.rps.match;
 
 import com.github.fabriciofx.rps.view.Ui;
 

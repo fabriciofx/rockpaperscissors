@@ -21,34 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.match;
+package com.github.fabriciofx.rps.move;
 
-import com.github.fabriciofx.rps.model.Player;
-import com.github.fabriciofx.rps.model.move.Move;
+public interface Moves {
+	Move ROCK = new SmartMove(0, "Rock");
+	Move PAPER = new SmartMove(1, "Paper");
+	Move SCISSORS = new SmartMove(2, "Scissors");
 
-public final class WinMatch implements ResultMatch {
-	private final Player winner;
-	private final Move winnerMove;
-	private final Player looser;
-	private final Move looserMove;
-
-	public WinMatch(final Player winner, final Move winnerMove, final Player looser,
-		final Move looserMove) {
-		this.winner = winner;
-		this.winnerMove = winnerMove;
-		this.looser = looser;
-		this.looserMove = looserMove;
-	}
-	
-	@Override
-	public String toString() {
-		return String.format(
-			"%s wins!! %s played %s and %s played %s\n",
-			this.winner.name(),
-			this.winner.name(),
-			this.winnerMove,
-			this.looser.name(),
-			this.looserMove
-		);
-	}
+	Move move(int code);
 }

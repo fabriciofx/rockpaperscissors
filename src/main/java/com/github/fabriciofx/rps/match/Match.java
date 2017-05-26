@@ -21,39 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.move;
+package com.github.fabriciofx.rps.match;
 
-public final class SmartMove implements Move {
-	private final int code;
-	private final String name;
+import com.github.fabriciofx.rps.Player;
+import com.github.fabriciofx.rps.move.Move;
 
-	public SmartMove(final int code, final String name) {
-		this.code = code;
-		this.name = name;
+public final class Match {
+	private final Player one;
+	private final Player two;
+
+	public Match(final Player one, final Player two) {
+		this.one = one;
+		this.two = two;
 	}
 
-	@Override
-	public int code() {
-		return this.code;
-	}
-
-	@Override
-	public String toString() {
-		return this.name;
-	}
-
-	// This algorithm has been found here:
-	// https://stackoverflow.com/questions/11377117/rock-paper-scissors-determine-win-loss-tie-using-math
-	@Override
-	public int compareTo(final Move move) {
-		final int cmp;
-		if (this.code() == move.code()) {
-			cmp = 0;
-		} else if ((this.code() - move.code() + 3) % 3 == 1) {
-			cmp = -1;
-		} else {
-			cmp = 1;
+	public ResultMatch result() {
+		final Move one = this.one.move();
+		final Move two = this.two.move();
+		final ResultMatch result;
+		switch(one.compareTo(two)) {
+		case -1:
+			result = new WinMatch(this.one, one, this.two, two);
+			break;
+		case 1:
+			result = new WinMatch(this.two, two, this.one, one);
+			break;
+		default:
+			result = new TieMatch(this.one, one, this.two, two);
 		}
-		return cmp;
+		return result;
 	}
 }

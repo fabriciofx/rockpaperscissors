@@ -21,21 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.move;
+package com.github.fabriciofx.rps;
 
-public final class SmartMoves implements Moves {
-	private final Move[] all;
+import com.github.fabriciofx.rps.misc.StringAsMove;
+import com.github.fabriciofx.rps.move.Move;
+import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.view.Ui;
 
-	public SmartMoves() {
-		this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
+public final class Human implements Player {
+	private final Ui ui;
+	
+	public Human() {
+		this(new Console());
 	}
-
-	public SmartMoves(final Move... all) {
-		this.all = all;
+	
+	public Human(final Ui ui) {
+		this.ui = ui;
 	}
-
+	
 	@Override
-	public Move move(final int code) {
-		return this.all[code];
+	public String name() {
+		return "You";
+	}
+	
+	@Override
+	public Move move() {
+		return new StringAsMove(
+			this.ui.string("What is your move (Rock, Paper or Scissors)? ")
+		);
 	}
 }

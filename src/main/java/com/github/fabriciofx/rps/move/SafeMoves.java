@@ -21,25 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model;
+package com.github.fabriciofx.rps.move;
 
-import com.github.fabriciofx.rps.model.move.SafeMoves;
-import com.github.fabriciofx.rps.model.move.SmartMoves;
-import com.github.fabriciofx.rps.view.SelectUi;
-import com.github.fabriciofx.rps.view.Ui;
+public final class SafeMoves implements Moves {
+	private final Moves origin;
 
-public final class Main {
-	public static void main(String[] args) {
-		final Ui ui = new SelectUi().select(args);
-		new RockPaperScissors(
-			ui,
-			new Computer(
-				new SafeMoves(
-					new SmartMoves()
-				)
-			),
-			new Human(ui),
-			3
-		).play();
+	public SafeMoves(final Moves origin) {
+		this.origin = origin;
+	}
+	
+	@Override
+	public Move move(final int code) {
+		if (this.origin == null) {
+			throw new InvalidMovesException();
+		}
+		if (code < 0 || code > 3) {
+			throw new InvalidMoveCodeException(code);
+		}
+		return this.origin.move(code);
 	}
 }

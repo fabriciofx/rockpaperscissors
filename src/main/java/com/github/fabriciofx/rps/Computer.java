@@ -21,12 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.model.move;
+package com.github.fabriciofx.rps;
 
-public interface Moves {
-	Move ROCK = new SmartMove(0, "Rock");
-	Move PAPER = new SmartMove(1, "Paper");
-	Move SCISSORS = new SmartMove(2, "Scissors");
+import java.util.Random;
 
-	Move move(int code);
+import com.github.fabriciofx.rps.move.Move;
+import com.github.fabriciofx.rps.move.Moves;
+import com.github.fabriciofx.rps.move.SafeMoves;
+import com.github.fabriciofx.rps.move.SmartMoves;
+
+public final class Computer implements Player {
+	private final Moves moves;
+	
+	public Computer() {
+		this(
+			new SafeMoves(
+				new SmartMoves()
+			)
+		);
+	}
+	
+	public Computer(final Moves moves) {
+		this.moves = moves;
+	}
+	
+	@Override
+	public String name() {
+		return "The Computer";
+	}
+	
+	@Override
+	public Move move() {
+		return this.moves.move(new Random().nextInt(3));
+	}	
 }

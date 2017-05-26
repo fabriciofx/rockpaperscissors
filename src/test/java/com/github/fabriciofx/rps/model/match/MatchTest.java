@@ -28,8 +28,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.github.fabriciofx.rps.fake.FakePlayer;
-import com.github.fabriciofx.rps.model.match.Match;
-import com.github.fabriciofx.rps.model.move.Moves;
+import com.github.fabriciofx.rps.match.Match;
+import com.github.fabriciofx.rps.move.Moves;
 
 public final class MatchTest {
 	@Test

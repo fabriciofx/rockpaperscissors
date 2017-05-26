@@ -23,10 +23,10 @@
  */
 package com.github.fabriciofx.rps.misc;
 
-import com.github.fabriciofx.rps.model.move.Move;
-import com.github.fabriciofx.rps.model.move.Moves;
-import com.github.fabriciofx.rps.model.move.SafeMoves;
-import com.github.fabriciofx.rps.model.move.SmartMoves;
+import com.github.fabriciofx.rps.move.Move;
+import com.github.fabriciofx.rps.move.Moves;
+import com.github.fabriciofx.rps.move.SafeMoves;
+import com.github.fabriciofx.rps.move.SmartMoves;
 
 public final class StringAsMove implements Move {
 	private final Moves moves;
