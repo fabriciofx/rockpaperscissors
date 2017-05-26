@@ -16,6 +16,7 @@ package com.github.fabriciofx.rockpaperscissors.misc;
 
 import com.github.fabriciofx.rockpaperscissors.api.Move;
 import com.github.fabriciofx.rockpaperscissors.api.Moves;
+import com.github.fabriciofx.rockpaperscissors.api.SafeMoves;
 import com.github.fabriciofx.rockpaperscissors.api.SmartMoves;
 
 public final class StringAsMove implements Move {
@@ -23,7 +24,12 @@ public final class StringAsMove implements Move {
 	private final String string;
 
 	public StringAsMove(final String string) {
-		this(new SmartMoves(), string);
+		this(
+			new SafeMoves(
+				new SmartMoves()
+			),
+			string
+		);
 	}
 
 	public StringAsMove(final Moves moves, final String string) {

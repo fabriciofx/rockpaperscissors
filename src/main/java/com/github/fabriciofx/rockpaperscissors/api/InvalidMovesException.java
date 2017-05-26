@@ -14,30 +14,10 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
-import java.util.Random;
+public final class InvalidMovesException extends IllegalArgumentException {
+	private static final long serialVersionUID = 2692386514120488638L;
 
-public final class Computer implements Player {
-	private final Moves moves;
-	
-	public Computer() {
-		this(
-			new SafeMoves(
-				new SmartMoves()
-			)
-		);
+	public InvalidMovesException(final String message) {
+		super(message);
 	}
-	
-	public Computer(final Moves moves) {
-		this.moves = moves;
-	}
-	
-	@Override
-	public String name() {
-		return "The Computer";
-	}
-	
-	@Override
-	public Move move() {
-		return this.moves.move(new Random().nextInt(3));
-	}	
 }

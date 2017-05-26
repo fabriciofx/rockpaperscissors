@@ -14,30 +14,21 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
-import java.util.Random;
+public final class SafeMoves implements Moves {
+	private final Moves origin;
 
-public final class Computer implements Player {
-	private final Moves moves;
-	
-	public Computer() {
-		this(
-			new SafeMoves(
-				new SmartMoves()
-			)
-		);
-	}
-	
-	public Computer(final Moves moves) {
-		this.moves = moves;
+	public SafeMoves(final Moves origin) {
+		this.origin = origin;
 	}
 	
 	@Override
-	public String name() {
-		return "The Computer";
+	public Move move(final int code) {
+		if (this.origin == null) {
+			throw new InvalidMovesException("moves is null");
+		}
+		if (code < 0 || code > 3) {
+			throw new InvalidMoveCodeException(code);
+		}
+		return this.origin.move(code);
 	}
-	
-	@Override
-	public Move move() {
-		return this.moves.move(new Random().nextInt(3));
-	}	
 }

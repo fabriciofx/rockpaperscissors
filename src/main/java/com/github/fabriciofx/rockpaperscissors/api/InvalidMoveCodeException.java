@@ -14,30 +14,16 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
-import java.util.Random;
-
-public final class Computer implements Player {
-	private final Moves moves;
+public final class InvalidMoveCodeException extends IllegalArgumentException {
+	private static final long serialVersionUID = 7380630554895576829L;
 	
-	public Computer() {
-		this(
-			new SafeMoves(
-				new SmartMoves()
+	public InvalidMoveCodeException(final int code) {
+		super(
+			String.format(
+				"invalid move code (%d). The code must " +
+				"be something between 0 or 2",
+				code
 			)
 		);
 	}
-	
-	public Computer(final Moves moves) {
-		this.moves = moves;
-	}
-	
-	@Override
-	public String name() {
-		return "The Computer";
-	}
-	
-	@Override
-	public Move move() {
-		return this.moves.move(new Random().nextInt(3));
-	}	
 }

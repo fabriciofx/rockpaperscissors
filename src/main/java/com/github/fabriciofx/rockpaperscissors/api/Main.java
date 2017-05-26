@@ -19,7 +19,11 @@ public final class Main {
 		final Ui ui = new SelectUi().select(args);
 		new RockPaperScissors(
 			ui,
-			new Computer(),
+			new Computer(
+				new SafeMoves(
+					new SmartMoves()
+				)
+			),
 			new Human(ui),
 			3
 		).play();
