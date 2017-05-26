@@ -17,13 +17,13 @@ package com.github.fabriciofx.rockpaperscissors.api;
 import java.util.Random;
 
 public final class Computer implements Player {
-	private final Move[] moves;
+	private final Moves moves;
 	
 	public Computer() {
-		this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
+		this(new SmartMoves());
 	}
 	
-	public Computer(final Move... moves) {
+	public Computer(final Moves moves) {
 		this.moves = moves;
 	}
 	
@@ -34,6 +34,6 @@ public final class Computer implements Player {
 	
 	@Override
 	public Move move() {
-		return this.moves[new Random().nextInt(3)];
+		return this.moves.move(new Random().nextInt(3));
 	}	
 }

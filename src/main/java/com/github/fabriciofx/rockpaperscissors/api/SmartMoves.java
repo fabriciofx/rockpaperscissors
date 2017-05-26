@@ -14,35 +14,31 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
-public final class Human implements Player {
-	private final Ui ui;
-	private final Moves moves;
-	
-	public Human() {
-		this(new Console());
+public final class SmartMoves implements Moves {
+	private final Move[] all;
+
+	public SmartMoves() {
+		this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
 	}
-	
-	public Human(final Ui ui) {
-		this(ui, new SmartMoves());
+
+	public SmartMoves(final Move... all) {
+		this.all = all;
 	}
-	
-	public Human(final Ui ui, final Moves moves) {
-		this.ui = ui;
-		this.moves = moves;
-	}
-	
+
 	@Override
-	public String name() {
-		return "You";
+	public Move move(final char chr) {
+		Move selected = Moves.ROCK;
+		for (final Move m : this.all) {
+			if (m.toString().charAt(0) == Character.toUpperCase(chr)) {
+				selected = m;
+				break;
+			}
+		}
+		return selected;
 	}
-	
+
 	@Override
-	public Move move() {
-		return this.moves.move(
-			this.ui.character(
-				"What is your move (Rock, Paper or Scissors)? ",
-				"[rpsRPS]"
-			)
-		);
+	public Move move(final int code) {
+		return this.all[code];
 	}
 }
