@@ -12,19 +12,10 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  */
-package com.github.fabriciofx.rps.model.view;
+package com.github.fabriciofx.rps.view;
 
-import javax.swing.JOptionPane;
-
-public final class Gui implements Ui {
-
-	@Override
-	public void print(final String message) {
-		JOptionPane.showMessageDialog(null, message);
-	}
-
-	@Override
-	public String string(final String message) {
-		return JOptionPane.showInputDialog(message);
-	}
+public interface Ui {
+	void print(String message);
+	
+	String string(String message);
 }

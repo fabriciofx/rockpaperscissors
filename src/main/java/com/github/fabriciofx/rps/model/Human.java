@@ -16,8 +16,8 @@ package com.github.fabriciofx.rps.model;
 
 import com.github.fabriciofx.rps.misc.StringAsMove;
 import com.github.fabriciofx.rps.model.move.Move;
-import com.github.fabriciofx.rps.model.view.Console;
-import com.github.fabriciofx.rps.model.view.Ui;
+import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.view.Ui;
 
 public final class Human implements Player {
 	private final Ui ui;

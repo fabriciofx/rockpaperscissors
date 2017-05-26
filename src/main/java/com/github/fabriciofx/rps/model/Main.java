@@ -16,8 +16,8 @@ package com.github.fabriciofx.rps.model;
 
 import com.github.fabriciofx.rps.model.move.SafeMoves;
 import com.github.fabriciofx.rps.model.move.SmartMoves;
-import com.github.fabriciofx.rps.model.view.SelectUi;
-import com.github.fabriciofx.rps.model.view.Ui;
+import com.github.fabriciofx.rps.view.SelectUi;
+import com.github.fabriciofx.rps.view.Ui;
 
 public final class Main {
 	public static void main(String[] args) {

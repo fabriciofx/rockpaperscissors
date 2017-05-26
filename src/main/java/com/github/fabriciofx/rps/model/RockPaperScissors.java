@@ -16,8 +16,8 @@ package com.github.fabriciofx.rps.model;
 
 import com.github.fabriciofx.rps.model.match.Match;
 import com.github.fabriciofx.rps.model.match.PrintedMatch;
-import com.github.fabriciofx.rps.model.view.Console;
-import com.github.fabriciofx.rps.model.view.Ui;
+import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.view.Ui;
 
 public final class RockPaperScissors {
 	private final Ui ui;

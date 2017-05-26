@@ -14,7 +14,7 @@
  */
 package com.github.fabriciofx.rps.model.match;
 
-import com.github.fabriciofx.rps.model.view.Ui;
+import com.github.fabriciofx.rps.view.Ui;
 
 public final class PrintedMatch {
 	private final Ui ui;
