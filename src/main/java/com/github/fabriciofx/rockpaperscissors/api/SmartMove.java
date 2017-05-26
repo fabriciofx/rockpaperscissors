@@ -14,8 +14,37 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
-public interface Ui {
-	void print(String message);
-	
-	String string(String message);
+public final class SmartMove implements Move {
+	private final int code;
+	private final String name;
+
+	public SmartMove(final int code, final String name) {
+		this.code = code;
+		this.name = name;
+	}
+
+	@Override
+	public int code() {
+		return this.code;
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
+	// This algorithm has been found here:
+	// https://stackoverflow.com/questions/11377117/rock-paper-scissors-determine-win-loss-tie-using-math
+	@Override
+	public int compareTo(final Move move) {
+		final int cmp;
+		if (this.code() == move.code()) {
+			cmp = 0;
+		} else if ((this.code() - move.code() + 3) % 3 == 1) {
+			cmp = -1;
+		} else {
+			cmp = 1;
+		}
+		return cmp;
+	}
 }

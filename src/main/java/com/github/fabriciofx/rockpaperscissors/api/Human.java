@@ -14,6 +14,8 @@
  */
 package com.github.fabriciofx.rockpaperscissors.api;
 
+import com.github.fabriciofx.rockpaperscissors.misc.StringAsMove;
+
 public final class Human implements Player {
 	private final Ui ui;
 	private final Moves moves;
@@ -38,11 +40,8 @@ public final class Human implements Player {
 	
 	@Override
 	public Move move() {
-		return this.moves.move(
-			this.ui.character(
-				"What is your move (Rock, Paper or Scissors)? ",
-				"[rpsRPS]"
-			)
+		return new StringAsMove(
+			this.ui.string("What is your move (Rock, Paper or Scissors)? ")
 		);
 	}
 }

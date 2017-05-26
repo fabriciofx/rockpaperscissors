@@ -26,18 +26,6 @@ public final class SmartMoves implements Moves {
 	}
 
 	@Override
-	public Move move(final char chr) {
-		Move selected = Moves.ROCK;
-		for (final Move m : this.all) {
-			if (m.toString().charAt(0) == Character.toUpperCase(chr)) {
-				selected = m;
-				break;
-			}
-		}
-		return selected;
-	}
-
-	@Override
 	public Move move(final int code) {
 		return this.all[code];
 	}

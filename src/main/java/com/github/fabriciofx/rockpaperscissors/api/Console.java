@@ -24,8 +24,8 @@ public final class Console implements Ui {
 
 	@SuppressWarnings("resource")
 	@Override
-	public char character(final String message, final String pattern) {
+	public String string(final String message) {
 		this.print(message);
-		return new Scanner(System.in).next(pattern).charAt(0);
+		return new Scanner(System.in).next();
 	}
 }
