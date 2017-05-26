@@ -17,7 +17,7 @@ package com.github.fabriciofx.rps.model.move;
 public final class InvalidMovesException extends IllegalArgumentException {
 	private static final long serialVersionUID = 2692386514120488638L;
 
-	public InvalidMovesException(final String message) {
-		super(message);
+	public InvalidMovesException() {
+		super("moves is invalid (null)");
 	}
 }

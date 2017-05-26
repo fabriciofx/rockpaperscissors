@@ -24,7 +24,7 @@ public final class SafeMoves implements Moves {
 	@Override
 	public Move move(final int code) {
 		if (this.origin == null) {
-			throw new InvalidMovesException("moves is null");
+			throw new InvalidMovesException();
 		}
 		if (code < 0 || code > 3) {
 			throw new InvalidMoveCodeException(code);
