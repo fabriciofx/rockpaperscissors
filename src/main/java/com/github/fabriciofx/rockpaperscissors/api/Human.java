@@ -18,19 +18,13 @@ import com.github.fabriciofx.rockpaperscissors.misc.StringAsMove;
 
 public final class Human implements Player {
 	private final Ui ui;
-	private final Moves moves;
 	
 	public Human() {
 		this(new Console());
 	}
 	
 	public Human(final Ui ui) {
-		this(ui, new SmartMoves());
-	}
-	
-	public Human(final Ui ui, final Moves moves) {
 		this.ui = ui;
-		this.moves = moves;
 	}
 	
 	@Override
