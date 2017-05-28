@@ -26,5 +26,5 @@ package com.github.fabriciofx.rps.view;
 public interface Ui {
 	void print(String message);
 	
-	String string(String message);
+	String value(String message);
 }

@@ -47,7 +47,7 @@ public final class Human implements Player {
 	@Override
 	public Move move() {
 		return new StringAsMove(
-			this.ui.string("What is your move (Rock, Paper or Scissors)? ")
+			this.ui.value("What is your move (Rock, Paper or Scissors)? ")
 		);
 	}
 }

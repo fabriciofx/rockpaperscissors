@@ -33,7 +33,7 @@ public final class Console implements Ui {
 
 	@SuppressWarnings("resource")
 	@Override
-	public String string(final String message) {
+	public String value(final String message) {
 		this.print(message);
 		return new Scanner(System.in).next();
 	}

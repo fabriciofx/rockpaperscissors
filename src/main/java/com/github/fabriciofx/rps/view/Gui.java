@@ -33,7 +33,7 @@ public final class Gui implements Ui {
 	}
 
 	@Override
-	public String string(final String message) {
+	public String value(final String message) {
 		return JOptionPane.showInputDialog(message);
 	}
 }
