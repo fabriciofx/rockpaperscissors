@@ -83,7 +83,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.github.fabriciofx.rockpaperscissors.api.Main</mainClass>
+							<mainClass>com.github.fabriciofx.rps.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
