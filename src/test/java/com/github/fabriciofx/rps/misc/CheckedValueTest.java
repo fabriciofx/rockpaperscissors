@@ -21,37 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps;
+package com.github.fabriciofx.rps.misc;
 
-import com.github.fabriciofx.rps.misc.CheckedValue;
-import com.github.fabriciofx.rps.misc.StringAsMove;
-import com.github.fabriciofx.rps.move.Move;
-import com.github.fabriciofx.rps.view.Console;
-import com.github.fabriciofx.rps.view.Ui;
+import static org.junit.Assert.assertEquals;
 
-public final class Person implements Player {
-	private final Ui ui;
-	
-	public Person() {
-		this(new Console());
+import org.junit.Test;
+
+public final class CheckedValueTest {
+	@Test
+	public void checkedValue() {
+		assertEquals('r', new CheckedValue("r", "[rpsRPS]").charAt(0));
 	}
-	
-	public Person(final Ui ui) {
-		this.ui = ui;
-	}
-	
-	@Override
-	public String name() {
-		return "You";
-	}
-	
-	@Override
-	public Move move() {
-		return new StringAsMove(
-			new CheckedValue(
-				this.ui.value("What is your move (Rock, Paper or Scissors)? "),
-				"[rpsRPS]"
-			)
-		);
+
+	@Test(expected = IllegalArgumentException.class)
+	public void checkedValueWrong() {
+		new CheckedValue("t", "[rpsRPS]").charAt(0);
 	}
 }

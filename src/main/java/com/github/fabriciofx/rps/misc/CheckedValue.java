@@ -21,37 +21,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps;
+package com.github.fabriciofx.rps.misc;
 
-import com.github.fabriciofx.rps.misc.CheckedValue;
-import com.github.fabriciofx.rps.misc.StringAsMove;
-import com.github.fabriciofx.rps.move.Move;
-import com.github.fabriciofx.rps.view.Console;
-import com.github.fabriciofx.rps.view.Ui;
-
-public final class Person implements Player {
-	private final Ui ui;
+public final class CheckedValue implements CharSequence {
+	private final CharSequence value;
+	private final String regex;
 	
-	public Person() {
-		this(new Console());
-	}
-	
-	public Person(final Ui ui) {
-		this.ui = ui;
+	public CheckedValue(final CharSequence value, final String regex) {
+		this.value = value;
+		this.regex = regex;
 	}
 	
 	@Override
-	public String name() {
-		return "You";
+	public int length() {
+		if (!this.value.toString().matches(this.regex)) {
+			throw new IllegalArgumentException("error: out of specification");
+		}
+		return this.value.length();
 	}
-	
+
 	@Override
-	public Move move() {
-		return new StringAsMove(
-			new CheckedValue(
-				this.ui.value("What is your move (Rock, Paper or Scissors)? "),
-				"[rpsRPS]"
-			)
-		);
+	public char charAt(final int index) {
+		if (!this.value.toString().matches(this.regex)) {
+			throw new IllegalArgumentException("error: out of specification");
+		}
+		return this.value.charAt(index);
+	}
+
+	@Override
+	public CharSequence subSequence(final int start, final int end) {
+		if (!this.value.toString().matches(this.regex)) {
+			throw new IllegalArgumentException("error: out of specification");
+		}
+		return this.value.subSequence(start, end);
 	}
 }

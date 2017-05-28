@@ -30,9 +30,9 @@ import com.github.fabriciofx.rps.move.SmartMoves;
 
 public final class StringAsMove implements Move {
 	private final Moves moves;
-	private final String string;
+	private final CharSequence string;
 
-	public StringAsMove(final String string) {
+	public StringAsMove(final CharSequence string) {
 		this(
 			new SafeMoves(
 				new SmartMoves()
@@ -41,7 +41,7 @@ public final class StringAsMove implements Move {
 		);
 	}
 
-	public StringAsMove(final Moves moves, final String string) {
+	public StringAsMove(final Moves moves, final CharSequence string) {
 		this.moves = moves;
 		this.string = string;
 	}
