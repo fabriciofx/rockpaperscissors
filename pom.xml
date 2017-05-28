@@ -27,7 +27,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.fabriciofx</groupId>
 	<artifactId>rockpaperscissors</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>Rock, Paper and Scissors</name>
 	<description>A true OO implementation of the rock, paper and scissors game</description>
 	<properties>
