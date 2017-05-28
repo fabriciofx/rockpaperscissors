@@ -28,14 +28,14 @@ import com.github.fabriciofx.rps.move.Move;
 import com.github.fabriciofx.rps.view.Console;
 import com.github.fabriciofx.rps.view.Ui;
 
-public final class Human implements Player {
+public final class Person implements Player {
 	private final Ui ui;
 	
-	public Human() {
+	public Person() {
 		this(new Console());
 	}
 	
-	public Human(final Ui ui) {
+	public Person(final Ui ui) {
 		this.ui = ui;
 	}
 	

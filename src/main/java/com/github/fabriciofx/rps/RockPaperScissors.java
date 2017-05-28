@@ -39,7 +39,7 @@ public final class RockPaperScissors {
 	}
 
 	public RockPaperScissors(final Ui ui) {
-		this(ui, new Human());
+		this(ui, new Person());
 	}
 
 	public RockPaperScissors(final Ui ui, final Player one) {

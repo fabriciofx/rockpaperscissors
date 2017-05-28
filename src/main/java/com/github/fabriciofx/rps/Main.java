@@ -38,7 +38,7 @@ public final class Main {
 					new SmartMoves()
 				)
 			),
-			new Human(ui),
+			new Person(ui),
 			3
 		).play();
 	}
