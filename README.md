@@ -35,10 +35,10 @@ $ mvn clean package
 Then, run:
 
 ```
-$ java -jar target/rockpaperscissors-<version>-jar-with-dependencies.jar
+$ java -jar target/rockpaperscissors-VERSION-jar-with-dependencies.jar
 ```
 
-Change *<version>* for the version found in `pom.xml` file.
+Change *VERSION* for the version found in `pom.xml` file.
 
 
 ## License
