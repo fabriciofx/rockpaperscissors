@@ -24,9 +24,9 @@
 package com.github.fabriciofx.rps.model.match;
 
 import static org.junit.Assert.assertEquals;
-
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.Test;
-
 import com.github.fabriciofx.rps.fake.FakePlayer;
 import com.github.fabriciofx.rps.match.Match;
 import com.github.fabriciofx.rps.move.Moves;
@@ -34,50 +34,58 @@ import com.github.fabriciofx.rps.move.Moves;
 public final class MatchTest {
 	@Test
 	public void rocksTie() {
-		final Match match = new Match(
-			new FakePlayer(1, Moves.ROCK),
-			new FakePlayer(2, Moves.ROCK)
-		);
-		assertEquals(
-			"Tie!! Player 1 played Rock and Player 2 played Rock\n",
-			match.result().toString()
+		MatcherAssert.assertThat(
+		    "Can't tie with two players playing rock",
+		    new Match(
+	            new FakePlayer(1, Moves.ROCK),
+	            new FakePlayer(2, Moves.ROCK)
+	        ).result().toString(),
+		    Matchers.equalTo(
+		        "Tie!! Player 1 played Rock and Player 2 played Rock\n"
+		    )
 		);
 	}
-	
+
 	@Test
 	public void papersTie() {
-		final Match match = new Match(
-			new FakePlayer(1, Moves.PAPER),
-			new FakePlayer(2, Moves.PAPER)
-		);
-		assertEquals(
-			"Tie!! Player 1 played Paper and Player 2 played Paper\n",
-			match.result().toString()
-		);
+        MatcherAssert.assertThat(
+            "Can't tie with two players playing paper",
+            new Match(
+                new FakePlayer(1, Moves.PAPER),
+                new FakePlayer(2, Moves.PAPER)
+            ).result().toString(),
+            Matchers.equalTo(
+                "Tie!! Player 1 played Paper and Player 2 played Paper\n"
+            )
+        );
 	}
-	
+
 	@Test
 	public void scissorsTie() {
-		final Match match = new Match(
-			new FakePlayer(1, Moves.SCISSORS),
-			new FakePlayer(2, Moves.SCISSORS)
-		);
-		assertEquals(
-			"Tie!! Player 1 played Scissors and Player 2 played Scissors\n",
-			match.result().toString()
-		);
+        MatcherAssert.assertThat(
+            "Can't tie with two players playing scissors",
+            new Match(
+                new FakePlayer(1, Moves.SCISSORS),
+                new FakePlayer(2, Moves.SCISSORS)
+            ).result().toString(),
+            Matchers.equalTo(
+                "Tie!! Player 1 played Scissors and Player 2 played Scissors\n"
+            )
+        );
 	}
-	
+
 	@Test
 	public void rockWinsScissors() {
-		final Match match = new Match(
-			new FakePlayer(1, Moves.ROCK),
-			new FakePlayer(2, Moves.SCISSORS)
-		);
-		assertEquals(
-			"Player 1 wins!! Player 1 played Rock and Player 2 played Scissors\n",
-			match.result().toString()
-		);
+        MatcherAssert.assertThat(
+            "Can't rock win with two players playing rock and scissors",
+            new Match(
+                new FakePlayer(1, Moves.ROCK),
+                new FakePlayer(2, Moves.SCISSORS)
+            ).result().toString(),
+            Matchers.equalTo(
+                "Player 1 wins!! Player 1 played Rock and Player 2 played Scissors\n"
+            )
+        );
 	}
 
 	@Test
@@ -91,7 +99,7 @@ public final class MatchTest {
 			match.result().toString()
 		);
 	}
-	
+
 	@Test
 	public void scissorsWinsPaper() {
 		final Match match = new Match(
@@ -103,7 +111,7 @@ public final class MatchTest {
 			match.result().toString()
 		);
 	}
-	
+
 	@Test
 	public void rockLoosesPaper() {
 		final Match match = new Match(
@@ -115,7 +123,7 @@ public final class MatchTest {
 			match.result().toString()
 		);
 	}
-	
+
 	@Test
 	public void paperLoosesScissors() {
 		final Match match = new Match(
@@ -127,7 +135,7 @@ public final class MatchTest {
 			match.result().toString()
 		);
 	}
-	
+
 	@Test
 	public void scissorsLoosesRock() {
 		final Match match = new Match(
@@ -139,6 +147,4 @@ public final class MatchTest {
 			match.result().toString()
 		);
 	}
-
-	
 }
