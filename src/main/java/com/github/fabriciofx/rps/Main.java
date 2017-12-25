@@ -28,6 +28,13 @@ import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.view.SelectUi;
 import com.github.fabriciofx.rps.view.Ui;
 
+/**
+ * Start the game. 
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public final class Main {
 	public static void main(String[] args) {
 		final Ui ui = new SelectUi().select(args);

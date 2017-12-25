@@ -30,9 +30,22 @@ import com.github.fabriciofx.rps.move.Moves;
 import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
 
+/**
+ * Computer player. 
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public final class Computer implements Player {
+	/**
+	 * The moves. 
+	 */
 	private final Moves moves;
-	
+
+	/**
+	 * Ctor.
+	 */
 	public Computer() {
 		this(
 			new SafeMoves(
@@ -40,18 +53,22 @@ public final class Computer implements Player {
 			)
 		);
 	}
-	
-	public Computer(final Moves moves) {
-		this.moves = moves;
-	}
-	
-	@Override
-	public String name() {
-		return "The Computer";
-	}
-	
-	@Override
-	public Move move() {
-		return this.moves.move(new Random().nextInt(3));
-	}	
+
+    /**
+     * Ctor.
+     * @param moves The moves
+     */
+    public Computer(final Moves moves) {
+        this.moves = moves;
+    }
+
+    @Override
+    public String name() {
+        return "The Computer";
+    }
+
+    @Override
+    public Move move() {
+        return this.moves.move(new Random().nextInt(3));
+    }
 }

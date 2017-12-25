@@ -29,22 +29,39 @@ import com.github.fabriciofx.rps.move.Move;
 import com.github.fabriciofx.rps.view.Console;
 import com.github.fabriciofx.rps.view.Ui;
 
+/**
+ * Person player. 
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public final class Person implements Player {
+	/**
+	 * User interface. 
+	 */
 	private final Ui ui;
-	
+
+	/**
+	 * Ctor. 
+	 */
 	public Person() {
 		this(new Console());
 	}
-	
+
+	/**
+	 * Ctor.
+	 * @param ui User interface
+	 */
 	public Person(final Ui ui) {
 		this.ui = ui;
 	}
-	
+
 	@Override
 	public String name() {
 		return "You";
 	}
-	
+
 	@Override
 	public Move move() {
 		return new StringAsMove(

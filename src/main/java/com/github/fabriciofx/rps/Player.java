@@ -25,8 +25,24 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.move.Move;
 
+/**
+ * The player. 
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public interface Player {
+
+	/**
+	 * The player's name.
+	 * @return The name of the player
+	 */
 	String name();
-	
+
+	/**
+	 * The player's move.
+	 * @return The move of the player
+	 */
 	Move move();
 }

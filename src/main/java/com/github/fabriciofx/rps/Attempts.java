@@ -25,20 +25,40 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.match.PrintedMatch;
 
+/**
+ * Perform attempts. 
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public final class Attempts {
-	private final PrintedMatch match;
-	private final int max;
-	
-	public Attempts(final PrintedMatch match, final int max) {
-		this.match = match;
-		this.max = max;
-	}
-	
-	public boolean matches() {
-		int t = 0;
-		while (t++ < this.max) {
-			this.match.result();
-		}
-		return t <= this.max;
-	}
+
+    /**
+     * Match. 
+     */
+    private final PrintedMatch match;
+
+    /**
+     * Number max of attempts. 
+     */
+    private final int max;
+
+    /**
+     * Ctor.
+     * @param match Match to be printed
+     * @param max Number max of attempts
+     */
+    public Attempts(final PrintedMatch match, final int max) {
+        this.match = match;
+        this.max = max;
+    }
+
+    public boolean matches() {
+        int t = 0;
+        while (t++ < this.max) {
+            this.match.result();
+        }
+        return t <= this.max;
+    }
 }
