@@ -23,8 +23,8 @@
  */
 package com.github.fabriciofx.rps.misc;
 
-import com.github.fabriciofx.rps.move.Move;
-import com.github.fabriciofx.rps.move.Moves;
+import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Moves;
 import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
 

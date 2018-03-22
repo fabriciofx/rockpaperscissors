@@ -23,6 +23,7 @@
  */
 package com.github.fabriciofx.rps.view;
 
+import com.github.fabriciofx.rps.Ui;
 import javax.swing.JOptionPane;
 
 public final class Gui implements Ui {

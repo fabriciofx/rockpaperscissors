@@ -23,6 +23,7 @@
  */
 package com.github.fabriciofx.rps.move;
 
+import com.github.fabriciofx.rps.Move;
 public final class SmartMove implements Move {
     private final int code;
     private final String name;

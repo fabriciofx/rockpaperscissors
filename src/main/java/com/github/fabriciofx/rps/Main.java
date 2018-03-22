@@ -25,8 +25,9 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
+import com.github.fabriciofx.rps.player.Computer;
+import com.github.fabriciofx.rps.player.Person;
 import com.github.fabriciofx.rps.view.SelectUi;
-import com.github.fabriciofx.rps.view.Ui;
 
 /**
  * Start the game.

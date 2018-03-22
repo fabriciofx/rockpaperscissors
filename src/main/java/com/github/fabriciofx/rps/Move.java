@@ -21,10 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.view;
+package com.github.fabriciofx.rps;
 
-public interface Ui {
-    void print(String message);
-
-    String value(String message);
+public interface Move extends Comparable<Move> {
+    int code();
 }

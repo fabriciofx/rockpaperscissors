@@ -21,31 +21,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.fake;
+package com.github.fabriciofx.rps.player;
 
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.move.Move;
+import com.github.fabriciofx.rps.misc.CheckedValue;
+import com.github.fabriciofx.rps.misc.StringAsMove;
+import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.Ui;
 
-public final class FakePlayer implements Player {
-    private final int id;
-    private final Move move;
+/**
+ * Person player.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
+public final class Person implements Player {
+    /**
+     * User interface.
+     */
+    private final Ui ui;
 
-    public FakePlayer(final Move move) {
-        this(1, move);
+    /**
+     * Ctor.
+     */
+    public Person() {
+        this(new Console());
     }
 
-    public FakePlayer(final int id, final Move move) {
-        this.id = id;
-        this.move = move;
+    /**
+     * Ctor.
+     * @param ui User interface
+     */
+    public Person(final Ui ui) {
+        this.ui = ui;
     }
 
     @Override
     public String name() {
-        return String.format("Player %d", this.id);
+        return "You";
     }
 
     @Override
     public Move move() {
-        return this.move;
+        return new StringAsMove(
+            new CheckedValue(
+                this.ui.value("What is your move (Rock, Paper or Scissors)? "),
+                "[rpsRPS]"
+            )
+        );
     }
 }

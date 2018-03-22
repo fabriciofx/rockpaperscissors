@@ -27,9 +27,9 @@ import static org.junit.Assert.assertEquals;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import com.github.fabriciofx.rps.fake.FakePlayer;
-import com.github.fabriciofx.rps.match.Match;
-import com.github.fabriciofx.rps.move.Moves;
+import com.github.fabriciofx.rps.player.FakePlayer;
+import com.github.fabriciofx.rps.Match;
+import com.github.fabriciofx.rps.Moves;
 
 public final class MatchTest {
     @Test

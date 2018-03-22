@@ -24,7 +24,8 @@
 package com.github.fabriciofx.rps.match;
 
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.move.Move;
+import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.ResultMatch;
 
 public final class TieMatch implements ResultMatch {
     private final Player one;

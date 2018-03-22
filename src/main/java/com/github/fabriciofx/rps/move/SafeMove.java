@@ -23,6 +23,7 @@
  */
 package com.github.fabriciofx.rps.move;
 
+import com.github.fabriciofx.rps.Move;
 public final class SafeMove implements Move {
     private final Move origin;
 

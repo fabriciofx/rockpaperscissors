@@ -21,34 +21,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.match;
+package com.github.fabriciofx.rps.player;
 
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.move.Move;
+import java.util.Random;
 
-public final class Match {
-    private final Player one;
-    private final Player two;
+import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Moves;
+import com.github.fabriciofx.rps.move.SafeMoves;
+import com.github.fabriciofx.rps.move.SmartMoves;
 
-    public Match(final Player one, final Player two) {
-        this.one = one;
-        this.two = two;
+/**
+ * Computer player.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
+public final class Computer implements Player {
+    /**
+     * The moves.
+     */
+    private final Moves moves;
+
+    /**
+     * Ctor.
+     */
+    public Computer() {
+        this(
+            new SafeMoves(
+                new SmartMoves()
+            )
+        );
     }
 
-    public ResultMatch result() {
-        final Move one = this.one.move();
-        final Move two = this.two.move();
-        final ResultMatch result;
-        switch(one.compareTo(two)) {
-        case -1:
-            result = new WinMatch(this.one, one, this.two, two);
-            break;
-        case 1:
-            result = new WinMatch(this.two, two, this.one, one);
-            break;
-        default:
-            result = new TieMatch(this.one, one, this.two, two);
-        }
-        return result;
+    /**
+     * Ctor.
+     * @param moves The moves
+     */
+    public Computer(final Moves moves) {
+        this.moves = moves;
+    }
+
+    @Override
+    public String name() {
+        return "The Computer";
+    }
+
+    @Override
+    public Move move() {
+        return this.moves.move(new Random().nextInt(3));
     }
 }

@@ -23,6 +23,8 @@
  */
 package com.github.fabriciofx.rps.move;
 
+import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Moves;
 public final class SmartMoves implements Moves {
     private final Move[] all;
 

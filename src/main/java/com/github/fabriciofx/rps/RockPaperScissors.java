@@ -23,10 +23,10 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.match.Match;
 import com.github.fabriciofx.rps.match.PrintedMatch;
+import com.github.fabriciofx.rps.player.Computer;
+import com.github.fabriciofx.rps.player.Person;
 import com.github.fabriciofx.rps.view.Console;
-import com.github.fabriciofx.rps.view.Ui;
 
 public final class RockPaperScissors {
     private final Ui ui;

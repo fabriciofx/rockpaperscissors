@@ -23,6 +23,7 @@
  */
 package com.github.fabriciofx.rps.view;
 
+import com.github.fabriciofx.rps.Ui;
 import java.util.Scanner;
 
 public final class Console implements Ui {

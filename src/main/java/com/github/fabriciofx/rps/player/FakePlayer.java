@@ -21,54 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps;
+package com.github.fabriciofx.rps.player;
 
-import java.util.Random;
+import com.github.fabriciofx.rps.Player;
+import com.github.fabriciofx.rps.Move;
 
-import com.github.fabriciofx.rps.move.Move;
-import com.github.fabriciofx.rps.move.Moves;
-import com.github.fabriciofx.rps.move.SafeMoves;
-import com.github.fabriciofx.rps.move.SmartMoves;
+public final class FakePlayer implements Player {
+    private final int id;
+    private final Move move;
 
-/**
- * Computer player.
- *
- * @author Fabricio Cabral (fabriciofx@gmail.com)
- * @version $Id$
- * @since 0.1
- */
-public final class Computer implements Player {
-    /**
-     * The moves.
-     */
-    private final Moves moves;
-
-    /**
-     * Ctor.
-     */
-    public Computer() {
-        this(
-            new SafeMoves(
-                new SmartMoves()
-            )
-        );
+    public FakePlayer(final Move move) {
+        this(1, move);
     }
 
-    /**
-     * Ctor.
-     * @param moves The moves
-     */
-    public Computer(final Moves moves) {
-        this.moves = moves;
+    public FakePlayer(final int id, final Move move) {
+        this.id = id;
+        this.move = move;
     }
 
     @Override
     public String name() {
-        return "The Computer";
+        return String.format("Player %d", this.id);
     }
 
     @Override
     public Move move() {
-        return this.moves.move(new Random().nextInt(3));
+        return this.move;
     }
 }

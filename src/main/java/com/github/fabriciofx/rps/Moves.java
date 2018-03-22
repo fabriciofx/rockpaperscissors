@@ -21,8 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.move;
+package com.github.fabriciofx.rps;
 
+import com.github.fabriciofx.rps.move.SmartMove;
 public interface Moves {
     Move ROCK = new SmartMove(0, "Rock");
     Move PAPER = new SmartMove(1, "Paper");

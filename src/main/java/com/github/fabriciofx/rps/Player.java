@@ -23,8 +23,6 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.move.Move;
-
 /**
  * The player.
  *
