@@ -21,20 +21,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.misc;
+package com.github.fabriciofx.rps.ui;
 
-import static org.junit.Assert.assertEquals;
-
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
-public final class CheckedValueTest {
+public final class FilteredUiTest {
     @Test
-    public void checkedValue() {
-        assertEquals('r', new CheckedValue("r", "[rpsRPS]").charAt(0));
+    public void correct() throws UnsupportedEncodingException {
+        MatcherAssert.assertThat(
+            "Can't read correct value at filtered ui",
+            new FilteredUi(
+                new Console(
+                    new ByteArrayInputStream("r".getBytes("UTF-8")),
+                    System.out
+                ),
+                "[rpsRPS]"
+            ).value(""),
+            Matchers.equalTo("r")
+        );
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkedValueWrong() {
-        new CheckedValue("t", "[rpsRPS]").charAt(0);
+    public void wrong() throws UnsupportedEncodingException {
+        MatcherAssert.assertThat(
+            "Can't read correct value at filtered ui",
+            new FilteredUi(
+                new Console(
+                    new ByteArrayInputStream("x".getBytes("UTF-8")),
+                    System.out
+                ),
+                "[rpsRPS]"
+            ).value(""),
+            Matchers.equalTo("r")
+        );
     }
 }

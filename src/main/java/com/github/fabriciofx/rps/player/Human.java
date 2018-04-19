@@ -24,11 +24,11 @@
 package com.github.fabriciofx.rps.player;
 
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.misc.CheckedValue;
 import com.github.fabriciofx.rps.misc.StringAsMove;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.Ui;
+import com.github.fabriciofx.rps.ui.FilteredUi;
 
 /**
  * Human player.
@@ -55,7 +55,7 @@ public final class Human implements Player {
      * @param ui User interface
      */
     public Human(final Ui ui) {
-        this.ui = ui;
+        this.ui = new FilteredUi(ui, "[rpsRPS]");
     }
 
     @Override
@@ -66,10 +66,7 @@ public final class Human implements Player {
     @Override
     public Move move() {
         return new StringAsMove(
-            new CheckedValue(
-                this.ui.value("What is your move (Rock, Paper or Scissors)? "),
-                "[rpsRPS]"
-            )
+            this.ui.value("What is your move (Rock, Paper or Scissors)? ")
         );
     }
 }

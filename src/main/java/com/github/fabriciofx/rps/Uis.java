@@ -25,8 +25,10 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.ui.Gui;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public final class Uis {
     private final Map<String, Ui> uis;
