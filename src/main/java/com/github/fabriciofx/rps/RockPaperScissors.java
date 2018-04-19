@@ -24,50 +24,27 @@
 package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.match.PrintedMatch;
+import com.github.fabriciofx.rps.move.SafeMoves;
+import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
-import com.github.fabriciofx.rps.view.Console;
 
 public final class RockPaperScissors {
-    private final Ui ui;
-    private final Player one;
-    private final Player two;
-    private final int matches;
-
-    public RockPaperScissors() {
-        this(new Console());
-    }
-
-    public RockPaperScissors(final Ui ui) {
-        this(ui, new Human());
-    }
-
-    public RockPaperScissors(final Ui ui, final Player one) {
-        this(ui, one, new Computer());
-    }
-
-    public RockPaperScissors(final Ui ui, final Player one, final Player two) {
-        this(ui, one, two, 3);
-    }
-
-    public RockPaperScissors(final Ui ui, final Player one, final Player two,
-        final int matches) {
-        this.ui = ui;
-        this.one = one;
-        this.two = two;
-        this.matches = matches;
-    }
-
-    public void play() {
+    public static void main(final String[] args) {
+        final Ui ui = new Uis(args).ui();
         new Attempts(
             new PrintedMatch(
                 new Match(
-                    this.one,
-                    this.two
+                    new Computer(
+                        new SafeMoves(
+                            new SmartMoves()
+                        )
+                    ),
+                    new Human(ui)
                 ),
-                this.ui
+                ui
             ),
-            this.matches
+            3
         ).matches();
     }
 }

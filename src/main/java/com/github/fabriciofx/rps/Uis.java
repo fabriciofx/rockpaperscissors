@@ -23,7 +23,6 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.Ui;
 import com.github.fabriciofx.rps.view.Console;
 import com.github.fabriciofx.rps.view.Gui;
 import java.util.HashMap;
@@ -32,10 +31,6 @@ import java.util.Map;
 public final class Uis {
     private final Map<String, Ui> uis;
     private final String[] args;
-
-    public Uis() {
-        this("--console");
-    }
 
     public Uis(final String... args) {
         this(
@@ -46,7 +41,7 @@ public final class Uis {
                     put("--gui", new Gui());
                 }
             },
-            args.length > 1 ? args[0] : "--console"
+            args.length > 0 ? args[0] : "--console"
         );
     }
 

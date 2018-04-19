@@ -23,8 +23,8 @@
   SOFTWARE.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.jcabi</groupId>
@@ -35,7 +35,9 @@
   <artifactId>rockpaperscissors</artifactId>
   <version>0.1</version>
   <name>Rock, Paper and Scissors</name>
-  <description>A true OO implementation of the rock, paper and scissors game</description>
+  <description>
+    A true OO implementation of the rock, paper and scissors game
+  </description>
   <build>
     <pluginManagement>
       <plugins>
@@ -71,7 +73,9 @@
             <configuration>
               <archive>
                 <manifest>
-                  <mainClass>com.github.fabriciofx.rps.Main</mainClass>
+                  <mainClass>
+                    com.github.fabriciofx.rps.RockPaperScissors
+                  </mainClass>
                 </manifest>
               </archive>
             </configuration>
