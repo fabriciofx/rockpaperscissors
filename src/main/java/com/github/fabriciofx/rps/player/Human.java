@@ -24,7 +24,7 @@
 package com.github.fabriciofx.rps.player;
 
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.misc.StringAsMove;
+import com.github.fabriciofx.rps.move.StringAsMove;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.Ui;
