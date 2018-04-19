@@ -21,22 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps;
+package com.github.fabriciofx.rps.match;
 
-import static org.junit.Assert.assertEquals;
+import com.github.fabriciofx.rps.Match;
+import com.github.fabriciofx.rps.Moves;
+import com.github.fabriciofx.rps.match.SmartMatch;
+import com.github.fabriciofx.rps.player.FakePlayer;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import com.github.fabriciofx.rps.player.FakePlayer;
-import com.github.fabriciofx.rps.Match;
-import com.github.fabriciofx.rps.Moves;
 
-public final class MatchTest {
+import static org.junit.Assert.assertEquals;
+
+public final class SmartMatchTest {
     @Test
     public void rocksTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing rock",
-            new Match(
+            new SmartMatch(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.ROCK)
             ).result().toString(),
@@ -50,7 +52,7 @@ public final class MatchTest {
     public void papersTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing paper",
-            new Match(
+            new SmartMatch(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.PAPER)
             ).result().toString(),
@@ -64,7 +66,7 @@ public final class MatchTest {
     public void scissorsTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing scissors",
-            new Match(
+            new SmartMatch(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().toString(),
@@ -78,7 +80,7 @@ public final class MatchTest {
     public void rockWinsScissors() {
         MatcherAssert.assertThat(
             "Can't rock win with two players playing rock and scissors",
-            new Match(
+            new SmartMatch(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().toString(),
@@ -90,7 +92,7 @@ public final class MatchTest {
 
     @Test
     public void paperWinsRock() {
-        final Match match = new Match(
+        final Match match = new SmartMatch(
             new FakePlayer(1, Moves.PAPER),
             new FakePlayer(2, Moves.ROCK)
         );
@@ -102,7 +104,7 @@ public final class MatchTest {
 
     @Test
     public void scissorsWinsPaper() {
-        final Match match = new Match(
+        final Match match = new SmartMatch(
             new FakePlayer(1, Moves.SCISSORS),
             new FakePlayer(2, Moves.PAPER)
         );
@@ -114,7 +116,7 @@ public final class MatchTest {
 
     @Test
     public void rockLoosesPaper() {
-        final Match match = new Match(
+        final Match match = new SmartMatch(
             new FakePlayer(1, Moves.ROCK),
             new FakePlayer(2, Moves.PAPER)
         );
@@ -126,7 +128,7 @@ public final class MatchTest {
 
     @Test
     public void paperLoosesScissors() {
-        final Match match = new Match(
+        final Match match = new SmartMatch(
             new FakePlayer(1, Moves.PAPER),
             new FakePlayer(2, Moves.SCISSORS)
         );
@@ -138,7 +140,7 @@ public final class MatchTest {
 
     @Test
     public void scissorsLoosesRock() {
-        final Match match = new Match(
+        final Match match = new SmartMatch(
             new FakePlayer(1, Moves.SCISSORS),
             new FakePlayer(2, Moves.ROCK)
         );

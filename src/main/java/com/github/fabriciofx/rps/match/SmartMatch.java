@@ -21,31 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps;
+package com.github.fabriciofx.rps.match;
 
-import com.github.fabriciofx.rps.match.PrintedMatch;
-import com.github.fabriciofx.rps.match.SmartMatch;
-import com.github.fabriciofx.rps.move.SafeMoves;
-import com.github.fabriciofx.rps.move.SmartMoves;
-import com.github.fabriciofx.rps.player.Computer;
-import com.github.fabriciofx.rps.player.Human;
+import com.github.fabriciofx.rps.Match;
+import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Player;
+import com.github.fabriciofx.rps.ResultMatch;
 
-public final class RockPaperScissors {
-    public static void main(final String[] args) {
-        final Ui ui = new Uis(args).ui();
-        new Attempts(
-            new PrintedMatch(
-                new SmartMatch(
-                    new Computer(
-                        new SafeMoves(
-                            new SmartMoves()
-                        )
-                    ),
-                    new Human(ui)
-                ),
-                ui
-            ),
-            3
-        ).matches();
+public final class SmartMatch implements Match {
+    private final Player one;
+    private final Player two;
+
+    public SmartMatch(final Player one, final Player two) {
+        this.one = one;
+        this.two = two;
+    }
+
+    @Override
+    public ResultMatch result() {
+        final Move one = this.one.move();
+        final Move two = this.two.move();
+        final ResultMatch result;
+        switch(one.compareTo(two)) {
+        case -1:
+            result = new WinMatch(this.one, one, this.two, two);
+            break;
+        case 1:
+            result = new WinMatch(this.two, two, this.one, one);
+            break;
+        default:
+            result = new TieMatch(this.one, one, this.two, two);
+        }
+        return result;
     }
 }

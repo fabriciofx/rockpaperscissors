@@ -27,17 +27,18 @@ import com.github.fabriciofx.rps.Match;
 import com.github.fabriciofx.rps.ResultMatch;
 import com.github.fabriciofx.rps.Ui;
 
-public final class PrintedMatch {
+public final class PrintedMatch implements Match {
+    private final Match origin;
     private final Ui ui;
-    private final Match match;
 
     public PrintedMatch(final Match match, final Ui ui) {
-        this.match = match;
+        this.origin = match;
         this.ui = ui;
     }
 
+    @Override
     public ResultMatch result() {
-        final ResultMatch result = this.match.result();
+        final ResultMatch result = this.origin.result();
         this.ui.print(result.toString());
         return result;
     }
