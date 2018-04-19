@@ -27,7 +27,6 @@ import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
-import com.github.fabriciofx.rps.view.SelectUi;
 
 /**
  * Start the game.
@@ -37,8 +36,8 @@ import com.github.fabriciofx.rps.view.SelectUi;
  * @since 0.1
  */
 public final class Main {
-    public static void main(String[] args) {
-        final Ui ui = new SelectUi().select(args);
+    public static void main(final String[] args) {
+        final Ui ui = new Uis(args).ui();
         new RockPaperScissors(
             ui,
             new Computer(

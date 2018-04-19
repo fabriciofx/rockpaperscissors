@@ -21,16 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.view;
+package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.Ui;
+import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.view.Gui;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class SelectUi {
+public final class Uis {
     private final Map<String, Ui> uis;
+    private final String[] args;
 
-    public SelectUi() {
+    public Uis() {
+        this("--console");
+    }
+
+    public Uis(final String... args) {
         this(
             new HashMap<String, Ui>() {
                 private static final long serialVersionUID = -9006497991653108409L;
@@ -38,21 +45,17 @@ public final class SelectUi {
                     put("--console", new Console());
                     put("--gui", new Gui());
                 }
-            }
+            },
+            args.length > 1 ? args[0] : "--console"
         );
     }
 
-    public SelectUi(final Map<String, Ui> uis) {
+    public Uis(final Map<String, Ui> uis, final String... args) {
         this.uis = uis;
+        this.args = args;
     }
 
-    public Ui select(final String... args) {
-        final String selected;
-        if (args != null && args.length >= 1 && this.uis.containsKey(args[0])) {
-            selected = args[0];
-        } else {
-            selected = "--console";
-        }
-        return this.uis.get(selected);
+    public Ui ui() {
+        return this.uis.get(this.args[0]);
     }
 }
