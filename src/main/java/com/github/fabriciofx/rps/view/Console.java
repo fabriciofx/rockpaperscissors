@@ -24,18 +24,32 @@
 package com.github.fabriciofx.rps.view;
 
 import com.github.fabriciofx.rps.Ui;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public final class Console implements Ui {
-    @Override
-    public void print(final String message) {
-        System.out.print(message);
+    private final InputStream in;
+    private final OutputStream out;
+
+    public Console() {
+        this(System.in, System.out);
     }
 
-    @SuppressWarnings("resource")
+    public Console(final InputStream in, final OutputStream out) {
+        this.in = in;
+        this.out = out;
+    }
+
+    @Override
+    public void print(final String message) {
+        new PrintStream(this.out).print(message);
+    }
+
     @Override
     public String value(final String message) {
         this.print(message);
-        return new Scanner(System.in).next();
+        return new Scanner(this.in).next();
     }
 }
