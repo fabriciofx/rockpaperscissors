@@ -23,8 +23,8 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.view.Console;
-import com.github.fabriciofx.rps.view.Gui;
+import com.github.fabriciofx.rps.ui.Console;
+import com.github.fabriciofx.rps.ui.Gui;
 import java.util.HashMap;
 import java.util.Map;
 

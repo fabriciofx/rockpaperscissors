@@ -21,35 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.fabriciofx.rps.view;
+package com.github.fabriciofx.rps.ui;
 
 import com.github.fabriciofx.rps.Ui;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
-public final class Console implements Ui {
-    private final InputStream in;
-    private final OutputStream out;
-
-    public Console() {
-        this(System.in, System.out);
-    }
-
-    public Console(final InputStream in, final OutputStream out) {
-        this.in = in;
-        this.out = out;
-    }
+public final class Gui implements Ui {
 
     @Override
     public void print(final String message) {
-        new PrintStream(this.out).print(message);
+        JOptionPane.showMessageDialog(null, message);
     }
 
     @Override
     public String value(final String message) {
-        this.print(message);
-        return new Scanner(this.in).next();
+        return JOptionPane.showInputDialog(message);
     }
 }

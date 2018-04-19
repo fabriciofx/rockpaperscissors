@@ -27,7 +27,7 @@ import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.misc.CheckedValue;
 import com.github.fabriciofx.rps.misc.StringAsMove;
 import com.github.fabriciofx.rps.Move;
-import com.github.fabriciofx.rps.view.Console;
+import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.Ui;
 
 /**
