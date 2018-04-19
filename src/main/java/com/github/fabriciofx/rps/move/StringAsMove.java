@@ -30,20 +30,20 @@ import com.github.fabriciofx.rps.move.SmartMoves;
 
 public final class StringAsMove implements Move {
     private final Moves moves;
-    private final CharSequence string;
+    private final String value;
 
-    public StringAsMove(final CharSequence string) {
+    public StringAsMove(final String value) {
         this(
             new SafeMoves(
                 new SmartMoves()
             ),
-            string
+            value
         );
     }
 
-    public StringAsMove(final Moves moves, final CharSequence string) {
-        this.moves = moves;
-        this.string = string;
+    public StringAsMove(final Moves mvs, final String val) {
+        this.moves = mvs;
+        this.value = val;
     }
 
     @Override
@@ -54,7 +54,7 @@ public final class StringAsMove implements Move {
     @Override
     public int code() {
         int code = 0;
-        switch(this.string.charAt(0)) {
+        switch(this.value.charAt(0)) {
         case 'r':
         case 'R':
             code = 0;
