@@ -26,7 +26,7 @@ package com.github.fabriciofx.rps;
 import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
-import com.github.fabriciofx.rps.player.Person;
+import com.github.fabriciofx.rps.player.Human;
 import com.github.fabriciofx.rps.view.SelectUi;
 
 /**
@@ -46,7 +46,7 @@ public final class Main {
                     new SmartMoves()
                 )
             ),
-            new Person(ui),
+            new Human(ui),
             3
         ).play();
     }

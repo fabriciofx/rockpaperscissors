@@ -31,13 +31,13 @@ import com.github.fabriciofx.rps.view.Console;
 import com.github.fabriciofx.rps.Ui;
 
 /**
- * Person player.
+ * Human player.
  *
  * @author Fabricio Cabral (fabriciofx@gmail.com)
  * @version $Id$
  * @since 0.1
  */
-public final class Person implements Player {
+public final class Human implements Player {
     /**
      * User interface.
      */
@@ -46,7 +46,7 @@ public final class Person implements Player {
     /**
      * Ctor.
      */
-    public Person() {
+    public Human() {
         this(new Console());
     }
 
@@ -54,7 +54,7 @@ public final class Person implements Player {
      * Ctor.
      * @param ui User interface
      */
-    public Person(final Ui ui) {
+    public Human(final Ui ui) {
         this.ui = ui;
     }
 

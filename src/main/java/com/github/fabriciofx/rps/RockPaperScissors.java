@@ -25,7 +25,7 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.match.PrintedMatch;
 import com.github.fabriciofx.rps.player.Computer;
-import com.github.fabriciofx.rps.player.Person;
+import com.github.fabriciofx.rps.player.Human;
 import com.github.fabriciofx.rps.view.Console;
 
 public final class RockPaperScissors {
@@ -39,7 +39,7 @@ public final class RockPaperScissors {
     }
 
     public RockPaperScissors(final Ui ui) {
-        this(ui, new Person());
+        this(ui, new Human());
     }
 
     public RockPaperScissors(final Ui ui, final Player one) {
