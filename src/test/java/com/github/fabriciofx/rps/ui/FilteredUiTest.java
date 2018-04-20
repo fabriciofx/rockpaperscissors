@@ -29,6 +29,14 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
+/**
+ * Console filter tests.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ * @checkstyle JavadocMethodCheck (500 lines)
+ */
 public final class FilteredUiTest {
     @Test
     public void correct() throws UnsupportedEncodingException {

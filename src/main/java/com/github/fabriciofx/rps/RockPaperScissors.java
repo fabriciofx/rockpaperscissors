@@ -30,6 +30,14 @@ import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
 
+/**
+ * The game.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ * @checkstyle ClassDataAbstractionCouplingCheck (100 lines)
+ */
 public final class RockPaperScissors {
     public static void main(final String[] args) {
         final Ui ui = new Uis(args).ui();

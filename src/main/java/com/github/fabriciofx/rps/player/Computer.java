@@ -36,7 +36,7 @@ import com.github.fabriciofx.rps.move.SmartMoves;
  *
  * @author Fabricio Cabral (fabriciofx@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 1.0
  */
 public final class Computer implements Player {
     /**
@@ -57,7 +57,7 @@ public final class Computer implements Player {
 
     /**
      * Ctor.
-     * @param moves The moves
+     * @param moves All possible moves
      */
     public Computer(final Moves moves) {
         this.moves = moves;

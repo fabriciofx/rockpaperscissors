@@ -23,6 +23,17 @@
  */
 package com.github.fabriciofx.rps;
 
+/**
+ * A move.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public interface Move extends Comparable<Move> {
+    /**
+     * Perform the move's code.
+     * @return The move's code
+     */
     int code();
 }

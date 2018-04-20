@@ -54,6 +54,11 @@ public final class Attempts {
         this.max = max;
     }
 
+    /**
+     * Check if the attempts reach the max.
+     *
+     * @return True if the attempts reach the max
+     */
     public boolean matches() {
         int t = 0;
         while (t++ < this.max) {

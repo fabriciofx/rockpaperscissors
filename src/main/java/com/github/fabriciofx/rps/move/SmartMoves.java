@@ -25,13 +25,31 @@ package com.github.fabriciofx.rps.move;
 
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Moves;
+
+/**
+ * Default moves.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class SmartMoves implements Moves {
+    /**
+     * Moves.
+     */
     private final Move[] all;
 
+    /**
+     * Ctor.
+     */
     public SmartMoves() {
         this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
     }
 
+    /**
+     * Ctor.
+     * @param all All possible moves
+     */
     public SmartMoves(final Move... all) {
         this.all = all;
     }

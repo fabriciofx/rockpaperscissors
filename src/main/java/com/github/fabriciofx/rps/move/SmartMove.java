@@ -24,13 +24,33 @@
 package com.github.fabriciofx.rps.move;
 
 import com.github.fabriciofx.rps.Move;
+
+/**
+ * Default move.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class SmartMove implements Move {
-    private final int code;
+    /**
+     * Move's cod.
+     */
+    private final int cod;
+
+    /**
+     * Move's name.
+     */
     private final String name;
 
-    public SmartMove(final int code, final String name) {
-        this.code = code;
-        this.name = name;
+    /**
+     * Ctor.
+     * @param cod The cod of the move
+     * @param nam The name of the move
+     */
+    public SmartMove(final int cod, final String nam) {
+        this.cod = cod;
+        this.name = nam;
     }
 
     @Override

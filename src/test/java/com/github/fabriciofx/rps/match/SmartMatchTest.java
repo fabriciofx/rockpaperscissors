@@ -29,6 +29,14 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
+/**
+ * SmartMatch tests.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ * @checkstyle JavadocMethodCheck (500 lines)
+ */
 public final class SmartMatchTest {
     @Test
     public void rocksTie() {

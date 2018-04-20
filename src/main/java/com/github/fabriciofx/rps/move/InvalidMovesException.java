@@ -23,9 +23,19 @@
  */
 package com.github.fabriciofx.rps.move;
 
+/**
+ * Invalid moves exception.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class InvalidMovesException extends IllegalArgumentException {
     private static final long serialVersionUID = 2692386514120488638L;
 
+    /**
+     * Ctor.
+     */
     public InvalidMovesException() {
         super("moves is invalid (null)");
     }

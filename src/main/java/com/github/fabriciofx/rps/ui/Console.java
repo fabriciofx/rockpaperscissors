@@ -29,17 +29,39 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+/**
+ * Console user interface.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class Console implements Ui {
-    private final InputStream in;
-    private final OutputStream out;
+    /**
+     * Console input.
+     */
+    private final InputStream input;
 
+    /**
+     * Console output.
+     */
+    private final OutputStream output;
+
+    /**
+     * Ctor.
+     */
     public Console() {
         this(System.in, System.out);
     }
 
-    public Console(final InputStream in, final OutputStream out) {
-        this.in = in;
-        this.out = out;
+    /**
+     * Ctor.
+     * @param npt Console input
+     * @param tpt Console output
+     */
+    public Console(final InputStream npt, final OutputStream tpt) {
+        this.input = npt;
+        this.output = tpt;
     }
 
     @Override

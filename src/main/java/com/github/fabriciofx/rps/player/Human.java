@@ -35,7 +35,7 @@ import com.github.fabriciofx.rps.ui.FilteredUi;
  *
  * @author Fabricio Cabral (fabriciofx@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 1.0
  */
 public final class Human implements Player {
     /**

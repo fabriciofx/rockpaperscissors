@@ -26,6 +26,13 @@ package com.github.fabriciofx.rps.ui;
 import com.github.fabriciofx.rps.Ui;
 import javax.swing.JOptionPane;
 
+/**
+ * Graphical user interface.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class Gui implements Ui {
 
     @Override

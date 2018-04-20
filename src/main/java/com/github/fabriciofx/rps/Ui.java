@@ -23,8 +23,24 @@
  */
 package com.github.fabriciofx.rps;
 
+/**
+ * User interface.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public interface Ui {
+    /**
+     * Show a message using the user interface.
+     * @param message The message to be show
+     */
     void print(String message);
 
+    /**
+     * Get a value based into the message showed.
+     * @param message The message to be showed
+     * @return The value I got
+     */
     String value(String message);
 }

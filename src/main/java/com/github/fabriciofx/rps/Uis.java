@@ -30,10 +30,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * Collection of user interfaces.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
+@SuppressWarnings({"PMD.ShortMethodName", "PMD.NonStaticInitializer"})
 public final class Uis {
-    private final Map<String, Ui> uis;
+    /**
+     * Default user interface.
+     */
+    private static final String DEFAULT = "--console";
+
+    /**
+     * Map user interface name to the user interface.
+     */
+    private final Map<String, Ui> map;
+
+    /**
+     * Arguments.
+     */
     private final String[] args;
 
+    /**
+     * Ctor.
+     * @param args Arguments to the user interface
+     */
     public Uis(final String... args) {
         this(
             new HashMap<String, Ui>() {
@@ -47,11 +71,21 @@ public final class Uis {
         );
     }
 
+    /**
+     * Ctor.
+     * @param uis All user interfaces
+     * @param args Arguments to the user interface
+     */
     public Uis(final Map<String, Ui> uis, final String... args) {
-        this.uis = uis;
+        this.map = uis;
         this.args = args;
     }
 
+    /**
+     * Select the user interface.
+     * @return The selected user interface.
+     * @checkstyle MethodNameCheck (2 lines)
+     */
     public Ui ui() {
         return this.uis.get(this.args[0]);
     }

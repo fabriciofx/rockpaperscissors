@@ -25,13 +25,29 @@ package com.github.fabriciofx.rps.move;
 
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Moves;
-import com.github.fabriciofx.rps.move.SafeMoves;
-import com.github.fabriciofx.rps.move.SmartMoves;
 
+/**
+ * Convert a string to move.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class StringAsMove implements Move {
+    /**
+     * Moves.
+     */
     private final Moves moves;
+
+    /**
+     * Move as string.
+     */
     private final String value;
 
+    /**
+     * Ctor.
+     * @param value String to be converted to move
+     */
     public StringAsMove(final String value) {
         this(
             new SafeMoves(
@@ -41,6 +57,11 @@ public final class StringAsMove implements Move {
         );
     }
 
+    /**
+     * Ctor.
+     * @param mvs All possible moves
+     * @param val String to be converted to move
+     */
     public StringAsMove(final Moves mvs, final String val) {
         this.moves = mvs;
         this.value = val;

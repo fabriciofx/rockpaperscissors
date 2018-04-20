@@ -25,9 +25,24 @@ package com.github.fabriciofx.rps.move;
 
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Moves;
+
+/**
+ * Safe movements.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class SafeMoves implements Moves {
+    /**
+     * Moves.
+     */
     private final Moves origin;
 
+    /**
+     * Ctor.
+     * @param origin Moves to be checked
+     */
     public SafeMoves(final Moves origin) {
         this.origin = origin;
     }

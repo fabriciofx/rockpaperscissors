@@ -26,14 +26,38 @@ package com.github.fabriciofx.rps.player;
 import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Move;
 
+/**
+ * Fake Player.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class FakePlayer implements Player {
+    /**
+     * The player's number.
+     */
     private final int id;
     private final Move move;
 
+    /**
+     * The player's move.
+     */
+    private final Move mov;
+
+    /**
+     * Ctor.
+     * @param move Player's 1 move
+     */
     public FakePlayer(final Move move) {
         this(1, move);
     }
 
+    /**
+     * Ctor.
+     * @param id The player's number
+     * @param move The player's move
+     */
     public FakePlayer(final int id, final Move move) {
         this.id = id;
         this.move = move;

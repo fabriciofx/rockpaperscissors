@@ -27,10 +27,32 @@ import com.github.fabriciofx.rps.Match;
 import com.github.fabriciofx.rps.ResultMatch;
 import com.github.fabriciofx.rps.Ui;
 
+/**
+ * Printed Match.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class PrintedMatch implements Match {
+    /**
+     * Decorated match.
+     */
     private final Match origin;
+
+    /**
+     * The user interface.
+     * @checkstyle MemberNameCheck (2 lines)
+     */
     private final Ui ui;
 
+    /**
+     * Ctor.
+     * @param match Match to be decorated
+     * @param ui The user interface
+     * @checkstyle ParameterNameCheck (3 lines)
+     * @checkstyle MemberNameCheck (2 lines)
+     */
     public PrintedMatch(final Match match, final Ui ui) {
         this.origin = match;
         this.ui = ui;

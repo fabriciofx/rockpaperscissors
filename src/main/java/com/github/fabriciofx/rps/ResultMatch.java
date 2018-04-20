@@ -23,6 +23,17 @@
  */
 package com.github.fabriciofx.rps;
 
+/**
+ * The match result.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public interface ResultMatch {
+    /**
+     * Encoding the result of the match into a string.
+     * @return The result as a string
+     */
     String toString();
 }

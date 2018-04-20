@@ -27,14 +27,35 @@ import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.ResultMatch;
 
+/**
+ * Tie Match.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class TieMatch implements ResultMatch {
     private final Player one;
     private final Move moveOne;
     private final Player two;
     private final Move moveTwo;
 
-    public TieMatch(final Player one, final Move moveOne,
-        final Player two, final Move moveTwo) {
+    /**
+     * Ctor.
+     * @param plyr1 Player 1
+     * @param one Player 1 move
+     * @param plyr2 Player 2
+     * @param two Player 2 move
+     * @checkstyle ParameterNameCheck (6 lines)
+     * @checkstyle ParameterNumberCheck (6 lines)
+     */
+    public TieMatch(
+        final Player plyr1,
+        final Move one,
+        final Player plyr2,
+        final Move two
+    ) {
+        this.player1 = plyr1;
         this.one = one;
         this.moveOne = moveOne;
         this.two = two;

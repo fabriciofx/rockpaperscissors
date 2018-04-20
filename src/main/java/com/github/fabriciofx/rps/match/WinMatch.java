@@ -27,14 +27,49 @@ import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.ResultMatch;
 
+/**
+ * Winner Match.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class WinMatch implements ResultMatch {
+    /**
+     * Winner player.
+     */
     private final Player winner;
-    private final Move winnerMove;
+
+    /**
+     * Winner player move.
+     */
+    private final Move one;
+
+    /**
+     * Looser player.
+     */
     private final Player looser;
     private final Move looserMove;
 
-    public WinMatch(final Player winner, final Move winnerMove, final Player looser,
-        final Move looserMove) {
+    /**
+     * Looser player move.
+     */
+    private final Move two;
+
+    /**
+     * Ctor.
+     * @param winner Winner player
+     * @param one Winner player move
+     * @param looser Looser player
+     * @param two Looser player move
+     * @checkstyle ParameterNumberCheck (6 lines)
+     */
+    public WinMatch(
+        final Player winner,
+        final Move one,
+        final Player looser,
+        final Move two
+    ) {
         this.winner = winner;
         this.winnerMove = winnerMove;
         this.looser = looser;

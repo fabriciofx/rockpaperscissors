@@ -28,7 +28,7 @@ package com.github.fabriciofx.rps;
  *
  * @author Fabricio Cabral (fabriciofx@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 1.0
  */
 public interface Player {
 
