@@ -30,7 +30,7 @@ import com.github.fabriciofx.rps.match.PrintedMatch;
  *
  * @author Fabricio Cabral (fabriciofx@gmail.com)
  * @version $Id$
- * @since 0.1
+ * @since 1.0
  */
 public final class Attempts {
 
@@ -60,10 +60,11 @@ public final class Attempts {
      * @return True if the attempts reach the max
      */
     public boolean matches() {
-        int t = 0;
-        while (t++ < this.max) {
+        int attempts = 0;
+        while (attempts < this.max) {
             this.match.result();
+            ++attempts;
         }
-        return t <= this.max;
+        return attempts <= this.max;
     }
 }
