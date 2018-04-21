@@ -24,7 +24,7 @@
 package com.github.fabriciofx.rps.ui;
 
 import java.io.ByteArrayInputStream;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -39,12 +39,14 @@ import org.junit.Test;
  */
 public final class FilteredUiTest {
     @Test
-    public void correct() throws UnsupportedEncodingException {
+    public void correct() {
         MatcherAssert.assertThat(
             "Can't read correct value at filtered ui",
             new FilteredUi(
                 new Console(
-                    new ByteArrayInputStream("r".getBytes("UTF-8")),
+                    new ByteArrayInputStream(
+                        "r".getBytes(StandardCharsets.UTF_8)
+                    ),
                     System.out
                 ),
                 "[rpsRPS]"
@@ -54,17 +56,15 @@ public final class FilteredUiTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void wrong() throws UnsupportedEncodingException {
-        MatcherAssert.assertThat(
-            "Can't read correct value at filtered ui",
-            new FilteredUi(
-                new Console(
-                    new ByteArrayInputStream("x".getBytes("UTF-8")),
-                    System.out
+    public void wrong() {
+        new FilteredUi(
+            new Console(
+                new ByteArrayInputStream(
+                    "x".getBytes(StandardCharsets.UTF_8)
                 ),
-                "[rpsRPS]"
-            ).value(""),
-            Matchers.equalTo("r")
-        );
+                System.out
+            ),
+            "[abcABC]"
+        ).value("");
     }
 }
