@@ -23,8 +23,8 @@
  */
 package com.github.fabriciofx.rps.match;
 
-import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.ResultMatch;
 
 /**
@@ -35,10 +35,27 @@ import com.github.fabriciofx.rps.ResultMatch;
  * @since 1.0
  */
 public final class TieMatch implements ResultMatch {
-    private final Player one;
-    private final Move moveOne;
-    private final Player two;
-    private final Move moveTwo;
+    /**
+     * Player 1.
+     * @checkstyle MemberNameCheck (2 lines)
+     */
+    private final Player player1;
+
+    /**
+     * Player 1 move.
+     */
+    private final Move one;
+
+    /**
+     * Player 2.
+     * @checkstyle MemberNameCheck (2 lines)
+     */
+    private final Player player2;
+
+    /**
+     * Player 2 move.
+     */
+    private final Move two;
 
     /**
      * Ctor.
@@ -57,19 +74,18 @@ public final class TieMatch implements ResultMatch {
     ) {
         this.player1 = plyr1;
         this.one = one;
-        this.moveOne = moveOne;
+        this.player2 = plyr2;
         this.two = two;
-        this.moveTwo = moveTwo;
     }
 
     @Override
     public String toString() {
         return String.format(
             "Tie!! %s played %s and %s played %s\n",
-            this.one.name(),
-            this.moveOne,
-            this.two.name(),
-            this.moveTwo
+            this.player1.name(),
+            this.one,
+            this.player2.name(),
+            this.two
         );
     }
 }

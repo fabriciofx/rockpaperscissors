@@ -23,11 +23,11 @@
  */
 package com.github.fabriciofx.rps.player;
 
-import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.move.StringAsMove;
 import com.github.fabriciofx.rps.Move;
-import com.github.fabriciofx.rps.ui.Console;
+import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Ui;
+import com.github.fabriciofx.rps.move.StringAsMove;
+import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.ui.FilteredUi;
 
 /**
@@ -40,6 +40,7 @@ import com.github.fabriciofx.rps.ui.FilteredUi;
 public final class Human implements Player {
     /**
      * User interface.
+     * @checkstyle MemberNameCheck (2 lines)
      */
     private final Ui ui;
 
@@ -53,6 +54,7 @@ public final class Human implements Player {
     /**
      * Ctor.
      * @param ui User interface
+     * @checkstyle ParameterNameCheck (2 lines)
      */
     public Human(final Ui ui) {
         this.ui = new FilteredUi(ui, "[rpsRPS]");

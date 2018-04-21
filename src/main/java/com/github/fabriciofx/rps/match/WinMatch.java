@@ -23,8 +23,8 @@
  */
 package com.github.fabriciofx.rps.match;
 
-import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.ResultMatch;
 
 /**
@@ -49,7 +49,6 @@ public final class WinMatch implements ResultMatch {
      * Looser player.
      */
     private final Player looser;
-    private final Move looserMove;
 
     /**
      * Looser player move.
@@ -71,9 +70,9 @@ public final class WinMatch implements ResultMatch {
         final Move two
     ) {
         this.winner = winner;
-        this.winnerMove = winnerMove;
+        this.one = one;
         this.looser = looser;
-        this.looserMove = looserMove;
+        this.two = two;
     }
 
     @Override
@@ -82,9 +81,9 @@ public final class WinMatch implements ResultMatch {
             "%s wins!! %s played %s and %s played %s\n",
             this.winner.name(),
             this.winner.name(),
-            this.winnerMove,
+            this.one,
             this.looser.name(),
-            this.looserMove
+            this.two
         );
     }
 }

@@ -28,29 +28,51 @@ import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.ResultMatch;
 
+/**
+ * Default Match implementation.
+ *
+ * @author Fabricio Cabral (fabriciofx@gmail.com)
+ * @version $Id$
+ * @since 1.0
+ */
 public final class SmartMatch implements Match {
-    private final Player one;
-    private final Player two;
+    /**
+     * Player 1.
+     * @checkstyle MemberNameCheck (2 lines)
+     */
+    private final Player player1;
 
+    /**
+     * Player 2.
+     * @checkstyle MemberNameCheck (2 lines)
+     */
+    private final Player player2;
+
+    /**
+     * Ctor.
+     * @param one Player 1
+     * @param two Player 2
+     */
     public SmartMatch(final Player one, final Player two) {
-        this.one = one;
-        this.two = two;
+        this.player1 = one;
+        this.player2 = two;
     }
 
     @Override
     public ResultMatch result() {
-        final Move one = this.one.move();
-        final Move two = this.two.move();
+        final Move one = this.player1.move();
+        final Move two = this.player2.move();
         final ResultMatch result;
-        switch(one.compareTo(two)) {
-        case -1:
-            result = new WinMatch(this.one, one, this.two, two);
-            break;
-        case 1:
-            result = new WinMatch(this.two, two, this.one, one);
-            break;
-        default:
-            result = new TieMatch(this.one, one, this.two, two);
+        switch (one.compareTo(two)) {
+            case -1:
+                result = new WinMatch(this.player1, one, this.player2, two);
+                break;
+            case 1:
+                result = new WinMatch(this.player2, two, this.player1, one);
+                break;
+            default:
+                result = new TieMatch(this.player1, one, this.player2, two);
+                break;
         }
         return result;
     }

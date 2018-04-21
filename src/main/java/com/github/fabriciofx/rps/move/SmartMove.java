@@ -55,7 +55,7 @@ public final class SmartMove implements Move {
 
     @Override
     public int code() {
-        return this.code;
+        return this.cod;
     }
 
     @Override
@@ -64,13 +64,15 @@ public final class SmartMove implements Move {
     }
 
     // This algorithm has been found here:
-    // https://stackoverflow.com/questions/11377117/rock-paper-scissors-determine-win-loss-tie-using-math
+    // https://stackoverflow.com/questions/11377117/
+    //   rock-paper-scissors-determine-win-loss-tie-using-math
     @Override
     public int compareTo(final Move move) {
         final int cmp;
-        if (this.code() == move.code()) {
+        if (this.cod == move.code()) {
             cmp = 0;
-        } else if ((this.code() - move.code() + 3) % 3 == 1) {
+            // @checkstyle MagicNumberCheck (1 lines)
+        } else if ((this.cod - move.code() + 3) % 3 == 1) {
             cmp = -1;
         } else {
             cmp = 1;

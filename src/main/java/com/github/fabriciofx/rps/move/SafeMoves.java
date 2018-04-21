@@ -52,6 +52,7 @@ public final class SafeMoves implements Moves {
         if (this.origin == null) {
             throw new InvalidMovesException();
         }
+        // @checkstyle MagicNumberCheck (1 lines)
         if (code < 0 || code > 3) {
             throw new InvalidMoveCodeException(code);
         }

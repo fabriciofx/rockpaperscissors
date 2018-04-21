@@ -40,8 +40,8 @@ public final class InvalidMoveCodeException extends IllegalArgumentException {
     public InvalidMoveCodeException(final int code) {
         super(
             String.format(
-                "invalid move code (%d). The code must " +
-                "be something between 0 or 2",
+                // @checkstyle LineLengthCheck (1 lines)
+                "invalid move code (%d). The code must be something between 0 or 2",
                 code
             )
         );

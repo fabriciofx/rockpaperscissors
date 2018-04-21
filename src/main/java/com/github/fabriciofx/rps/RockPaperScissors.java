@@ -39,8 +39,33 @@ import com.github.fabriciofx.rps.player.Human;
  * @checkstyle ClassDataAbstractionCouplingCheck (100 lines)
  */
 public final class RockPaperScissors {
-    public static void main(final String[] args) {
-        final Ui ui = new Uis(args).ui();
+    /**
+     * Command line args.
+     */
+    private final String[] arguments;
+
+    /**
+     * Ctor.
+     * @param args Command line arguments
+     */
+    public RockPaperScissors(final String... args) {
+        this.arguments = args;
+    }
+
+    /**
+     * Main.
+     * @param args Command line arguments
+     */
+    public static void main(final String... args) {
+        new RockPaperScissors(args).exec();
+    }
+
+    /**
+     * Start of the game.
+     */
+    public void exec() {
+        // @checkstyle LocalFinalVariableNameCheck (1 line)
+        final Ui ui = new Uis(this.arguments).ui();
         new Attempts(
             new PrintedMatch(
                 new SmartMatch(
@@ -53,6 +78,7 @@ public final class RockPaperScissors {
                 ),
                 ui
             ),
+            // @checkstyle MagicNumberCheck (1 lines)
             3
         ).matches();
     }

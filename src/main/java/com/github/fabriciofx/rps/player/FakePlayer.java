@@ -23,8 +23,8 @@
  */
 package com.github.fabriciofx.rps.player;
 
-import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Move;
+import com.github.fabriciofx.rps.Player;
 
 /**
  * Fake Player.
@@ -38,7 +38,6 @@ public final class FakePlayer implements Player {
      * The player's number.
      */
     private final int id;
-    private final Move move;
 
     /**
      * The player's move.
@@ -60,7 +59,7 @@ public final class FakePlayer implements Player {
      */
     public FakePlayer(final int id, final Move move) {
         this.id = id;
-        this.move = move;
+        this.mov = move;
     }
 
     @Override
@@ -70,6 +69,6 @@ public final class FakePlayer implements Player {
 
     @Override
     public Move move() {
-        return this.move;
+        return this.mov;
     }
 }

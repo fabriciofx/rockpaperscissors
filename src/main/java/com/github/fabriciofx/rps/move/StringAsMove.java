@@ -74,20 +74,23 @@ public final class StringAsMove implements Move {
 
     @Override
     public int code() {
-        int code = 0;
-        switch(this.value.charAt(0)) {
-        case 'r':
-        case 'R':
-            code = 0;
-            break;
-        case 'p':
-        case 'P':
-            code = 1;
-            break;
-        case 's':
-        case 'S':
-            code = 2;
-            break;
+        final int code;
+        switch (this.value.charAt(0)) {
+            case 'r':
+            case 'R':
+                code = 0;
+                break;
+            case 'p':
+            case 'P':
+                code = 1;
+                break;
+            case 's':
+            case 'S':
+                code = 2;
+                break;
+            default:
+                code = 0;
+                break;
         }
         return code;
     }

@@ -23,13 +23,12 @@
  */
 package com.github.fabriciofx.rps.player;
 
-import com.github.fabriciofx.rps.Player;
-import java.util.Random;
-
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Moves;
+import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
+import java.util.Random;
 
 /**
  * Computer player.
@@ -70,6 +69,7 @@ public final class Computer implements Player {
 
     @Override
     public Move move() {
+        // @checkstyle MagicNumberCheck (1 lines)
         return this.moves.move(new Random().nextInt(3));
     }
 }

@@ -25,10 +25,8 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.ui.Gui;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 /**
  * Collection of user interfaces.
@@ -61,13 +59,15 @@ public final class Uis {
     public Uis(final String... args) {
         this(
             new HashMap<String, Ui>() {
-                private static final long serialVersionUID = -9006497991653108409L;
+                private static final long serialVersionUID =
+                    -9006497991653108409L;
                 {
-                    put("--console", new Console());
+                    put(Uis.DEFAULT, new Console());
                     put("--gui", new Gui());
                 }
             },
-            args.length > 0 ? args[0] : "--console"
+            // @checkstyle AvoidInlineConditionalsCheck (1 line)
+            args.length > 0 ? args[0] : Uis.DEFAULT
         );
     }
 
@@ -87,6 +87,6 @@ public final class Uis {
      * @checkstyle MethodNameCheck (2 lines)
      */
     public Ui ui() {
-        return this.uis.get(this.args[0]);
+        return this.map.get(this.args[0]);
     }
 }
