@@ -33,7 +33,7 @@
   </parent>
   <groupId>com.github.fabriciofx</groupId>
   <artifactId>rockpaperscissors</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>Rock, Paper and Scissors</name>
   <description>
     A true OO implementation of the rock, paper and scissors game
