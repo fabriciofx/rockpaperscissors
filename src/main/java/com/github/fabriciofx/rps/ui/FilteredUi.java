@@ -55,6 +55,11 @@ public final class FilteredUi implements Ui {
     }
 
     @Override
+    public String name() {
+        return "filtered";
+    }
+
+    @Override
     public void print(final String message) {
         this.origin.print(message);
     }

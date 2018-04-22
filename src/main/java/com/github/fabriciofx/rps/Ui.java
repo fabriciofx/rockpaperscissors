@@ -32,6 +32,12 @@ package com.github.fabriciofx.rps;
  */
 public interface Ui {
     /**
+     * Return the user interface name.
+     * @return The user interface name
+     */
+    String name();
+
+    /**
      * Show a message using the user interface.
      * @param message The message to be show
      */

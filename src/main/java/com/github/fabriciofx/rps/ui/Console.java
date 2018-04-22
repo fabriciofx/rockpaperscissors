@@ -65,6 +65,11 @@ public final class Console implements Ui {
     }
 
     @Override
+    public String name() {
+        return "console";
+    }
+
+    @Override
     public void print(final String message) {
         new PrintStream(this.output).print(message);
     }

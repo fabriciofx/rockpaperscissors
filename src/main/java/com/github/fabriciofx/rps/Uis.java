@@ -23,10 +23,8 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.ui.Console;
-import com.github.fabriciofx.rps.ui.Gui;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Collection of user interfaces.
@@ -35,58 +33,52 @@ import java.util.Map;
  * @version $Id$
  * @since 1.0
  */
-@SuppressWarnings({"PMD.ShortMethodName", "PMD.NonStaticInitializer"})
+@SuppressWarnings("PMD.ShortMethodName")
 public final class Uis {
-    /**
-     * Default user interface.
-     */
-    private static final String DEFAULT = "--console";
-
-    /**
-     * Map user interface name to the user interface.
-     */
-    private final Map<String, Ui> map;
-
     /**
      * Arguments.
      */
-    private final String[] args;
+    private final String[] arguments;
 
     /**
-     * Ctor.
-     * @param args Arguments to the user interface
+     * User interfaces.
      */
-    public Uis(final String... args) {
-        this(
-            new HashMap<String, Ui>() {
-                private static final long serialVersionUID =
-                    -9006497991653108409L;
-                {
-                    put(Uis.DEFAULT, new Console());
-                    put("--gui", new Gui());
-                }
-            },
-            // @checkstyle AvoidInlineConditionalsCheck (1 line)
-            args.length > 0 ? args[0] : Uis.DEFAULT
-        );
-    }
+    private final Ui[] all;
 
     /**
      * Ctor.
      * @param uis All user interfaces
      * @param args Arguments to the user interface
      */
-    public Uis(final Map<String, Ui> uis, final String... args) {
-        this.map = uis;
-        this.args = args;
+    public Uis(final String[] args, final Ui... uis) {
+        this.arguments = Arrays.copyOf(args, args.length);
+        this.all = uis;
     }
 
     /**
      * Select the user interface.
      * @return The selected user interface.
-     * @checkstyle MethodNameCheck (2 lines)
+     * @throws IOException If a user interface not found
+     * @checkstyle MethodNameCheck (10 lines)
      */
-    public Ui ui() {
-        return this.map.get(this.args[0]);
+    public Ui ui() throws IOException {
+        final String name;
+        if (this.arguments.length < 1) {
+            name = "--console";
+        } else {
+            name = this.arguments[0];
+        }
+        // @checkstyle LocalFinalVariableNameCheck (5 lines)
+        for (final Ui ui : this.all) {
+            if (name.contains(ui.name())) {
+                return ui;
+            }
+        }
+        throw new IOException(
+            String.format(
+                "User interface '%s' not found!",
+                this.arguments[0]
+            )
+        );
     }
 }

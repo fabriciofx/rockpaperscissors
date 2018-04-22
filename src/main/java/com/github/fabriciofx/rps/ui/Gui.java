@@ -34,6 +34,10 @@ import javax.swing.JOptionPane;
  * @since 1.0
  */
 public final class Gui implements Ui {
+    @Override
+    public String name() {
+        return "gui";
+    }
 
     @Override
     public void print(final String message) {

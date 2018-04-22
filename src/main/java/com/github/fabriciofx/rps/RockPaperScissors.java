@@ -29,6 +29,9 @@ import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
+import com.github.fabriciofx.rps.ui.Console;
+import com.github.fabriciofx.rps.ui.Gui;
+import java.io.IOException;
 
 /**
  * The game.
@@ -55,17 +58,23 @@ public final class RockPaperScissors {
     /**
      * Main.
      * @param args Command line arguments
+     * @throws IOException If detected any error
      */
-    public static void main(final String... args) {
+    public static void main(final String... args) throws IOException {
         new RockPaperScissors(args).exec();
     }
 
     /**
      * Start of the game.
+     * @throws IOException If detected any error
      */
-    public void exec() {
+    public void exec() throws IOException {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
-        final Ui ui = new Uis(this.arguments).ui();
+        final Ui ui = new Uis(
+            this.arguments,
+            new Console(),
+            new Gui()
+        ).ui();
         new Attempts(
             new PrintedMatch(
                 new SmartMatch(
