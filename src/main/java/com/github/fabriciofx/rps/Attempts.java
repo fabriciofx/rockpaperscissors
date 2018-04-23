@@ -23,8 +23,6 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.match.PrintedMatch;
-
 /**
  * Perform attempts.
  *
@@ -37,7 +35,7 @@ public final class Attempts {
     /**
      * Match.
      */
-    private final PrintedMatch match;
+    private final Match match;
 
     /**
      * Number max of attempts.
@@ -49,7 +47,7 @@ public final class Attempts {
      * @param match Match to be printed
      * @param max Number max of attempts
      */
-    public Attempts(final PrintedMatch match, final int max) {
+    public Attempts(final Match match, final int max) {
         this.match = match;
         this.max = max;
     }
