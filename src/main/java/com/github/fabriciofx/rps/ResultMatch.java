@@ -35,5 +35,5 @@ public interface ResultMatch {
      * Encoding the result of the match into a string.
      * @return The result as a string
      */
-    String toString();
+    String asString();
 }

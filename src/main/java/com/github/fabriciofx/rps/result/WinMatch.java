@@ -76,7 +76,7 @@ public final class WinMatch implements ResultMatch {
     }
 
     @Override
-    public String toString() {
+    public String asString() {
         return String.format(
             "%s wins!! %s played %s and %s played %s\n",
             this.winner.name(),

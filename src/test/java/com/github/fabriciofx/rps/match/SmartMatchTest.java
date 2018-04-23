@@ -45,7 +45,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.ROCK)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 "Tie!! Player 1 played Rock and Player 2 played Rock\n"
             )
@@ -59,7 +59,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.PAPER)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 "Tie!! Player 1 played Paper and Player 2 played Paper\n"
             )
@@ -73,7 +73,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.SCISSORS)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 "Tie!! Player 1 played Scissors and Player 2 played Scissors\n"
             )
@@ -87,7 +87,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.SCISSORS)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 1 wins!! Player 1 played Rock and Player 2 played Scissors\n"
@@ -102,7 +102,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.ROCK)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 1 wins!! Player 1 played Paper and Player 2 played Rock\n"
@@ -117,7 +117,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.PAPER)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 1 wins!! Player 1 played Scissors and Player 2 played Paper\n"
@@ -132,7 +132,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.PAPER)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 2 wins!! Player 2 played Paper and Player 1 played Rock\n"
@@ -147,7 +147,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.SCISSORS)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 2 wins!! Player 2 played Scissors and Player 1 played Paper\n"
@@ -162,7 +162,7 @@ public final class SmartMatchTest {
             new SmartMatch(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.ROCK)
-            ).result().toString(),
+            ).result().asString(),
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 2 wins!! Player 2 played Rock and Player 1 played Scissors\n"

@@ -79,7 +79,7 @@ public final class TieMatch implements ResultMatch {
     }
 
     @Override
-    public String toString() {
+    public String asString() {
         return String.format(
             "Tie!! %s played %s and %s played %s\n",
             this.player1.name(),
