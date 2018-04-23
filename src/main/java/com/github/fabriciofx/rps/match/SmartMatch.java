@@ -27,6 +27,8 @@ import com.github.fabriciofx.rps.Match;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.ResultMatch;
+import com.github.fabriciofx.rps.result.TieMatch;
+import com.github.fabriciofx.rps.result.WinMatch;
 
 /**
  * Default Match implementation.
