@@ -1,8 +1,13 @@
 # rockpaperscissors
 
-**rockpaperscissors** is a is a [true object-oriented](http://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html)
-implementation of the famous [Rock, Paper and Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) game.
+[![EO principles respected here](http://www.elegantobjects.org/badge.svg)](http://www.elegantobjects.org)
+[![We recommend IntelliJ IDEA](http://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
+[![Build Status](https://img.shields.io/travis/yegor256/takes/master.svg)](https://travis-ci.org/fabriciofx/rockpaperscissors)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/fabriciofx/rockpaperscissors/blob/master/LICENSE.txt)
+
+**rockpaperscissors** is a is a [true object-oriented](http://www.elegantobjects.org/)
+implementation of the famous [Rock, Paper and Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) game.
 
 ## What does *true object-oriented* means?
 
@@ -28,7 +33,6 @@ these books:
 - [Object Thinking](https://www.amazon.com/Object-Thinking-Developer-Reference-David/dp/0735619654)
 by [David West](http://davewest.us)
 
-
 ## How use it?
 
 First, build it:
@@ -44,7 +48,6 @@ $ java -jar target/rockpaperscissors-VERSION-jar-with-dependencies.jar
 ```
 
 Change *VERSION* for the version found in `pom.xml` file.
-
 
 ## License
 
