@@ -39,7 +39,7 @@ public interface Ui {
      * Show a message using the user interface.
      * @param message The message to be show
      */
-    void print(String message);
+    void show(String message);
 
     /**
      * Get a value based into the message showed.

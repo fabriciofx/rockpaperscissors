@@ -38,7 +38,7 @@ public final class Gui implements Ui {
     }
 
     @Override
-    public void print(final String message) {
+    public void show(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
 

@@ -58,14 +58,14 @@ public final class RockPaperScissors {
      * @throws Exception If detected any error
      */
     public static void main(final String... args) throws Exception {
-        new RockPaperScissors(args).exec();
+        new RockPaperScissors(args).run();
     }
 
     /**
      * Start of the game.
      * @throws Exception If detected any error
      */
-    public void exec() throws Exception {
+    public void run() throws Exception {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
         final Ui ui = new Uis(
             this.arguments,

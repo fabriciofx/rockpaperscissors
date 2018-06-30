@@ -68,13 +68,13 @@ public final class Console implements Ui {
     }
 
     @Override
-    public void print(final String message) {
+    public void show(final String message) {
         new PrintStream(this.output).print(message);
     }
 
     @Override
     public String value(final String message) {
-        this.print(message);
+        this.show(message);
         return new Scanner(this.input).next();
     }
 }

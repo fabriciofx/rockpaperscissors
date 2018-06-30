@@ -59,7 +59,7 @@ public final class PrintedMatch implements Match {
     @Override
     public ResultMatch result() {
         final ResultMatch result = this.origin.result();
-        this.ui.print(result.asString());
+        this.ui.show(result.asString());
         return result;
     }
 }

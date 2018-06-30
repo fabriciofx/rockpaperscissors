@@ -58,8 +58,8 @@ public final class FilteredUi implements Ui {
     }
 
     @Override
-    public void print(final String message) {
-        this.origin.print(message);
+    public void show(final String message) {
+        this.origin.show(message);
     }
 
     @Override
