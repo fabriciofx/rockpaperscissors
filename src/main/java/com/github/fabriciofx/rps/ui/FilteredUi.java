@@ -64,9 +64,19 @@ public final class FilteredUi implements Ui {
 
     @Override
     public String value(final String message) {
-        final String val = this.origin.value(message);
-        if (!val.matches(this.regex)) {
-            throw new IllegalArgumentException("error: out of specification");
+        String val;
+        while (true) {
+            val = this.origin.value(message);
+            if (val.matches(this.regex)) {
+                break;
+            } else {
+                this.origin.show(
+                    String.format(
+                        "Invalid input '%s'. Try it again.\n",
+                        val
+                    )
+                );
+            }
         }
         return val;
     }

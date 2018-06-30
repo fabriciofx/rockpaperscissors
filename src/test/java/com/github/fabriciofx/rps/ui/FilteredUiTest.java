@@ -52,17 +52,4 @@ public final class FilteredUiTest {
             Matchers.equalTo("r")
         );
     }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void wrong() {
-        new FilteredUi(
-            new Console(
-                new ByteArrayInputStream(
-                    "x".getBytes(StandardCharsets.UTF_8)
-                ),
-                System.out
-            ),
-            "[abcABC]"
-        ).value("");
-    }
 }
