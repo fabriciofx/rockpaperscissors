@@ -31,7 +31,6 @@ import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
 import com.github.fabriciofx.rps.ui.Console;
 import com.github.fabriciofx.rps.ui.Gui;
-import java.io.IOException;
 
 /**
  * The game.
@@ -56,17 +55,17 @@ public final class RockPaperScissors {
     /**
      * Main.
      * @param args Command line arguments
-     * @throws IOException If detected any error
+     * @throws Exception If detected any error
      */
-    public static void main(final String... args) throws IOException {
+    public static void main(final String... args) throws Exception {
         new RockPaperScissors(args).exec();
     }
 
     /**
      * Start of the game.
-     * @throws IOException If detected any error
+     * @throws Exception If detected any error
      */
-    public void exec() throws IOException {
+    public void exec() throws Exception {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
         final Ui ui = new Uis(
             this.arguments,

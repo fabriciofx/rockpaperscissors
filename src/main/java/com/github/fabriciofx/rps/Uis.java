@@ -56,10 +56,10 @@ public final class Uis {
     /**
      * Select the user interface.
      * @return The selected user interface.
-     * @throws IOException If a user interface not found
+     * @throws Exception If a user interface not found
      * @checkstyle MethodNameCheck (10 lines)
      */
-    public Ui ui() throws IOException {
+    public Ui ui() throws Exception {
         final String name;
         if (this.arguments.length < 1) {
             name = "--console";
