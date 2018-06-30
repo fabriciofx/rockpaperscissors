@@ -94,6 +94,21 @@ public final class SmartMatchTest {
     }
 
     @Test
+    public void scissorsLoosesRock() {
+        MatcherAssert.assertThat(
+            "Can't rock win with two players playing scissors and rock",
+            new SmartMatch(
+                new FakePlayer(1, Moves.SCISSORS),
+                new FakePlayer(2, Moves.ROCK)
+            ).result().asString(),
+            Matchers.equalTo(
+                // @checkstyle LineLengthCheck (1 lines)
+                "Player 2 wins!! Player 2 played Rock and Player 1 played Scissors\n"
+            )
+        );
+    }
+
+    @Test
     public void paperWinsRock() {
         MatcherAssert.assertThat(
             "Can't paper win with two players playing paper and rock",
@@ -104,21 +119,6 @@ public final class SmartMatchTest {
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 1 wins!! Player 1 played Paper and Player 2 played Rock\n"
-            )
-        );
-    }
-
-    @Test
-    public void scissorsWinsPaper() {
-        MatcherAssert.assertThat(
-            "Can't scissors win with two players playing scissors and paper",
-            new SmartMatch(
-                new FakePlayer(1, Moves.SCISSORS),
-                new FakePlayer(2, Moves.PAPER)
-            ).result().asString(),
-            Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 1 wins!! Player 1 played Scissors and Player 2 played Paper\n"
             )
         );
     }
@@ -139,6 +139,21 @@ public final class SmartMatchTest {
     }
 
     @Test
+    public void scissorsWinsPaper() {
+        MatcherAssert.assertThat(
+            "Can't scissors win with two players playing scissors and paper",
+            new SmartMatch(
+                new FakePlayer(1, Moves.SCISSORS),
+                new FakePlayer(2, Moves.PAPER)
+            ).result().asString(),
+            Matchers.equalTo(
+                // @checkstyle LineLengthCheck (1 lines)
+                "Player 1 wins!! Player 1 played Scissors and Player 2 played Paper\n"
+            )
+        );
+    }
+
+    @Test
     public void paperLoosesScissors() {
         MatcherAssert.assertThat(
             "Can't scissors win with two players playing papers and scissors",
@@ -149,21 +164,6 @@ public final class SmartMatchTest {
             Matchers.equalTo(
                 // @checkstyle LineLengthCheck (1 lines)
                 "Player 2 wins!! Player 2 played Scissors and Player 1 played Paper\n"
-            )
-        );
-    }
-
-    @Test
-    public void scissorsLoosesRock() {
-        MatcherAssert.assertThat(
-            "Can't rock win with two players playing scissors and rock",
-            new SmartMatch(
-                new FakePlayer(1, Moves.SCISSORS),
-                new FakePlayer(2, Moves.ROCK)
-            ).result().asString(),
-            Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 2 wins!! Player 2 played Rock and Player 1 played Scissors\n"
             )
         );
     }
