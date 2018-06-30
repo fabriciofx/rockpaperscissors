@@ -2,7 +2,7 @@
 <!--
   The MIT License (MIT)
 
-  Copyright (C) 2017 Fabrício Barros Cabral
+  Copyright (C) 2017-2018 Fabrício Barros Cabral
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -16,7 +16,7 @@
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -29,15 +29,64 @@
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.49.2</version>
+    <version>0.49.3</version>
   </parent>
   <groupId>com.github.fabriciofx</groupId>
   <artifactId>rockpaperscissors</artifactId>
   <version>1.1</version>
-  <name>Rock, Paper and Scissors</name>
+  <packaging>jar</packaging>
+  <name>rockpaperscissors</name>
   <description>
     A true OO implementation of the rock, paper and scissors game
   </description>
+  <url>https://github.com/fabriciofx/cactoos-jdbc</url>
+  <inceptionYear>2018</inceptionYear>
+  <organization>
+    <name>rockpaperscissors</name>
+    <url>https://github.com/fabriciofx/rockpaperscissors</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://github.com/fabriciofx/rockpaperscissors/LICENSE.txt</url>
+      <distribution>site</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>1</id>
+      <name>Fabrício Barros Cabral</name>
+      <email>fabriciofx@gmail.com</email>
+      <organization>fabriciofx</organization>
+      <organizationUrl>https://github.com/fabriciofx</organizationUrl>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>-7</timezone>
+    </developer>
+  </developers>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/fabriciofx/rockpaperscissors/issues</url>
+  </issueManagement>
+  <scm>
+    <connection>scm:git:git@github.com:fabriciofx/rockpaperscissors.git</connection>
+    <developerConnection>
+      scm:git:git@github.com:fabriciofx/rockpaperscissors.git
+    </developerConnection>
+    <url>https://github.com/fabriciofx/rockpaperscissors</url>
+  </scm>
+  <ciManagement>
+    <system>rultor</system>
+    <url>http://www.rultor.com/s/rockpaperscissors</url>
+  </ciManagement>
+  <distributionManagement>
+    <site>
+      <id>github-pages</id>
+      <url>https://github.com/fabriciofx/rockpaperscissors</url>
+    </site>
+  </distributionManagement>
   <build>
     <pluginManagement>
       <plugins>
@@ -87,15 +136,11 @@
           <plugin>
             <groupId>com.qulice</groupId>
             <artifactId>qulice-maven-plugin</artifactId>
-            <version>0.17.1</version>
+            <version>0.17.3</version>
             <configuration>
-              <license>file:${basedir}/LICENSE.txt</license>
               <excludes combine.children="append">
-                <exclude>checkstyle:/src/main/resources/images/.*</exclude>
-                <exclude>checkstyle:/src/test/resources/.*</exclude>
-                <exclude>pmd:/src/test/resources/.*</exclude>
+                <exclude>checkstyle:/src/site/resources/.*</exclude>
                 <exclude>findbugs:.*</exclude>
-                <exclude>duplicatefinder:.*</exclude>
               </excludes>
             </configuration>
           </plugin>
