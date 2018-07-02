@@ -30,7 +30,7 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 /**
- * Console filter tests.
+ * Cli filter tests.
  *
  * @since 1.0
  * @checkstyle JavadocMethodCheck (500 lines)
@@ -41,7 +41,7 @@ public final class FilteredUiTest {
         MatcherAssert.assertThat(
             "Can't read correct value at filtered ui",
             new FilteredUi(
-                new Console(
+                new Cli(
                     new ByteArrayInputStream(
                         "r".getBytes(StandardCharsets.UTF_8)
                     ),

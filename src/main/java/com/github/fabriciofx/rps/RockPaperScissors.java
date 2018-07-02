@@ -31,7 +31,7 @@ import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
-import com.github.fabriciofx.rps.ui.Console;
+import com.github.fabriciofx.rps.ui.Cli;
 import com.github.fabriciofx.rps.ui.Gui;
 
 /**
@@ -71,7 +71,7 @@ public final class RockPaperScissors {
     public void run() throws Exception {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
         final Ui ui = new Uis(
-            new MapEntry<>("--console", new Console()),
+            new MapEntry<>("--cli", new Cli()),
             new MapEntries<>(
                 new MapEntry<>("--gui", new Gui())
             ),

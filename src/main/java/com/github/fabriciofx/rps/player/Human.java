@@ -27,7 +27,7 @@ import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Ui;
 import com.github.fabriciofx.rps.move.StringAsMove;
-import com.github.fabriciofx.rps.ui.Console;
+import com.github.fabriciofx.rps.ui.Cli;
 import com.github.fabriciofx.rps.ui.FilteredUi;
 
 /**
@@ -46,7 +46,7 @@ public final class Human implements Player {
      * Ctor.
      */
     public Human() {
-        this(new Console());
+        this(new Cli());
     }
 
     /**

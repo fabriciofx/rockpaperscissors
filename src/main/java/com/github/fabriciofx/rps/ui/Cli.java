@@ -30,34 +30,34 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
- * Console user interface.
+ * Cli user interface.
  *
  * @since 1.0
  */
-public final class Console implements Ui {
+public final class Cli implements Ui {
     /**
-     * Console input.
+     * Cli input.
      */
     private final InputStream input;
 
     /**
-     * Console output.
+     * Cli output.
      */
     private final OutputStream output;
 
     /**
      * Ctor.
      */
-    public Console() {
+    public Cli() {
         this(System.in, System.out);
     }
 
     /**
      * Ctor.
-     * @param npt Console input
-     * @param tpt Console output
+     * @param npt Cli input
+     * @param tpt Cli output
      */
-    public Console(final InputStream npt, final OutputStream tpt) {
+    public Cli(final InputStream npt, final OutputStream tpt) {
         this.input = npt;
         this.output = tpt;
     }
