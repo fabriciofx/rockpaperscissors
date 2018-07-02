@@ -28,59 +28,61 @@ import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.ResultMatch;
 
 /**
- * Winner Match.
+ * Tie Match.
  *
  * @since 1.0
  */
-public final class WinMatch implements ResultMatch {
+public final class TieResultMatch implements ResultMatch {
     /**
-     * Winner player.
+     * Player 1.
+     * @checkstyle MemberNameCheck (2 lines)
      */
-    private final Player winner;
+    private final Player player1;
 
     /**
-     * Winner player move.
+     * Player 1 move.
      */
     private final Move one;
 
     /**
-     * Looser player.
+     * Player 2.
+     * @checkstyle MemberNameCheck (2 lines)
      */
-    private final Player looser;
+    private final Player player2;
 
     /**
-     * Looser player move.
+     * Player 2 move.
      */
     private final Move two;
 
     /**
      * Ctor.
-     * @param winner Winner player
-     * @param one Winner player move
-     * @param looser Looser player
-     * @param two Looser player move
+     * @param plyr1 Player 1
+     * @param one Player 1 move
+     * @param plyr2 Player 2
+     * @param two Player 2 move
+     * @checkstyle ParameterNameCheck (6 lines)
      * @checkstyle ParameterNumberCheck (6 lines)
      */
-    public WinMatch(
-        final Player winner,
+    public TieResultMatch(
+        final Player plyr1,
         final Move one,
-        final Player looser,
+        final Player plyr2,
         final Move two
     ) {
-        this.winner = winner;
+        this.player1 = plyr1;
         this.one = one;
-        this.looser = looser;
+        this.player2 = plyr2;
         this.two = two;
     }
 
     @Override
     public String asString() {
         return String.format(
-            "%s wins!! %s played %s and %s played %s\n",
-            this.winner.name(),
-            this.winner.name(),
+            "Tie!! %s played %s and %s played %s\n",
+            this.player1.name(),
             this.one,
-            this.looser.name(),
+            this.player2.name(),
             this.two
         );
     }
