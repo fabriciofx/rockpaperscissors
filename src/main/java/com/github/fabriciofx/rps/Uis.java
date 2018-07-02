@@ -24,7 +24,7 @@
 package com.github.fabriciofx.rps;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Collection of user interfaces.
@@ -34,23 +34,34 @@ import java.util.Arrays;
 @SuppressWarnings("PMD.ShortMethodName")
 public final class Uis {
     /**
+     * Defulat user interfaces.
+     */
+    private final Map.Entry<String, Ui> def;
+
+    /**
+     * User interfaces.
+     */
+    private final Map<String, Ui> all;
+
+    /**
      * Arguments.
      */
     private final String[] arguments;
 
     /**
-     * User interfaces.
-     */
-    private final Ui[] all;
-
-    /**
      * Ctor.
+     * @param def Default interface
      * @param uis All user interfaces
      * @param args Arguments to the user interface
      */
-    public Uis(final String[] args, final Ui... uis) {
-        this.arguments = Arrays.copyOf(args, args.length);
+    public Uis(
+        final Map.Entry<String, Ui> def,
+        final Map<String, Ui> uis,
+        final String... args
+    ) {
+        this.def = def;
         this.all = uis;
+        this.arguments = args;
     }
 
     /**
@@ -60,23 +71,26 @@ public final class Uis {
      * @checkstyle MethodNameCheck (10 lines)
      */
     public Ui ui() throws Exception {
-        final String name;
-        if (this.arguments.length < 1) {
-            name = "--console";
-        } else {
-            name = this.arguments[0];
-        }
-        // @checkstyle LocalFinalVariableNameCheck (5 lines)
-        for (final Ui ui : this.all) {
-            if (name.contains(ui.name())) {
-                return ui;
+        Ui selected = this.def.getValue();
+        if (this.arguments.length >= 1) {
+            // @checkstyle LocalFinalVariableNameCheck (5 lines)
+            boolean found = false;
+            for (final Ui ui : this.all.values()) {
+                if (this.arguments[0].contains(ui.name())) {
+                    selected = ui;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                throw new IOException(
+                    String.format(
+                        "User interface '%s' not found!",
+                        this.arguments[0]
+                    )
+                );
             }
         }
-        throw new IOException(
-            String.format(
-                "User interface '%s' not found!",
-                this.arguments[0]
-            )
-        );
+        return selected;
     }
 }

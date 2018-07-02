@@ -172,32 +172,32 @@
                         <limit>
                           <counter>INSTRUCTION</counter>
                           <value>COVEREDRATIO</value>
-                          <minimum>0.39</minimum>
+                          <minimum>0.29</minimum>
                         </limit>
                         <limit>
                           <counter>LINE</counter>
                           <value>COVEREDRATIO</value>
-                          <minimum>0.36</minimum>
+                          <minimum>0.29</minimum>
                         </limit>
                         <limit>
                           <counter>BRANCH</counter>
                           <value>COVEREDRATIO</value>
-                          <minimum>0.22</minimum>
+                          <minimum>0.21</minimum>
                         </limit>
                         <limit>
                           <counter>COMPLEXITY</counter>
                           <value>COVEREDRATIO</value>
-                          <minimum>0.28</minimum>
+                          <minimum>0.22</minimum>
                         </limit>
                         <limit>
                           <counter>METHOD</counter>
                           <value>COVEREDRATIO</value>
-                          <minimum>0.31</minimum>
+                          <minimum>0.23</minimum>
                         </limit>
                         <limit>
                           <counter>CLASS</counter>
                           <value>MISSEDCOUNT</value>
-                          <maximum>14</maximum>
+                          <maximum>17</maximum>
                         </limit>
                       </limits>
                     </rule>

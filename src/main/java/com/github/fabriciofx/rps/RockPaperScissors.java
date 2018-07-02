@@ -23,6 +23,8 @@
  */
 package com.github.fabriciofx.rps;
 
+import com.github.fabriciofx.rps.infra.MapEntries;
+import com.github.fabriciofx.rps.infra.MapEntry;
 import com.github.fabriciofx.rps.match.PrintedMatch;
 import com.github.fabriciofx.rps.match.SmartMatch;
 import com.github.fabriciofx.rps.move.SafeMoves;
@@ -65,12 +67,15 @@ public final class RockPaperScissors {
      * Start of the game.
      * @throws Exception If detected any error
      */
+    @SuppressWarnings("unchecked")
     public void run() throws Exception {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
         final Ui ui = new Uis(
-            this.arguments,
-            new Console(),
-            new Gui()
+            new MapEntry<>("--console", new Console()),
+            new MapEntries<>(
+                new MapEntry<>("--gui", new Gui())
+            ),
+            this.arguments
         ).ui();
         new Attempts(
             new PrintedMatch(
