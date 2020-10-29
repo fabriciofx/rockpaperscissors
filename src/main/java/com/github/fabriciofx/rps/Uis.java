@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (C) 2017-2018 Fabrício Barros Cabral
+ * Copyright (C) 2017-2018 Fabricio Barros Cabral
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,8 @@
 package com.github.fabriciofx.rps;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,7 +36,7 @@ import java.util.Map;
 @SuppressWarnings("PMD.ShortMethodName")
 public final class Uis {
     /**
-     * Defulat user interfaces.
+     * Default user interfaces.
      */
     private final Map.Entry<String, Ui> def;
 
@@ -46,10 +48,11 @@ public final class Uis {
     /**
      * Arguments.
      */
-    private final String[] arguments;
+    private final List<String> arguments;
 
     /**
      * Ctor.
+     *
      * @param def Default interface
      * @param uis All user interfaces
      * @param args Arguments to the user interface
@@ -59,6 +62,21 @@ public final class Uis {
         final Map<String, Ui> uis,
         final String... args
     ) {
+        this(def, uis, Arrays.asList(args));
+    }
+
+    /**
+     * Ctor.
+     *
+     * @param def Default interface
+     * @param uis All user interfaces
+     * @param args Arguments to the user interface
+     */
+    public Uis(
+        final Map.Entry<String, Ui> def,
+        final Map<String, Ui> uis,
+        final List<String> args
+    ) {
         this.def = def;
         this.all = uis;
         this.arguments = args;
@@ -66,17 +84,18 @@ public final class Uis {
 
     /**
      * Select the user interface.
+     *
      * @return The selected user interface.
      * @throws Exception If a user interface not found
      * @checkstyle MethodNameCheck (10 lines)
      */
     public Ui ui() throws Exception {
         Ui selected = this.def.getValue();
-        if (this.arguments.length >= 1) {
+        if (this.arguments.size() >= 1) {
             // @checkstyle LocalFinalVariableNameCheck (5 lines)
             boolean found = false;
             for (final Ui ui : this.all.values()) {
-                if (this.arguments[0].contains(ui.name())) {
+                if (this.arguments.get(0).contains(ui.name())) {
                     selected = ui;
                     found = true;
                     break;
@@ -86,7 +105,7 @@ public final class Uis {
                 throw new IOException(
                     String.format(
                         "User interface '%s' not found!",
-                        this.arguments[0]
+                        this.arguments.get(0)
                     )
                 );
             }

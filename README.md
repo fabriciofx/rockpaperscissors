@@ -53,7 +53,7 @@ Change *VERSION* for the version found in `pom.xml` file.
 
 The MIT License (MIT)
 
-Copyright (C) 2017-2018 Fabrício Barros Cabral
+Copyright (C) 2017-2018 Fabricio Barros Cabral
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

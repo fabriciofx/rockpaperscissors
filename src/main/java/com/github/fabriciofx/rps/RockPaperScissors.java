@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (C) 2017-2018 Fabrício Barros Cabral
+ * Copyright (C) 2017-2018 Fabricio Barros Cabral
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,6 +33,8 @@ import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
 import com.github.fabriciofx.rps.ui.Cli;
 import com.github.fabriciofx.rps.ui.Gui;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * The game.
@@ -44,14 +46,14 @@ public final class RockPaperScissors {
     /**
      * Command line args.
      */
-    private final String[] arguments;
+    private final List<String> arguments;
 
     /**
      * Ctor.
      * @param args Command line arguments
      */
     public RockPaperScissors(final String... args) {
-        this.arguments = args;
+        this.arguments = Arrays.asList(args);
     }
 
     /**
