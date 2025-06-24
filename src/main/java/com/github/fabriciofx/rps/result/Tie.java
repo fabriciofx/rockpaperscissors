@@ -13,7 +13,7 @@ import com.github.fabriciofx.rps.Result;
  *
  * @since 1.0
  */
-public final class TieResult implements Result {
+public final class Tie implements Result {
     /**
      * Player 1.
      * @checkstyle MemberNameCheck (2 lines)
@@ -47,7 +47,7 @@ public final class TieResult implements Result {
      * @checkstyle ParameterNameCheck (7 lines)
      * @checkstyle ParameterNumberCheck (7 lines)
      */
-    public TieResult(
+    public Tie(
         final Player player1,
         final Move move1,
         final Player player2,

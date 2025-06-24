@@ -13,7 +13,7 @@ import com.github.fabriciofx.rps.Result;
  *
  * @since 1.0
  */
-public final class WinResult implements Result {
+public final class Win implements Result {
     /**
      * Winner player.
      */
@@ -45,7 +45,7 @@ public final class WinResult implements Result {
      * @checkstyle ParameterNameCheck (7 lines)
      * @checkstyle ParameterNumberCheck (7 lines)
      */
-    public WinResult(
+    public Win(
         final Player winner,
         final Move move1,
         final Player looser,
