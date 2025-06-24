@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: java-codecov
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  java-codecov:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Configure Maven cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ubuntu-jdk-21-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ubuntu-jdk-21-maven-
+      - name: Run tests
+        run: mvn install -Pjacoco
+      - name: Checks code coverage
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

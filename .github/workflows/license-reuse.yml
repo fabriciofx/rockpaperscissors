@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: license-reuse
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  license-reuse:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: REUSE Compliance check
+        uses: fsfe/reuse-action@v5

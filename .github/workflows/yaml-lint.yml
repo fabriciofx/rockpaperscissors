@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: yaml-lint
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  yaml-lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Download and install yamllint
+        run: |
+          sudo apt update
+          sudo apt -y install yamllint
+      - name: Lint YAML files
+        uses: ibiqlik/action-yamllint@v3

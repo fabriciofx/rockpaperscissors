@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: java-coverage
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  java-coverage:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Configure Maven cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ubuntu-jdk-21-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ubuntu-jdk-21-maven-
+      - name: Checks code coverage
+        run: mvn install -Pjacoco

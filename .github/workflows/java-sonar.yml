@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: java-sonar
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  java-sonar:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+          distribution: 'temurin'
+      - name: Configure Maven cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ubuntu-jdk-11-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ubuntu-jdk-11-maven-
+      - name: Configure Sonar cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Run sonar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn --batch-mode verify -Pjacoco -Dinvoker.skip \
+          && mvn --batch-mode verify -Psonar -Dinvoker.skip \
+              -Dsonar.qualitygate.wait=true

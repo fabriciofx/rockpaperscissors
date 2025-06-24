@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: java-duplication
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  java-duplication:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Download Simian
+        run: |
+          wget --quiet http://public.yegor256.com/simian.jar -O /tmp/simian.jar
+      - name: Check Java code duplication
+        run: |
+          java -jar /tmp/simian.jar -threshold=16 "-excludes=**/it" "**/*.java"

@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: java-infer-analysis
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  java-infer-analysis:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Infer
+        uses: srz-zumix/setup-infer@v1
+        with:
+          infer_version: v1.0.0
+      - name: Run infer
+        run: |
+          infer --version
+          infer run --fail-on-issue --no-progress-bar -- mvn test

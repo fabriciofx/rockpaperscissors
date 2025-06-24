@@ -1,6 +1,5 @@
-# Check out all text files in UNIX format, with LF as end of line
-# Don't change this file. If you have any ideas about it, please
-# submit a separate issue about it and we'll discuss.
+# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
 
 * text=auto eol=lf
 *.java ident
