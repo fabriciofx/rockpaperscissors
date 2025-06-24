@@ -2,7 +2,7 @@
  * SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
  * SPDX-License-Identifier: MIT
  */
-package com.github.fabriciofx.rps.infra;
+package com.github.fabriciofx.rps.map;
 
 import java.util.Map;
 

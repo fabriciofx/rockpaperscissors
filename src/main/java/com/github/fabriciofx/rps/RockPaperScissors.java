@@ -4,8 +4,8 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.infra.MapEntries;
-import com.github.fabriciofx.rps.infra.MapEntry;
+import com.github.fabriciofx.rps.map.MapEntries;
+import com.github.fabriciofx.rps.map.MapEntry;
 import com.github.fabriciofx.rps.match.PrintedMatch;
 import com.github.fabriciofx.rps.match.SmartMatch;
 import com.github.fabriciofx.rps.move.SafeMoves;

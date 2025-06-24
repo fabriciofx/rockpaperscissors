@@ -8,4 +8,4 @@
  *
  * @since 1.2
  */
-package com.github.fabriciofx.rps.infra;
+package com.github.fabriciofx.rps.map;
