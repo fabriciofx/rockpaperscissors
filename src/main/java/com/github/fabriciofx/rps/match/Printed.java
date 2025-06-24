@@ -13,7 +13,7 @@ import com.github.fabriciofx.rps.Ui;
  *
  * @since 1.0
  */
-public final class PrintedMatch implements Match {
+public final class Printed implements Match {
     /**
      * Decorated match.
      */
@@ -32,7 +32,7 @@ public final class PrintedMatch implements Match {
      * @checkstyle ParameterNameCheck (3 lines)
      * @checkstyle MemberNameCheck (2 lines)
      */
-    public PrintedMatch(final Match match, final Ui ui) {
+    public Printed(final Match match, final Ui ui) {
         this.origin = match;
         this.ui = ui;
     }
