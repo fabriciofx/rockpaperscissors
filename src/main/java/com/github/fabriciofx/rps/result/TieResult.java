@@ -6,14 +6,14 @@ package com.github.fabriciofx.rps.result;
 
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.ResultMatch;
+import com.github.fabriciofx.rps.Result;
 
 /**
  * Tie Match.
  *
  * @since 1.0
  */
-public final class TieResultMatch implements ResultMatch {
+public final class TieResult implements Result {
     /**
      * Player 1.
      * @checkstyle MemberNameCheck (2 lines)
@@ -45,7 +45,7 @@ public final class TieResultMatch implements ResultMatch {
      * @checkstyle ParameterNameCheck (6 lines)
      * @checkstyle ParameterNumberCheck (6 lines)
      */
-    public TieResultMatch(
+    public TieResult(
         final Player plyr1,
         final Move one,
         final Player plyr2,

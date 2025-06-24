@@ -6,14 +6,14 @@ package com.github.fabriciofx.rps.result;
 
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.ResultMatch;
+import com.github.fabriciofx.rps.Result;
 
 /**
  * Winner Match.
  *
  * @since 1.0
  */
-public final class WinResultMatch implements ResultMatch {
+public final class WinResult implements Result {
     /**
      * Winner player.
      */
@@ -42,7 +42,7 @@ public final class WinResultMatch implements ResultMatch {
      * @param two Looser player move
      * @checkstyle ParameterNumberCheck (6 lines)
      */
-    public WinResultMatch(
+    public WinResult(
         final Player winner,
         final Move one,
         final Player looser,

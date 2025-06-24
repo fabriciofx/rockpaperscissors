@@ -7,9 +7,9 @@ package com.github.fabriciofx.rps.match;
 import com.github.fabriciofx.rps.Match;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Player;
-import com.github.fabriciofx.rps.ResultMatch;
-import com.github.fabriciofx.rps.result.TieResultMatch;
-import com.github.fabriciofx.rps.result.WinResultMatch;
+import com.github.fabriciofx.rps.Result;
+import com.github.fabriciofx.rps.result.TieResult;
+import com.github.fabriciofx.rps.result.WinResult;
 
 /**
  * Default Match implementation.
@@ -40,14 +40,14 @@ public final class SmartMatch implements Match {
     }
 
     @Override
-    public ResultMatch result() {
+    public Result result() {
         //@checkstyle LocalFinalVariableNameCheck (2 lines)
         final Move move1 = this.player1.move();
         final Move move2 = this.player2.move();
-        final ResultMatch result;
+        final Result result;
         switch (move1.compareTo(move2)) {
             case -1:
-                result = new WinResultMatch(
+                result = new WinResult(
                     this.player1,
                     move1,
                     this.player2,
@@ -55,7 +55,7 @@ public final class SmartMatch implements Match {
                 );
                 break;
             case 1:
-                result = new WinResultMatch(
+                result = new WinResult(
                     this.player2,
                     move2,
                     this.player1,
@@ -63,7 +63,7 @@ public final class SmartMatch implements Match {
                 );
                 break;
             default:
-                result = new TieResultMatch(
+                result = new TieResult(
                     this.player1,
                     move1,
                     this.player2,

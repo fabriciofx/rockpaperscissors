@@ -14,5 +14,5 @@ public interface Match {
      * Perform the match.
      * @return The result of the match
      */
-    ResultMatch result();
+    Result result();
 }

@@ -9,7 +9,7 @@ package com.github.fabriciofx.rps;
  *
  * @since 1.0
  */
-public interface ResultMatch {
+public interface Result {
     /**
      * Encoding the result of the match into a string.
      * @return The result as a string

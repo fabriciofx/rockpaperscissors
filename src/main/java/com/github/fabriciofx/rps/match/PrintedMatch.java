@@ -5,7 +5,7 @@
 package com.github.fabriciofx.rps.match;
 
 import com.github.fabriciofx.rps.Match;
-import com.github.fabriciofx.rps.ResultMatch;
+import com.github.fabriciofx.rps.Result;
 import com.github.fabriciofx.rps.Ui;
 
 /**
@@ -38,8 +38,8 @@ public final class PrintedMatch implements Match {
     }
 
     @Override
-    public ResultMatch result() {
-        final ResultMatch result = this.origin.result();
+    public Result result() {
+        final Result result = this.origin.result();
         this.ui.show(result.asString());
         return result;
     }
