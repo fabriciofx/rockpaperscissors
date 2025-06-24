@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
  * @since 1.0
  * @checkstyle JavadocMethodCheck (500 lines)
  */
-public final class SmartMatchTest {
+final class SmartMatchTest {
     @Test
-    public void rocksTie() {
+    void rocksTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing rock",
             new SmartMatch(
@@ -32,7 +32,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void papersTie() {
+    void papersTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing paper",
             new SmartMatch(
@@ -46,7 +46,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void scissorsTie() {
+    void scissorsTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing scissors",
             new SmartMatch(
@@ -60,7 +60,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void rockWinsScissors() {
+    void rockWinsScissors() {
         MatcherAssert.assertThat(
             "Can't rock win with two players playing rock and scissors",
             new SmartMatch(
@@ -75,7 +75,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void scissorsLoosesRock() {
+    void scissorsLoosesRock() {
         MatcherAssert.assertThat(
             "Can't rock win with two players playing scissors and rock",
             new SmartMatch(
@@ -90,7 +90,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void paperWinsRock() {
+    void paperWinsRock() {
         MatcherAssert.assertThat(
             "Can't paper win with two players playing paper and rock",
             new SmartMatch(
@@ -105,7 +105,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void rockLoosesPaper() {
+    void rockLoosesPaper() {
         MatcherAssert.assertThat(
             "Can't paper win with two players playing rock and paper",
             new SmartMatch(
@@ -120,7 +120,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void scissorsWinsPaper() {
+    void scissorsWinsPaper() {
         MatcherAssert.assertThat(
             "Can't scissors win with two players playing scissors and paper",
             new SmartMatch(
@@ -135,7 +135,7 @@ public final class SmartMatchTest {
     }
 
     @Test
-    public void paperLoosesScissors() {
+    void paperLoosesScissors() {
         MatcherAssert.assertThat(
             "Can't scissors win with two players playing papers and scissors",
             new SmartMatch(

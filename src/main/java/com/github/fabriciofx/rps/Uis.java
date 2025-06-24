@@ -72,7 +72,7 @@ public final class Uis {
      */
     public Ui ui() throws Exception {
         Ui selected = this.def.getValue();
-        if (this.arguments.size() >= 1) {
+        if (!this.arguments.isEmpty()) {
             // @checkstyle LocalFinalVariableNameCheck (5 lines)
             boolean found = false;
             for (final Ui ui : this.all.values()) {

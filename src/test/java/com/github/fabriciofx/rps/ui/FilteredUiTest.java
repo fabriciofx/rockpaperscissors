@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
  * @since 1.0
  * @checkstyle JavadocMethodCheck (500 lines)
  */
-public final class FilteredUiTest {
+final class FilteredUiTest {
     @Test
-    public void correct() {
+    void correct() {
         MatcherAssert.assertThat(
             "Can't read correct value at filtered ui",
             new FilteredUi(
