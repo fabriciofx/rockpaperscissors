@@ -21,7 +21,7 @@ final class SmartMatchTest {
     void rocksTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing rock",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.ROCK)
             ).result().asString(),
@@ -35,7 +35,7 @@ final class SmartMatchTest {
     void papersTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing paper",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.PAPER)
             ).result().asString(),
@@ -49,7 +49,7 @@ final class SmartMatchTest {
     void scissorsTie() {
         MatcherAssert.assertThat(
             "Can't tie with two players playing scissors",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().asString(),
@@ -63,7 +63,7 @@ final class SmartMatchTest {
     void rockWinsScissors() {
         MatcherAssert.assertThat(
             "Can't rock win with two players playing rock and scissors",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().asString(),
@@ -78,7 +78,7 @@ final class SmartMatchTest {
     void scissorsLoosesRock() {
         MatcherAssert.assertThat(
             "Can't rock win with two players playing scissors and rock",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.ROCK)
             ).result().asString(),
@@ -93,7 +93,7 @@ final class SmartMatchTest {
     void paperWinsRock() {
         MatcherAssert.assertThat(
             "Can't paper win with two players playing paper and rock",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.ROCK)
             ).result().asString(),
@@ -108,7 +108,7 @@ final class SmartMatchTest {
     void rockLoosesPaper() {
         MatcherAssert.assertThat(
             "Can't paper win with two players playing rock and paper",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.ROCK),
                 new FakePlayer(2, Moves.PAPER)
             ).result().asString(),
@@ -123,7 +123,7 @@ final class SmartMatchTest {
     void scissorsWinsPaper() {
         MatcherAssert.assertThat(
             "Can't scissors win with two players playing scissors and paper",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.SCISSORS),
                 new FakePlayer(2, Moves.PAPER)
             ).result().asString(),
@@ -138,7 +138,7 @@ final class SmartMatchTest {
     void paperLoosesScissors() {
         MatcherAssert.assertThat(
             "Can't scissors win with two players playing papers and scissors",
-            new SmartMatch(
+            new MatchOf(
                 new FakePlayer(1, Moves.PAPER),
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().asString(),

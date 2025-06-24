@@ -7,8 +7,8 @@ package com.github.fabriciofx.rps.player;
 import com.github.fabriciofx.rps.Move;
 import com.github.fabriciofx.rps.Moves;
 import com.github.fabriciofx.rps.Player;
+import com.github.fabriciofx.rps.move.MovesOf;
 import com.github.fabriciofx.rps.move.SafeMoves;
-import com.github.fabriciofx.rps.move.SmartMoves;
 import java.util.Random;
 
 /**
@@ -28,7 +28,7 @@ public final class Computer implements Player {
     public Computer() {
         this(
             new SafeMoves(
-                new SmartMoves()
+                new MovesOf()
             )
         );
     }

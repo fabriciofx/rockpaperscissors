@@ -4,7 +4,7 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.move.SmartMove;
+import com.github.fabriciofx.rps.move.MoveOf;
 
 /**
  * The moves.
@@ -15,17 +15,17 @@ public interface Moves {
     /**
      * Rock move.
      */
-    Move ROCK = new SmartMove(0, "Rock");
+    Move ROCK = new MoveOf(0, "Rock");
 
     /**
      * Paper move.
      */
-    Move PAPER = new SmartMove(1, "Paper");
+    Move PAPER = new MoveOf(1, "Paper");
 
     /**
      * Scissors move.
      */
-    Move SCISSORS = new SmartMove(2, "Scissors");
+    Move SCISSORS = new MoveOf(2, "Scissors");
 
     /**
      * Convert code to move.

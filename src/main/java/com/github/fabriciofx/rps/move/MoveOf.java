@@ -12,7 +12,7 @@ import com.github.fabriciofx.rps.Move;
  * @since 1.0
  */
 @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
-public final class SmartMove implements Move {
+public final class MoveOf implements Move {
     /**
      * Move's cod.
      */
@@ -28,7 +28,7 @@ public final class SmartMove implements Move {
      * @param code The cod of the move
      * @param name The name of the move
      */
-    public SmartMove(final int code, final String name) {
+    public MoveOf(final int code, final String name) {
         this.code = code;
         this.name = name;
     }

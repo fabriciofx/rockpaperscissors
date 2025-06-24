@@ -6,10 +6,10 @@ package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.map.MapEntries;
 import com.github.fabriciofx.rps.map.MapEntry;
+import com.github.fabriciofx.rps.match.MatchOf;
 import com.github.fabriciofx.rps.match.PrintedMatch;
-import com.github.fabriciofx.rps.match.SmartMatch;
+import com.github.fabriciofx.rps.move.MovesOf;
 import com.github.fabriciofx.rps.move.SafeMoves;
-import com.github.fabriciofx.rps.move.SmartMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
 import com.github.fabriciofx.rps.ui.Cli;
@@ -62,10 +62,10 @@ public final class RockPaperScissors {
         ).ui();
         new Attempts(
             new PrintedMatch(
-                new SmartMatch(
+                new MatchOf(
                     new Computer(
                         new SafeMoves(
-                            new SmartMoves()
+                            new MovesOf()
                         )
                     ),
                     new Human(ui)

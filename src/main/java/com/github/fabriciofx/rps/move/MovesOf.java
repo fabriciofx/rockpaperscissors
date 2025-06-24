@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @since 1.0
  */
-public final class SmartMoves implements Moves {
+public final class MovesOf implements Moves {
     /**
      * Moves.
      */
@@ -23,7 +23,7 @@ public final class SmartMoves implements Moves {
     /**
      * Ctor.
      */
-    public SmartMoves() {
+    public MovesOf() {
         this(Moves.ROCK, Moves.PAPER, Moves.SCISSORS);
     }
 
@@ -32,7 +32,7 @@ public final class SmartMoves implements Moves {
      *
      * @param moves All possible moves
      */
-    public SmartMoves(final Move... moves) {
+    public MovesOf(final Move... moves) {
         this.moves = Arrays.asList(moves);
     }
 

@@ -16,7 +16,7 @@ import com.github.fabriciofx.rps.result.Win;
  *
  * @since 1.0
  */
-public final class SmartMatch implements Match {
+public final class MatchOf implements Match {
     /**
      * Player 1.
      * @checkstyle MemberNameCheck (2 lines)
@@ -34,7 +34,7 @@ public final class SmartMatch implements Match {
      * @param one Player 1
      * @param two Player 2
      */
-    public SmartMatch(final Player one, final Player two) {
+    public MatchOf(final Player one, final Player two) {
         this.player1 = one;
         this.player2 = two;
     }

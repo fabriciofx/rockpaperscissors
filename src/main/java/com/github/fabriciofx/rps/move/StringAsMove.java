@@ -30,7 +30,7 @@ public final class StringAsMove implements Move {
     public StringAsMove(final String value) {
         this(
             new SafeMoves(
-                new SmartMoves()
+                new MovesOf()
             ),
             value
         );
