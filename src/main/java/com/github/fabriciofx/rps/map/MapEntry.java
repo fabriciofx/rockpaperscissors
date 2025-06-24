@@ -27,11 +27,11 @@ public final class MapEntry<K, V> implements Map.Entry<K, V> {
     /**
      * Ctor.
      * @param key The key
-     * @param val The value
+     * @param value The value
      */
-    public MapEntry(final K key, final V val) {
+    public MapEntry(final K key, final V value) {
         this.key = key;
-        this.value = val;
+        this.value = value;
     }
 
     @Override

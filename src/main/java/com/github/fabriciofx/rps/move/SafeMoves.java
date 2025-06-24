@@ -20,10 +20,10 @@ public final class SafeMoves implements Moves {
 
     /**
      * Ctor.
-     * @param origin Moves to be checked
+     * @param moves Moves to be checked
      */
-    public SafeMoves(final Moves origin) {
-        this.origin = origin;
+    public SafeMoves(final Moves moves) {
+        this.origin = moves;
     }
 
     @Override

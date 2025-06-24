@@ -22,8 +22,9 @@ public final class TieResult implements Result {
 
     /**
      * Player 1 move.
+     * @checkstyle MemberNameCheck (2 lines)
      */
-    private final Move one;
+    private final Move move1;
 
     /**
      * Player 2.
@@ -33,28 +34,29 @@ public final class TieResult implements Result {
 
     /**
      * Player 2 move.
+     * @checkstyle MemberNameCheck (2 lines)
      */
-    private final Move two;
+    private final Move move2;
 
     /**
      * Ctor.
-     * @param plyr1 Player 1
-     * @param one Player 1 move
-     * @param plyr2 Player 2
-     * @param two Player 2 move
-     * @checkstyle ParameterNameCheck (6 lines)
-     * @checkstyle ParameterNumberCheck (6 lines)
+     * @param player1 Player 1
+     * @param move1 Player 1 move
+     * @param player2 Player 2
+     * @param move2 Player 2 move
+     * @checkstyle ParameterNameCheck (7 lines)
+     * @checkstyle ParameterNumberCheck (7 lines)
      */
     public TieResult(
-        final Player plyr1,
-        final Move one,
-        final Player plyr2,
-        final Move two
+        final Player player1,
+        final Move move1,
+        final Player player2,
+        final Move move2
     ) {
-        this.player1 = plyr1;
-        this.one = one;
-        this.player2 = plyr2;
-        this.two = two;
+        this.player1 = player1;
+        this.move1 = move1;
+        this.player2 = player2;
+        this.move2 = move2;
     }
 
     @Override
@@ -62,9 +64,9 @@ public final class TieResult implements Result {
         return String.format(
             "Tie!! %s played %s and %s played %s\n",
             this.player1.name(),
-            this.one,
+            this.move1,
             this.player2.name(),
-            this.two
+            this.move2
         );
     }
 }

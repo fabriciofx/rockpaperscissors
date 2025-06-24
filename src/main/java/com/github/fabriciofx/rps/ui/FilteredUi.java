@@ -25,12 +25,12 @@ public final class FilteredUi implements Ui {
     /**
      * Ctor.
      * @param ui The user interface
-     * @param rgx Regular expression filter
+     * @param regex Regular expression filter
      * @checkstyle ParameterNameCheck (2 lines)
      */
-    public FilteredUi(final Ui ui, final String rgx) {
+    public FilteredUi(final Ui ui, final String regex) {
         this.origin = ui;
-        this.regex = rgx;
+        this.regex = regex;
     }
 
     @Override

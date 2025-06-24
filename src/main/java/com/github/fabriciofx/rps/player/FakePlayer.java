@@ -12,6 +12,7 @@ import com.github.fabriciofx.rps.Player;
  *
  * @since 1.0
  */
+@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public final class FakePlayer implements Player {
     /**
      * The player's number.
@@ -21,7 +22,7 @@ public final class FakePlayer implements Player {
     /**
      * The player's move.
      */
-    private final Move mov;
+    private final Move move;
 
     /**
      * Ctor.
@@ -38,7 +39,7 @@ public final class FakePlayer implements Player {
      */
     public FakePlayer(final int id, final Move move) {
         this.id = id;
-        this.mov = move;
+        this.move = move;
     }
 
     @Override
@@ -48,6 +49,6 @@ public final class FakePlayer implements Player {
 
     @Override
     public Move move() {
-        return this.mov;
+        return this.move;
     }
 }

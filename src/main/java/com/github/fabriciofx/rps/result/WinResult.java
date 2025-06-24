@@ -21,8 +21,9 @@ public final class WinResult implements Result {
 
     /**
      * Winner player move.
+     * @checkstyle MemberNameCheck (2 lines)
      */
-    private final Move one;
+    private final Move move1;
 
     /**
      * Looser player.
@@ -31,27 +32,29 @@ public final class WinResult implements Result {
 
     /**
      * Looser player move.
+     * @checkstyle MemberNameCheck (2 lines)
      */
-    private final Move two;
+    private final Move move2;
 
     /**
      * Ctor.
      * @param winner Winner player
-     * @param one Winner player move
+     * @param move1 Winner player move
      * @param looser Looser player
-     * @param two Looser player move
-     * @checkstyle ParameterNumberCheck (6 lines)
+     * @param move2 Looser player move
+     * @checkstyle ParameterNameCheck (7 lines)
+     * @checkstyle ParameterNumberCheck (7 lines)
      */
     public WinResult(
         final Player winner,
-        final Move one,
+        final Move move1,
         final Player looser,
-        final Move two
+        final Move move2
     ) {
         this.winner = winner;
-        this.one = one;
+        this.move1 = move1;
         this.looser = looser;
-        this.two = two;
+        this.move2 = move2;
     }
 
     @Override
@@ -60,9 +63,9 @@ public final class WinResult implements Result {
             "%s wins!! %s played %s and %s played %s\n",
             this.winner.name(),
             this.winner.name(),
-            this.one,
+            this.move1,
             this.looser.name(),
-            this.two
+            this.move2
         );
     }
 }

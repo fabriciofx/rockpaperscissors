@@ -19,10 +19,10 @@ public final class SafeMove implements Move {
 
     /**
      * Ctor.
-     * @param origin The move to be checked
+     * @param move The move to be checked
      */
-    public SafeMove(final Move origin) {
-        this.origin = origin;
+    public SafeMove(final Move move) {
+        this.origin = move;
     }
 
     @Override

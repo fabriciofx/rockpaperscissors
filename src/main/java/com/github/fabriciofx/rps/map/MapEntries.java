@@ -25,11 +25,11 @@ public final class MapEntries<K, V> implements Map<K, V> {
 
     /**
      * Ctor.
-     * @param ntrs The entries
+     * @param entries The entries
      */
     @SafeVarargs
-    public MapEntries(final Map.Entry<K, V>... ntrs) {
-        this.entries = Stream.of(ntrs).collect(
+    public MapEntries(final Map.Entry<K, V>... entries) {
+        this.entries = Stream.of(entries).collect(
             Collectors.toMap(
                 Map.Entry::getKey,
                 Map.Entry::getValue

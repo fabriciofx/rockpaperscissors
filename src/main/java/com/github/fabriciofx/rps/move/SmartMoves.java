@@ -18,7 +18,7 @@ public final class SmartMoves implements Moves {
     /**
      * Moves.
      */
-    private final List<Move> all;
+    private final List<Move> moves;
 
     /**
      * Ctor.
@@ -30,14 +30,14 @@ public final class SmartMoves implements Moves {
     /**
      * Ctor.
      *
-     * @param all All possible moves
+     * @param moves All possible moves
      */
-    public SmartMoves(final Move... all) {
-        this.all = Arrays.asList(all);
+    public SmartMoves(final Move... moves) {
+        this.moves = Arrays.asList(moves);
     }
 
     @Override
     public Move move(final int code) {
-        return this.all.get(code);
+        return this.moves.get(code);
     }
 }

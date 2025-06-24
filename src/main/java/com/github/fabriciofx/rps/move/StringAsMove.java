@@ -38,12 +38,12 @@ public final class StringAsMove implements Move {
 
     /**
      * Ctor.
-     * @param mvs All possible moves
-     * @param val String to be converted to move
+     * @param moves All possible moves
+     * @param value String to be converted to move
      */
-    public StringAsMove(final Moves mvs, final String val) {
-        this.moves = mvs;
-        this.value = val;
+    public StringAsMove(final Moves moves, final String value) {
+        this.moves = moves;
+        this.value = value;
     }
 
     @Override

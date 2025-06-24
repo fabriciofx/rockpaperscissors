@@ -35,12 +35,12 @@ public final class Cli implements Ui {
 
     /**
      * Ctor.
-     * @param npt Cli input
-     * @param tpt Cli output
+     * @param input Cli input
+     * @param output Cli output
      */
-    public Cli(final InputStream npt, final OutputStream tpt) {
-        this.input = npt;
-        this.output = tpt;
+    public Cli(final InputStream input, final OutputStream output) {
+        this.input = input;
+        this.output = output;
     }
 
     @Override
