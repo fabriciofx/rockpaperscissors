@@ -26,4 +26,4 @@ jobs:
           sudo apt update
           sudo apt -y install yamllint
       - name: Lint YAML files
-        uses: ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c
+        uses: ibiqlik/action-yamllint@b74a2626a991d676b6ec243a6458ff86cccf2d2d
