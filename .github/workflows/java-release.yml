@@ -1,40 +1,58 @@
-# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
 name: java-release
 'on':
   push:
     tags:
-      - '*'
+      - '[0-9]*.[0-9]*.[0-9]*'
+permissions:
+  contents: read
 jobs:
-  java-release:
-    runs-on: ubuntu-24.04
+  java-build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+        java: [11, 17, 21]
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-      - name: Install maven
+        with:
+          persist-credentials: false
+      - name: Install Maven in Linux
+        if: runner.os == 'Linux'
         run: |
           sudo apt update
           sudo apt install -y maven
-      - name: Install xcop
-        run: sudo gem install xcop
       - name: Setup Java SDK
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: ${{ matrix.java }}
+      - name: Build project
+        # yamllint disable rule:line-length
+        run: |
+          # Secure shell command execution
+          set -euo pipefail
+
+          # Choose maven embedded or system
+          [ -x "mvnw" ] && MVN="./mvnw" || MVN="mvn"
+
+          # If exist qulice profile, execute using it
+          PROFILE=$(grep -q "<id>qulice</id>" pom.xml && echo "-Pqulice" || echo "")
+          $MVN --errors --batch-mode clean install $PROFILE
+        # yamllint enable rule:line-length
+  java-release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Setup maven settings.xml
+        with:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
           server-id: oss.sonatype.org
           server-username: ${{ secrets.OSSRH_USERNAME }}
           server-password: ${{ secrets.OSSRH_PASSWORD }}
-      - name: Configure maven cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ubuntu-jdk-11-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ubuntu-jdk-11-maven-
-      - name: Setup maven settings.xml
         run: |
           mkdir -p ~/.m2
           cat > ~/.m2/settings.xml <<EOF

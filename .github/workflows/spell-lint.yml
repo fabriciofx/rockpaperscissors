@@ -1,16 +1,20 @@
 # SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
-name: java-infer-analysis
+name: spell-lint
 'on':
   push:
+    branches:
+      - main
+      - master
+  pull_request:
     branches:
       - main
       - master
 permissions:
   contents: read
 jobs:
-  java-infer-analysis:
+  spell-lint:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     steps:
@@ -18,9 +22,5 @@ jobs:
         uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Setup Infer
-        uses: srz-zumix/setup-infer@530856effeae228d1f3c8251c91ea8348d9480ee
-      - name: Run infer
-        run: |
-          infer --version
-          infer run --fail-on-issue --no-progress-bar -- mvn test
+      - name: Check files for typos (spell checker)
+        uses: crate-ci/typos@b6297a6a5072df106aa9d94197f5d0533a9730bc

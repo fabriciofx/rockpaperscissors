@@ -1,26 +1,25 @@
 # SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
-name: java-infer-analysis
+name: xml-lint
 'on':
   push:
+    branches:
+      - main
+      - master
+  pull_request:
     branches:
       - main
       - master
 permissions:
   contents: read
 jobs:
-  java-infer-analysis:
-    timeout-minutes: 15
+  xml-lint:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Setup Infer
-        uses: srz-zumix/setup-infer@530856effeae228d1f3c8251c91ea8348d9480ee
-      - name: Run infer
-        run: |
-          infer --version
-          infer run --fail-on-issue --no-progress-bar -- mvn test
+      - name: Lint XML files
+        uses: g4s8/xcop-action@4e93f123cab886ca8e481a737ee586bc9f02d228

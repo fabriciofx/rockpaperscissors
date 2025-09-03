@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
 name: license-reuse
@@ -6,9 +6,13 @@ name: license-reuse
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
+      - master
+permissions:
+  contents: read
 jobs:
   license-reuse:
     timeout-minutes: 15
@@ -16,5 +20,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - name: REUSE Compliance check
-        uses: fsfe/reuse-action@v5
+        uses: fsfe/reuse-action@211d2700d0242a061dfd6bb1e654004c806f3264

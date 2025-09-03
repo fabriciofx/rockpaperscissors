@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
 name: markdown-lint
@@ -6,9 +6,13 @@ name: markdown-lint
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
+      - master
+permissions:
+  contents: read
 concurrency:
   group: markdown-lint-${{ github.ref }}
   cancel-in-progress: true
@@ -19,7 +23,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - name: Lint Markdown files
-        uses: DavidAnson/markdownlint-cli2-action@v20
+        # yamllint disable-line rule:line-length
+        uses: DavidAnson/markdownlint-cli2-action@f1996f2bdb2b7de7867c6b72e3b27a73cb9e1b3c
         with:
           globs: '**/*.md'
