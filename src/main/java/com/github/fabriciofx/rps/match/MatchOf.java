@@ -40,7 +40,7 @@ public final class MatchOf implements Match {
     }
 
     @Override
-    public Result result() {
+    public Result run() {
         //@checkstyle LocalFinalVariableNameCheck (2 lines)
         final Move move1 = this.player1.move();
         final Move move2 = this.player2.move();

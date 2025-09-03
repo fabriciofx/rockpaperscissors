@@ -38,8 +38,8 @@ public final class Printed implements Match {
     }
 
     @Override
-    public Result result() {
-        final Result result = this.origin.result();
+    public Result run() {
+        final Result result = this.origin.run();
         this.ui.show(result.asString());
         return result;
     }

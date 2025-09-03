@@ -8,10 +8,11 @@ import com.github.fabriciofx.rps.map.MapEntries;
 import com.github.fabriciofx.rps.map.MapEntry;
 import com.github.fabriciofx.rps.match.MatchOf;
 import com.github.fabriciofx.rps.match.Printed;
-import com.github.fabriciofx.rps.move.MovesOf;
-import com.github.fabriciofx.rps.move.SafeMoves;
 import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
+import com.github.fabriciofx.rps.rounds.RoundsOf;
+import com.github.fabriciofx.rps.report.Statistics;
+import com.github.fabriciofx.rps.score.CliScore;
 import com.github.fabriciofx.rps.ui.Cli;
 import com.github.fabriciofx.rps.ui.Gui;
 import java.util.Arrays;
@@ -60,20 +61,20 @@ public final class RockPaperScissors {
             ),
             this.arguments
         ).ui();
-        new Attempts(
-            new Printed(
-                new MatchOf(
-                    new Computer(
-                        new SafeMoves(
-                            new MovesOf()
-                        )
+        new CliScore(
+            new Statistics(
+                new RoundsOf(
+                    new Printed(
+                        new MatchOf(
+                            new Computer(),
+                            new Human(ui)
+                        ),
+                        ui
                     ),
-                    new Human(ui)
-                ),
-                ui
-            ),
-            // @checkstyle MagicNumberCheck (1 lines)
-            3
-        ).matches();
+                    // @checkstyle MagicNumberCheck (1 lines)
+                    3
+                )
+            )
+        ).show();
     }
 }
