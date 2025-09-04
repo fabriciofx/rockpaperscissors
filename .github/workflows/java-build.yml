@@ -68,7 +68,6 @@ jobs:
       - name: Install maven
         run: |
           brew update
-          brew upgrade
           brew install maven
       - name: Setup Java SDK
         uses: actions/setup-java@v5
@@ -105,7 +104,6 @@ jobs:
           persist-credentials: false
       - name: Install maven
         run: |
-          choco upgrade
           choco install -y maven
       - name: Setup Java SDK
         uses: actions/setup-java@v5
