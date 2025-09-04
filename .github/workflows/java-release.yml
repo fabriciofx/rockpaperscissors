@@ -20,11 +20,10 @@ jobs:
         with:
           persist-credentials: false
       - name: Install dependencies
-        # yamllint disable rule:line-length
         run: |
           sudo apt-get update
-          sudo xargs apt-get install -y --no-install-recommends < apt-packages.txt
-        # yamllint enable rule:line-length
+          cat apt-packages.txt | xargs sudo apt-get install \
+            -y --no-install-recommends
       - name: Setup Java SDK
         uses: actions/setup-java@v5
         with:
