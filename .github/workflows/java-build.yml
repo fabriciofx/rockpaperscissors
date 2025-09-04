@@ -78,7 +78,7 @@ jobs:
         run: |
           brew update
           if [ -s brew-packages.txt ]; then
-            xargs -a brew-packages.txt brew install
+            xargs brew install < brew-packages.txt
           fi
       - name: Setup Java SDK
         uses: actions/setup-java@v5
