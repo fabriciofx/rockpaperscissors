@@ -67,8 +67,9 @@ jobs:
           persist-credentials: false
       - name: Install maven
         run: |
-          sudo apt update
-          sudo apt install -y maven
+          brew update
+          brew upgrade
+          brew install -y maven
       - name: Setup Java SDK
         uses: actions/setup-java@v5
         with:
