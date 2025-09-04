@@ -37,8 +37,8 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          xargs -a apt-packages.txt sudo apt-get install \
-            -y --no-install-recommends
+          [ -f apt-packages.txt ] && xargs -a apt-packages.txt \
+            sudo apt-get install -y --no-install-recommends
       - name: Setup Java SDK
         uses: actions/setup-java@v5
         with:
