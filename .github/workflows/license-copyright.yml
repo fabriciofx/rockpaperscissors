@@ -30,3 +30,4 @@ jobs:
         with:
           ignore: >-
             **/*.properties
+            **/*.yml
