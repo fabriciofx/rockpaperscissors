@@ -43,6 +43,7 @@ jobs:
     needs: java-build
     steps:
       - name: Setup maven settings.xml
+        # yamllint disable rule:line-length
         run: |
           mkdir -p ~/.m2
           cat > ~/.m2/settings.xml <<EOF
@@ -65,6 +66,7 @@ jobs:
             </servers>
           </settings>
           EOF
+        # yamllint enable rule:line-length
       - name: Release to Sonatype (Maven Central)
         run: |
           mvn clean deploy -Pqulice -Psonatype -Papp -DskipTests=true \
