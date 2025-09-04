@@ -24,9 +24,5 @@ jobs:
         uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Download and install yamllint
-        run: |
-          sudo apt update
-          sudo apt -y install yamllint
       - name: Lint YAML files
         uses: ibiqlik/action-yamllint@b74a2626a991d676b6ec243a6458ff86cccf2d2d

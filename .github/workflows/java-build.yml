@@ -28,10 +28,18 @@ jobs:
         uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Install maven
+      - name: Configure apt cache
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-apt-${{ hashFiles('**/apt-packages.txt') }}
+          restore-keys: ${{ runner.os }}-apt-
+      - name: Install dependencies
+        # yamllint disable rule:line-length
         run: |
-          sudo apt update
-          sudo apt install -y maven
+          sudo apt-get update
+          sudo xargs apt-get install -y --no-install-recommends < apt-packages.txt
+        # yamllint enable rule:line-length
       - name: Setup Java SDK
         uses: actions/setup-java@v5
         with:

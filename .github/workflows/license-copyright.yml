@@ -11,6 +11,9 @@ name: license-copyright
     branches:
       - main
       - master
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
@@ -23,8 +26,7 @@ jobs:
           persist-credentials: false
       - name: Check copyright header
         # yamllint disable-line rule:line-length
-        uses: yegor256/copyrights-action@597733b4b433341822e601cbe3316fd45031fec8
+        uses: yegor256/copyrights-action@4f3f2089561282bd83172896a8c9ceb5f936bd00
         with:
           ignore: >-
             **/*.properties
-            **/*.yml
