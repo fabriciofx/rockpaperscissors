@@ -69,7 +69,7 @@ jobs:
         run: |
           brew update
           brew upgrade
-          brew install -y maven
+          brew install maven
       - name: Setup Java SDK
         uses: actions/setup-java@v5
         with:
