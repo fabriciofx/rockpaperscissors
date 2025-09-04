@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
+# SPDX-License-Identifier: MIT
+---
+name: action-security
+'on':
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+jobs:
+  action-security:
+    runs-on: ubuntu-24.04
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Download and installs zizmor
+        # yamllint disable rule:line-length
+        run: |
+          curl -L -O --retry 3 https://github.com/zizmorcore/zizmor/releases/latest/download/zizmor-x86_64-unknown-linux-gnu.tar.gz
+          tar xfz zizmor-x86_64-unknown-linux-gnu.tar.gz
+        # yamllint enable rule:line-length
+      - name: Check security in workflow files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./zizmor .github/workflows --config .github/zizmor.yml
+      - name: Stop pipeline if issues are found
+        run: |
+          if grep -q "error" zizmor.log; then
+            echo "Security issues has been found by zizmor"
+            cat zizmor.log
+            exit 1
+          fi

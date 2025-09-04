@@ -6,6 +6,9 @@ name: java-release
   push:
     tags:
       - '[0-9]*.[0-9]*.[0-9]*'
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
@@ -33,9 +36,6 @@ jobs:
       - name: Build project
         # yamllint disable rule:line-length
         run: |
-          # Secure shell command execution
-          set -euo pipefail
-
           # Choose maven embedded or system
           [ -x "mvnw" ] && MVN="./mvnw" || MVN="mvn"
 

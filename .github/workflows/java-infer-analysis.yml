@@ -7,6 +7,9 @@ name: java-infer-analysis
     branches:
       - main
       - master
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:

@@ -7,6 +7,9 @@ name: java-codecov
     branches:
       - main
       - master
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
@@ -32,6 +35,6 @@ jobs:
       - name: Run tests
         run: mvn install -Pjacoco
       - name: Checks code coverage
-        uses: codecov/codecov-action@fdcc8476540edceab3de004e990f80d881c6cc00
+        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

@@ -11,6 +11,9 @@ name: java-build
     branches:
       - main
       - master
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
@@ -44,9 +47,6 @@ jobs:
       - name: Build project
         # yamllint disable rule:line-length
         run: |
-          # Secure shell command execution
-          set -euo pipefail
-
           # Choose maven embedded or system
           [ -x "mvnw" ] && MVN="./mvnw" || MVN="mvn"
 
@@ -84,9 +84,6 @@ jobs:
       - name: Build project
         # yamllint disable rule:line-length
         run: |
-          # Secure shell command execution
-          set -euo pipefail
-
           # Choose maven embedded or system
           [ -x "mvnw" ] && MVN="./mvnw" || MVN="mvn"
 

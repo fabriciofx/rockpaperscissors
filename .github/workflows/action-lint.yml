@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (C) 2017-2025 Fabrício Barros Cabral
+# SPDX-FileCopyrightText: Copyright (C) 2025 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
 name: action-lint
@@ -6,20 +6,29 @@ name: action-lint
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
+      - master
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+permissions:
+  contents: read
 jobs:
   action-lint:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - name: Download and installs actionlint
-        id: get_actionlint
-        # yamllint disable-line rule:line-length
-        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-        shell: bash
+        # yamllint disable rule:line-length
+        run: |
+          curl -L -O --retry 3 https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash
+          bash download-actionlint.bash
+        # yamllint enable rule:line-length
       - name: Check workflow files
-        run: ${{ steps.get_actionlint.outputs.executable }} -color
-        shell: bash
+        run: ./actionlint -color
