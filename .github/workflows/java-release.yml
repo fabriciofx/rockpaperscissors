@@ -43,12 +43,6 @@ jobs:
     needs: java-build
     steps:
       - name: Setup maven settings.xml
-        with:
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          server-id: oss.sonatype.org
-          server-username: ${{ secrets.OSSRH_USERNAME }}
-          server-password: ${{ secrets.OSSRH_PASSWORD }}
         run: |
           mkdir -p ~/.m2
           cat > ~/.m2/settings.xml <<EOF
@@ -57,16 +51,16 @@ jobs:
               <profile>
                 <id>app</id>
                 <properties>
-                  <gpg.keyname>${{ secrets.GPG_KEYNAME }}</gpg.keyname>
-                  <gpg.passphrase>${{ secrets.GPG_PASSPHRASE }}</gpg.passphrase>
+                  <gpg.keyname>"${{ secrets.GPG_KEYNAME }}"</gpg.keyname>
+                  <gpg.passphrase>"${{ secrets.GPG_PASSPHRASE }}"</gpg.passphrase>
                 </properties>
               </profile>
             </profiles>
             <servers>
               <server>
                 <id>oss.sonatype.org</id>
-                <username>${{ secrets.OSSRH_USERNAME }}</username>
-                <password>${{ secrets.OSSRH_PASSWORD }}</password>
+                <username>"${{ secrets.OSSRH_USERNAME }}"</username>
+                <password>"${{ secrets.OSSRH_PASSWORD }}"</password>
               </server>
             </servers>
           </settings>
