@@ -116,8 +116,11 @@ jobs:
       - name: Install dependencies
         run: |
           @echo off
-          for /f "usebackq delims=" %%P in ("choco-packages.txt") do (
-            choco install %%P -y --ignore-checksums
+          setlocal enabledelayedexpansion
+          if exist "choco-packages.txt" (
+            for /f "usebackq delims=" %%P in ("choco-packages.txt") do (
+              choco install %%P -y --ignore-checksums
+            )
           )
         shell: cmd
       - name: Setup Java SDK
