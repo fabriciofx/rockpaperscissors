@@ -27,4 +27,4 @@ jobs:
         with:
           ignore: >-
             **/*.properties
-            **/.github/*
+            **/*.yml
