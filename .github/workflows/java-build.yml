@@ -52,7 +52,7 @@ jobs:
 
           # If exist qulice profile, execute using it
           PROFILE=$(grep -q "<id>qulice</id>" pom.xml && echo "-Pqulice" || echo "")
-          $MVN --errors --batch-mode clean install $PROFILE
+          $MVN --errors --batch-mode clean install "${PROFILE}"
         # yamllint enable rule:line-length
   java-macos-build:
     runs-on: ${{ matrix.os }}
@@ -89,13 +89,13 @@ jobs:
 
           # If exist qulice profile, execute using it
           PROFILE=$(grep -q "<id>qulice</id>" pom.xml && echo "-Pqulice" || echo "")
-          $MVN --errors --batch-mode clean install $PROFILE
+          $MVN --errors --batch-mode clean install "${PROFILE}"
         # yamllint enable rule:line-length
   java-windows-build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-202]
+        os: [windows-2022]
         java: [11, 17, 21]
     steps:
       - name: Checkout code

@@ -13,18 +13,13 @@ permissions:
   contents: read
 jobs:
   java-build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-24.04, windows-2022]
-        java: [11, 17, 21]
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Install Maven in Linux
-        if: runner.os == 'Linux'
+      - name: Install maven
         run: |
           sudo apt update
           sudo apt install -y maven
@@ -32,7 +27,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version: ${{ matrix.java }}
+          java-version: 11
       - name: Build project
         # yamllint disable rule:line-length
         run: |
@@ -41,10 +36,11 @@ jobs:
 
           # If exist qulice profile, execute using it
           PROFILE=$(grep -q "<id>qulice</id>" pom.xml && echo "-Pqulice" || echo "")
-          $MVN --errors --batch-mode clean install $PROFILE
+          $MVN --errors --batch-mode clean install "${PROFILE}"
         # yamllint enable rule:line-length
   java-release:
     runs-on: ubuntu-24.04
+    needs: java-build
     steps:
       - name: Setup maven settings.xml
         with:
