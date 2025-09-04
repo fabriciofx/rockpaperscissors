@@ -32,6 +32,6 @@ jobs:
       - name: Run tests
         run: mvn install -Pjacoco
       - name: Checks code coverage
-        uses: codecov/codecov-action@fdcc8476540edceab3de004e990f80d881c6cc00
+        uses: codecov/codecov-action@206148c4b8a51281182730813eeed9f6d6f3fb35
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
