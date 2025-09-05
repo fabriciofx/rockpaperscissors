@@ -26,7 +26,7 @@ jobs:
           persist-credentials: false
       - name: Check copyright header
         # yamllint disable-line rule:line-length
-        uses: yegor256/copyrights-action@4f3f2089561282bd83172896a8c9ceb5f936bd00
+        uses: yegor256/copyrights-action@307120be0b0ec322e64c4a5bff142bd52edb2343
         with:
           ignore: >-
             **/*.properties
