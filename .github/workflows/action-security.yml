@@ -29,18 +29,19 @@ jobs:
       - name: Download and installs zizmor
         # yamllint disable rule:line-length
         run: |
-          curl -L -O --retry 3 https://github.com/zizmorcore/zizmor/releases/latest/download/zizmor-x86_64-unknown-linux-gnu.tar.gz
-          tar xfz zizmor-x86_64-unknown-linux-gnu.tar.gz
+          curl -sS -L --retry 3 -o /tmp/zizmor-x86_64-unknown-linux-gnu.tar.gz \
+            https://github.com/zizmorcore/zizmor/releases/latest/download/zizmor-x86_64-unknown-linux-gnu.tar.gz
+          tar xfz /tmp/zizmor-x86_64-unknown-linux-gnu.tar.gz -C /tmp
         # yamllint enable rule:line-length
       - name: Check security in workflow files
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ./zizmor .github/workflows --config .github/zizmor.yml
+          /tmp/zizmor .github/workflows --config .github/zizmor.yml
       - name: Stop pipeline if issues are found
         run: |
           if grep -q "error" zizmor.log; then
-            echo "Security issues has been found by zizmor"
+            echo "Zizmor found some security issues:"
             cat zizmor.log
             exit 1
           fi

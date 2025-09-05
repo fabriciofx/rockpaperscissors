@@ -27,8 +27,9 @@ jobs:
       - name: Download and installs actionlint
         # yamllint disable rule:line-length
         run: |
-          curl -L -O --retry 3 https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash
-          bash download-actionlint.bash
+          curl -sS -L --retry 3 -o /tmp/download-actionlint.bash \
+            https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash
+          bash /tmp/download-actionlint.bash latest /tmp
         # yamllint enable rule:line-length
       - name: Check workflow files
-        run: ./actionlint -color
+        run: /tmp/actionlint -color

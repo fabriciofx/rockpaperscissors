@@ -26,13 +26,14 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Java SDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: 17
       - name: Download Simian
         run: |
-          wget --quiet http://public.yegor256.com/simian.jar -O /tmp/simian.jar
+          curl -sS -L --retry 3 -o /tmp/simian.jar \
+            http://public.yegor256.com/simian.jar
       - name: Check XML duplication
         run: |
           java -jar /tmp/simian.jar -threshold=16 "-excludes=**/it" "**/*.xml"
