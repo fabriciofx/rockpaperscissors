@@ -7,42 +7,12 @@ name: java-sonar
     branches:
       - main
       - master
-defaults:
-  run:
-    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
   java-sonar:
-    timeout-minutes: 15
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-      - name: Setup Java SDK
-        uses: actions/setup-java@v5
-        with:
-          java-version: 11
-          distribution: 'temurin'
-      - name: Configure Maven cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ubuntu-jdk-11-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ubuntu-jdk-11-maven-
-      - name: Configure Sonar cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Run sonar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          mvn --batch-mode verify -Pjacoco -Dinvoker.skip \
-          && mvn --batch-mode verify -Psonar -Dinvoker.skip \
-              -Dsonar.qualitygate.wait=true
+    # yamllint disable-line rule:line-length
+    uses: fabriciofx/github-workflows/.github/workflows/java-sonar-template.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SN_TOKEN: ${{ secrets.SONAR_TOKEN }}

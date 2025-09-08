@@ -11,23 +11,9 @@ name: license-copyright
     branches:
       - main
       - master
-defaults:
-  run:
-    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
   license-copyright:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-      - name: Check copyright header
-        # yamllint disable-line rule:line-length
-        uses: yegor256/copyrights-action@307120be0b0ec322e64c4a5bff142bd52edb2343
-        with:
-          ignore: >-
-            **/*.properties
-            **/*.yml
+    # yamllint disable-line rule:line-length
+    uses: fabriciofx/github-workflows/.github/workflows/license-copyright-template.yml@main

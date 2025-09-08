@@ -6,78 +6,14 @@ name: java-release
   push:
     tags:
       - '[0-9]*.[0-9]*.[0-9]*'
-defaults:
-  run:
-    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
-  java-build:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          if [ -s apt-packages.txt ]; then
-            xargs -a apt-packages.txt sudo apt-get install \
-              -y --no-install-recommends
-          fi
-      - name: Setup Java SDK
-        uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build project
-        # yamllint disable rule:line-length
-        run: |
-          # Choose maven embedded or system
-          [ -x "mvnw" ] && MVN="./mvnw" || MVN="mvn"
-
-          # If exist qulice profile, execute using it
-          PROFILE=$(grep -q "<id>qulice</id>" pom.xml && echo "-Pqulice" || echo "")
-          $MVN --errors --batch-mode clean install "${PROFILE}"
-        # yamllint enable rule:line-length
   java-release:
-    runs-on: ubuntu-24.04
-    needs: java-build
-    steps:
-      - name: Setup maven settings.xml
-        # yamllint disable rule:line-length
-        run: |
-          mkdir -p ~/.m2
-          cat > ~/.m2/settings.xml <<EOF
-          <settings>
-            <profiles>
-              <profile>
-                <id>app</id>
-                <properties>
-                  <gpg.keyname>"${{ secrets.GPG_KEYNAME }}"</gpg.keyname>
-                  <gpg.passphrase>"${{ secrets.GPG_PASSPHRASE }}"</gpg.passphrase>
-                </properties>
-              </profile>
-            </profiles>
-            <servers>
-              <server>
-                <id>oss.sonatype.org</id>
-                <username>"${{ secrets.OSSRH_USERNAME }}"</username>
-                <password>"${{ secrets.OSSRH_PASSWORD }}"</password>
-              </server>
-            </servers>
-          </settings>
-          EOF
-        # yamllint enable rule:line-length
-      - name: Release to Sonatype (Maven Central)
-        run: |
-          mvn clean deploy -Pqulice -Psonatype -Papp -DskipTests=true \
-            --errors --batch-mode
-        env:
-          GPG_TTY: $(tty)
-          JDK_JAVA_OPTIONS: >
-            --add-opens java.base/java.lang=ALL-UNNAMED
-            --add-opens java.base/java.io=ALL-UNNAMED
-            --add-opens java.base/java.util=ALL-UNNAMED
-            --add-opens java.base/java.util.concurrent=ALL-UNNAMED
+    # yamllint disable-line rule:line-length
+    uses: fabriciofx/github-workflows/.github/workflows/java-release-template.yml@main
+    secrets:
+      RELEASE_KEYNAME: ${{ secrets.GPG_KEYNAME }}
+      RELEASE_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      RELEASE_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      RELEASE_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}

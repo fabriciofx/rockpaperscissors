@@ -11,29 +11,9 @@ name: java-duplication
     branches:
       - main
       - master
-defaults:
-  run:
-    shell: bash -xeuo pipefail {0}
 permissions:
   contents: read
 jobs:
   java-duplication:
-    timeout-minutes: 15
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-      - name: Setup Java SDK
-        uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin'
-          java-version: 17
-      - name: Download Simian
-        run: |
-          curl -sS -L --retry 3 -o /tmp/simian.jar \
-            http://public.yegor256.com/simian.jar
-      - name: Check Java code duplication
-        run: |
-          java -jar /tmp/simian.jar -threshold=16 "-excludes=**/it" "**/*.java"
+    # yamllint disable-line rule:line-length
+    uses: fabriciofx/github-workflows/.github/workflows/java-duplication-template.yml@main
