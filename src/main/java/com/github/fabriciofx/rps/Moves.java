@@ -11,6 +11,7 @@ import com.github.fabriciofx.rps.move.MoveOf;
  *
  * @since 1.0
  */
+@FunctionalInterface
 public interface Moves {
     /**
      * Rock move.

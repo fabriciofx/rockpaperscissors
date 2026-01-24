@@ -8,6 +8,7 @@ import com.github.fabriciofx.rps.Ui;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
@@ -50,12 +51,16 @@ public final class Cli implements Ui {
 
     @Override
     public void show(final String message) {
-        new PrintStream(this.output).print(message);
+        new PrintStream(
+            this.output,
+            true,
+            StandardCharsets.UTF_8
+        ).print(message);
     }
 
     @Override
     public String value(final String message) {
         this.show(message);
-        return new Scanner(this.input).next();
+        return new Scanner(this.input, StandardCharsets.UTF_8).next();
     }
 }

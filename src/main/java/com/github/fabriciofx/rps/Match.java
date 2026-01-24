@@ -9,6 +9,7 @@ package com.github.fabriciofx.rps;
  *
  * @since 1.0
  */
+@FunctionalInterface
 public interface Match {
     /**
      * Perform the match.
