@@ -9,7 +9,7 @@ import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.Ui;
 import com.github.fabriciofx.rps.move.StringAsMove;
 import com.github.fabriciofx.rps.ui.Cli;
-import com.github.fabriciofx.rps.ui.FilteredUi;
+import com.github.fabriciofx.rps.ui.Filtered;
 
 /**
  * Human player.
@@ -36,7 +36,7 @@ public final class Human implements Player {
      * @checkstyle ParameterNameCheck (2 lines)
      */
     public Human(final Ui ui) {
-        this.ui = new FilteredUi(ui, "[rpsRPS]");
+        this.ui = new Filtered(ui, "[rpsRPS]");
     }
 
     @Override

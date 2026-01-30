@@ -11,7 +11,7 @@ import com.github.fabriciofx.rps.Ui;
  *
  * @since 1.0
  */
-public final class FilteredUi implements Ui {
+public final class Filtered implements Ui {
     /**
      * User interface.
      */
@@ -28,7 +28,7 @@ public final class FilteredUi implements Ui {
      * @param regex Regular expression filter
      * @checkstyle ParameterNameCheck (2 lines)
      */
-    public FilteredUi(final Ui ui, final String regex) {
+    public Filtered(final Ui ui, final String regex) {
         this.origin = ui;
         this.regex = regex;
     }

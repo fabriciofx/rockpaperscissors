@@ -16,12 +16,12 @@ import org.junit.jupiter.api.Test;
  * @since 1.0
  * @checkstyle JavadocMethodCheck (500 lines)
  */
-final class FilteredUiTest {
+final class FilteredTest {
     @Test
     void correct() {
         MatcherAssert.assertThat(
             "Can't read correct value at filtered ui",
-            new FilteredUi(
+            new Filtered(
                 new Cli(
                     new ByteArrayInputStream(
                         "r".getBytes(StandardCharsets.UTF_8)
