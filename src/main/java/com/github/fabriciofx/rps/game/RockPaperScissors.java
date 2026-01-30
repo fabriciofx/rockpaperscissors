@@ -2,8 +2,11 @@
  * SPDX-FileCopyrightText: Copyright (C) 2017-2026 Fabrício Barros Cabral
  * SPDX-License-Identifier: MIT
  */
-package com.github.fabriciofx.rps;
+package com.github.fabriciofx.rps.game;
 
+import com.github.fabriciofx.rps.Game;
+import com.github.fabriciofx.rps.Ui;
+import com.github.fabriciofx.rps.Uis;
 import com.github.fabriciofx.rps.attempts.AttemptsOf;
 import com.github.fabriciofx.rps.map.MapEntry;
 import com.github.fabriciofx.rps.map.MapOf;
@@ -24,7 +27,7 @@ import java.util.List;
  * @since 1.0
  * @checkstyle ClassDataAbstractionCouplingCheck (100 lines)
  */
-public final class RockPaperScissors {
+public final class RockPaperScissors implements Game {
     /**
      * Default attempts.
      */
@@ -37,28 +40,23 @@ public final class RockPaperScissors {
 
     /**
      * Ctor.
-     * @param args Command line arguments
+     * @param arguments Command line args
      */
-    public RockPaperScissors(final String... args) {
-        this.arguments = Arrays.asList(args);
+    public RockPaperScissors(final String... arguments) {
+        this(Arrays.asList(arguments));
     }
 
     /**
-     * Main.
-     * @param args Command line arguments
-     * @throws Exception If detected any error
+     * Ctor.
+     * @param arguments Command line args
      */
-    public static void main(final String... args) throws Exception {
-        new RockPaperScissors(args).run();
+    public RockPaperScissors(final List<String> arguments) {
+        this.arguments = arguments;
     }
 
-    /**
-     * Start of the game.
-     */
-    @SuppressWarnings("unchecked")
+    @Override
     public void run() {
-        // @checkstyle LocalFinalVariableNameCheck (1 line)
-        final Ui ui = new Uis(
+        final Ui iface = new Uis(
             new MapEntry<>("--cli", new Cli()),
             new MapOf<>(
                 new MapEntry<>("--cli", new Cli()),
@@ -74,9 +72,9 @@ public final class RockPaperScissors {
                             new MovesOf()
                         )
                     ),
-                    new Human(ui)
+                    new Human(iface)
                 ),
-                ui
+                iface
             ),
             RockPaperScissors.NUM_ATTEMPTS
         ).matches();

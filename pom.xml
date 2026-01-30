@@ -86,7 +86,7 @@
               <archive>
                 <manifest>
                   <mainClass>
-                    com.github.fabriciofx.rps.RockPaperScissors
+                    com.github.fabriciofx.rps.Main
                   </mainClass>
                 </manifest>
               </archive>
