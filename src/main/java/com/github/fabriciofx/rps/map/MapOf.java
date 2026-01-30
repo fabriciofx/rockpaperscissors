@@ -17,7 +17,7 @@ import java.util.stream.Stream;
  * @param <V> The value type.
  * @since 1.2
  */
-public final class MapEntries<K, V> implements Map<K, V> {
+public final class MapOf<K, V> implements Map<K, V> {
     /**
      * Entries.
      */
@@ -28,7 +28,7 @@ public final class MapEntries<K, V> implements Map<K, V> {
      * @param entries The entries
      */
     @SafeVarargs
-    public MapEntries(final Map.Entry<K, V>... entries) {
+    public MapOf(final Map.Entry<K, V>... entries) {
         this.entries = Stream.of(entries).collect(
             Collectors.toMap(
                 Map.Entry::getKey,

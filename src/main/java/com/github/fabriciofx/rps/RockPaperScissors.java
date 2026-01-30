@@ -4,7 +4,7 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.map.MapEntries;
+import com.github.fabriciofx.rps.map.MapOf;
 import com.github.fabriciofx.rps.map.MapEntry;
 import com.github.fabriciofx.rps.match.MatchOf;
 import com.github.fabriciofx.rps.match.Printed;
@@ -59,7 +59,7 @@ public final class RockPaperScissors {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
         final Ui ui = new Uis(
             new MapEntry<>("--cli", new Cli()),
-            new MapEntries<>(
+            new MapOf<>(
                 new MapEntry<>("--cli", new Cli()),
                 new MapEntry<>("--gui", new Gui())
             ),
