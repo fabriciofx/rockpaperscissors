@@ -6,7 +6,6 @@ package com.github.fabriciofx.rps.game;
 
 import com.github.fabriciofx.rps.Game;
 import com.github.fabriciofx.rps.Ui;
-import com.github.fabriciofx.rps.Uis;
 import com.github.fabriciofx.rps.attempts.AttemptsOf;
 import com.github.fabriciofx.rps.map.MapEntry;
 import com.github.fabriciofx.rps.map.MapOf;
@@ -18,6 +17,7 @@ import com.github.fabriciofx.rps.player.Computer;
 import com.github.fabriciofx.rps.player.Human;
 import com.github.fabriciofx.rps.ui.Cli;
 import com.github.fabriciofx.rps.ui.Gui;
+import com.github.fabriciofx.rps.uis.UisOf;
 import java.util.Arrays;
 import java.util.List;
 
@@ -56,7 +56,7 @@ public final class RockPaperScissors implements Game {
 
     @Override
     public void run() {
-        final Ui iface = new Uis(
+        final Ui iface = new UisOf(
             new MapEntry<>("--cli", new Cli()),
             new MapOf<>(
                 new MapEntry<>("--cli", new Cli()),

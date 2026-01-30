@@ -4,8 +4,8 @@
  */
 
 /**
- * User Interface.
+ * User Interfaces.
  *
- * @since 1.0
+ * @since 1.4
  */
-package com.github.fabriciofx.rps.ui;
+package com.github.fabriciofx.rps.uis;
