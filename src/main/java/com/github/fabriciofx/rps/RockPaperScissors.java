@@ -4,8 +4,9 @@
  */
 package com.github.fabriciofx.rps;
 
-import com.github.fabriciofx.rps.map.MapOf;
+import com.github.fabriciofx.rps.attempts.AttemptsOf;
 import com.github.fabriciofx.rps.map.MapEntry;
+import com.github.fabriciofx.rps.map.MapOf;
 import com.github.fabriciofx.rps.match.MatchOf;
 import com.github.fabriciofx.rps.match.Printed;
 import com.github.fabriciofx.rps.move.MovesOf;
@@ -65,7 +66,7 @@ public final class RockPaperScissors {
             ),
             this.arguments
         ).select();
-        new Attempts(
+        new AttemptsOf(
             new Printed(
                 new MatchOf(
                     new Computer(
