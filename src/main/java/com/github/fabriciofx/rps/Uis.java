@@ -4,7 +4,6 @@
  */
 package com.github.fabriciofx.rps;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,7 @@ import java.util.Map;
  *
  * @since 1.0
  */
-@SuppressWarnings("PMD.ShortMethodName")
+@SuppressWarnings({"PMD.SystemPrintln", "PMD.DoNotTerminateVM"})
 public final class Uis {
     /**
      * Default user interfaces.
@@ -67,28 +66,25 @@ public final class Uis {
      * Select the user interface.
      *
      * @return The selected user interface.
-     * @throws Exception If a user interface not found
-     * @checkstyle MethodNameCheck (10 lines)
      */
-    public Ui ui() throws Exception {
+    public Ui select() {
         Ui selected = this.def.getValue();
         if (!this.arguments.isEmpty()) {
-            // @checkstyle LocalFinalVariableNameCheck (5 lines)
             boolean found = false;
-            for (final Ui ui : this.all.values()) {
-                if (this.arguments.get(0).contains(ui.name())) {
-                    selected = ui;
+            for (final Ui iface : this.all.values()) {
+                if (this.arguments.get(0).contains(iface.name())) {
+                    selected = iface;
                     found = true;
                     break;
                 }
             }
             if (!found) {
-                throw new IOException(
-                    String.format(
-                        "User interface '%s' not found!",
-                        this.arguments.get(0)
-                    )
+                System.err.printf(
+                    "User interface '%s' not found! You must use %s%n",
+                    this.arguments.get(0),
+                    this.all.keySet()
                 );
+                System.exit(1);
             }
         }
         return selected;

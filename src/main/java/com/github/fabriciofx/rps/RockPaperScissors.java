@@ -53,18 +53,18 @@ public final class RockPaperScissors {
 
     /**
      * Start of the game.
-     * @throws Exception If detected any error
      */
     @SuppressWarnings("unchecked")
-    public void run() throws Exception {
+    public void run() {
         // @checkstyle LocalFinalVariableNameCheck (1 line)
         final Ui ui = new Uis(
             new MapEntry<>("--cli", new Cli()),
             new MapEntries<>(
+                new MapEntry<>("--cli", new Cli()),
                 new MapEntry<>("--gui", new Gui())
             ),
             this.arguments
-        ).ui();
+        ).select();
         new Attempts(
             new Printed(
                 new MatchOf(
