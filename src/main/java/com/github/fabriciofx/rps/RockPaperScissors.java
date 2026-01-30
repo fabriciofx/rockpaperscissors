@@ -25,6 +25,11 @@ import java.util.List;
  */
 public final class RockPaperScissors {
     /**
+     * Default attempts.
+     */
+    private static final int NUM_ATTEMPTS = 3;
+
+    /**
      * Command line args.
      */
     private final List<String> arguments;
@@ -72,8 +77,7 @@ public final class RockPaperScissors {
                 ),
                 ui
             ),
-            // @checkstyle MagicNumberCheck (1 lines)
-            3
+            RockPaperScissors.NUM_ATTEMPTS
         ).matches();
     }
 }
