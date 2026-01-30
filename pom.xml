@@ -18,12 +18,8 @@
   <description>
     A truly object-oriented implementation of the rock-paper-scissors game
   </description>
-  <url>https://github.com/fabriciofx/cactoos-jdbc</url>
+  <url>https://github.com/fabriciofx/rockpaperscissors</url>
   <inceptionYear>2018</inceptionYear>
-  <organization>
-    <name>rockpaperscissors</name>
-    <url>https://github.com/fabriciofx/rockpaperscissors</url>
-  </organization>
   <licenses>
     <license>
       <name>MIT</name>
@@ -34,7 +30,7 @@
   <developers>
     <developer>
       <id>1</id>
-      <name>Fabricio Barros Cabral</name>
+      <name>Fabrício Barros Cabral</name>
       <email>fabriciofx@gmail.com</email>
       <organization>fabriciofx</organization>
       <organizationUrl>https://github.com/fabriciofx</organizationUrl>
@@ -42,7 +38,7 @@
         <role>Architect</role>
         <role>Developer</role>
       </roles>
-      <timezone>-7</timezone>
+      <timezone>-3</timezone>
     </developer>
   </developers>
   <issueManagement>
@@ -57,10 +53,6 @@
     </developerConnection>
     <url>https://github.com/fabriciofx/rockpaperscissors</url>
   </scm>
-  <ciManagement>
-    <system>rultor</system>
-    <url>http://www.rultor.com/s/rockpaperscissors</url>
-  </ciManagement>
   <distributionManagement>
     <site>
       <id>github-pages</id>
