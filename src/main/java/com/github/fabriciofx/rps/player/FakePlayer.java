@@ -12,8 +12,8 @@ import com.github.fabriciofx.rps.Player;
  *
  * @since 1.0
  */
-@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public final class FakePlayer implements Player {
+
     /**
      * The player's number.
      */
@@ -26,6 +26,7 @@ public final class FakePlayer implements Player {
 
     /**
      * Ctor.
+     *
      * @param move Player's 1 move
      */
     public FakePlayer(final Move move) {
@@ -34,6 +35,7 @@ public final class FakePlayer implements Player {
 
     /**
      * Ctor.
+     *
      * @param id The player's number
      * @param move The player's move
      */

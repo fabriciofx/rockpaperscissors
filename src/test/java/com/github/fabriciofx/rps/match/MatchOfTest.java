@@ -14,9 +14,9 @@ import org.junit.jupiter.api.Test;
  * SmartMatch tests.
  *
  * @since 1.0
- * @checkstyle JavadocMethodCheck (500 lines)
  */
 final class MatchOfTest {
+
     @Test
     void rocksTie() {
         MatcherAssert.assertThat(
@@ -26,7 +26,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.ROCK)
             ).result().asString(),
             Matchers.equalTo(
-                "Tie!! Player 1 played Rock and Player 2 played Rock\n"
+                String.format(
+                    "Tie!! Player 1 played Rock and Player 2 played Rock%n"
+                )
             )
         );
     }
@@ -40,7 +42,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.PAPER)
             ).result().asString(),
             Matchers.equalTo(
-                "Tie!! Player 1 played Paper and Player 2 played Paper\n"
+                String.format(
+                    "Tie!! Player 1 played Paper and Player 2 played Paper%n"
+                )
             )
         );
     }
@@ -54,7 +58,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().asString(),
             Matchers.equalTo(
-                "Tie!! Player 1 played Scissors and Player 2 played Scissors\n"
+                String.format(
+                    "Tie!! Player 1 played Scissors and Player 2 played Scissors%n"
+                )
             )
         );
     }
@@ -68,8 +74,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().asString(),
             Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 1 wins!! Player 1 played Rock and Player 2 played Scissors\n"
+                String.format(
+                    "Player 1 wins!! Player 1 played Rock and Player 2 played Scissors%n"
+                )
             )
         );
     }
@@ -83,8 +90,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.ROCK)
             ).result().asString(),
             Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 2 wins!! Player 2 played Rock and Player 1 played Scissors\n"
+                String.format(
+                    "Player 2 wins!! Player 2 played Rock and Player 1 played Scissors%n"
+                )
             )
         );
     }
@@ -98,8 +106,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.ROCK)
             ).result().asString(),
             Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 1 wins!! Player 1 played Paper and Player 2 played Rock\n"
+                String.format(
+                    "Player 1 wins!! Player 1 played Paper and Player 2 played Rock%n"
+                )
             )
         );
     }
@@ -113,8 +122,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.PAPER)
             ).result().asString(),
             Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 2 wins!! Player 2 played Paper and Player 1 played Rock\n"
+                String.format(
+                    "Player 2 wins!! Player 2 played Paper and Player 1 played Rock%n"
+                )
             )
         );
     }
@@ -128,8 +138,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.PAPER)
             ).result().asString(),
             Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 1 wins!! Player 1 played Scissors and Player 2 played Paper\n"
+                String.format(
+                    "Player 1 wins!! Player 1 played Scissors and Player 2 played Paper%n"
+                )
             )
         );
     }
@@ -143,8 +154,9 @@ final class MatchOfTest {
                 new FakePlayer(2, Moves.SCISSORS)
             ).result().asString(),
             Matchers.equalTo(
-                // @checkstyle LineLengthCheck (1 lines)
-                "Player 2 wins!! Player 2 played Scissors and Player 1 played Paper\n"
+                String.format(
+                    "Player 2 wins!! Player 2 played Scissors and Player 1 played Paper%n"
+                )
             )
         );
     }

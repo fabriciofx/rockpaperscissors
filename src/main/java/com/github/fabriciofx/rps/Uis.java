@@ -11,8 +11,10 @@ package com.github.fabriciofx.rps;
  */
 @FunctionalInterface
 public interface Uis {
+
     /**
      * Select a user interface.
+     *
      * @return The selected user interface
      */
     Ui select();

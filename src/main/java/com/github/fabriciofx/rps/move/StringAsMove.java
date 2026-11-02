@@ -13,6 +13,7 @@ import com.github.fabriciofx.rps.Moves;
  * @since 1.0
  */
 public final class StringAsMove implements Move {
+
     /**
      * Moves.
      */
@@ -25,6 +26,7 @@ public final class StringAsMove implements Move {
 
     /**
      * Ctor.
+     *
      * @param value String to be converted to move
      */
     public StringAsMove(final String value) {
@@ -38,6 +40,7 @@ public final class StringAsMove implements Move {
 
     /**
      * Ctor.
+     *
      * @param moves All possible moves
      * @param value String to be converted to move
      */

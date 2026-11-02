@@ -10,6 +10,7 @@ package com.github.fabriciofx.rps.move;
  * @since 1.0
  */
 public final class InvalidMoveException extends IllegalArgumentException {
+
     private static final long serialVersionUID = 5814831787607231801L;
 
     /**

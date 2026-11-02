@@ -26,6 +26,7 @@ public final class AttemptsOf implements Attempts {
 
     /**
      * Ctor.
+     *
      * @param match Match to be printed
      * @param max Number max of attempts
      */

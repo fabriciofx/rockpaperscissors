@@ -14,9 +14,9 @@ import org.junit.jupiter.api.Test;
  * Cli filter tests.
  *
  * @since 1.0
- * @checkstyle JavadocMethodCheck (500 lines)
  */
 final class FilteredTest {
+
     @Test
     void correct() {
         MatcherAssert.assertThat(

@@ -17,6 +17,7 @@ import java.util.Random;
  * @since 1.0
  */
 public final class Computer implements Player {
+
     /**
      * The moves.
      */
@@ -35,6 +36,7 @@ public final class Computer implements Player {
 
     /**
      * Ctor.
+     *
      * @param moves All possible moves
      */
     public Computer(final Moves moves) {
@@ -48,7 +50,6 @@ public final class Computer implements Player {
 
     @Override
     public Move move() {
-        // @checkstyle MagicNumberCheck (1 lines)
         return this.moves.move(new Random().nextInt(3));
     }
 }

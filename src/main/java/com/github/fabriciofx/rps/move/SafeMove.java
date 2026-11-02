@@ -12,6 +12,7 @@ import com.github.fabriciofx.rps.Move;
  * @since 1.0
  */
 public final class SafeMove implements Move {
+
     /**
      * Move.
      */
@@ -19,6 +20,7 @@ public final class SafeMove implements Move {
 
     /**
      * Ctor.
+     *
      * @param move The move to be checked
      */
     public SafeMove(final Move move) {

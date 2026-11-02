@@ -11,8 +11,10 @@ package com.github.fabriciofx.rps;
  */
 @FunctionalInterface
 public interface Result {
+
     /**
      * Encoding the result of the match into a string.
+     *
      * @return The result as a string
      */
     String asString();

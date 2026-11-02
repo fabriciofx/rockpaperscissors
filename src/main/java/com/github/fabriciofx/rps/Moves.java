@@ -13,6 +13,7 @@ import com.github.fabriciofx.rps.move.MoveOf;
  */
 @FunctionalInterface
 public interface Moves {
+
     /**
      * Rock move.
      */
@@ -30,6 +31,7 @@ public interface Moves {
 
     /**
      * Convert code to move.
+     *
      * @param code The code of the move
      * @return The move
      */

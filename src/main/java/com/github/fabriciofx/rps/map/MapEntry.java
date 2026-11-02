@@ -14,6 +14,7 @@ import java.util.Map;
  * @since 1.2
  */
 public final class MapEntry<K, V> implements Map.Entry<K, V> {
+
     /**
      * Key.
      */
@@ -26,6 +27,7 @@ public final class MapEntry<K, V> implements Map.Entry<K, V> {
 
     /**
      * Ctor.
+     *
      * @param key The key
      * @param value The value
      */

@@ -11,6 +11,7 @@ package com.github.fabriciofx.rps;
  */
 @FunctionalInterface
 public interface Attempts {
+
     /**
      * Check if the attempts reach the max.
      *

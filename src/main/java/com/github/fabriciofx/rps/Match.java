@@ -11,8 +11,10 @@ package com.github.fabriciofx.rps;
  */
 @FunctionalInterface
 public interface Match {
+
     /**
      * Perform the match.
+     *
      * @return The result of the match
      */
     Result result();

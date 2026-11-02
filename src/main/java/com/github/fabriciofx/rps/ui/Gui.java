@@ -13,6 +13,14 @@ import javax.swing.JOptionPane;
  * @since 1.0
  */
 public final class Gui implements Ui {
+
+    /**
+     * Ctor.
+     */
+    @SuppressWarnings("PMD.UncommentedEmptyConstructor")
+    public Gui() {
+    }
+
     @Override
     public String name() {
         return "gui";

@@ -17,20 +17,24 @@ import com.github.fabriciofx.rps.result.Win;
  * @since 1.0
  */
 public final class MatchOf implements Match {
+
     /**
      * Player 1.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Player player1;
 
     /**
      * Player 2.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Player player2;
 
     /**
      * Ctor.
+     *
      * @param one Player 1
      * @param two Player 2
      */

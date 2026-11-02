@@ -11,6 +11,7 @@ package com.github.fabriciofx.rps;
  */
 @FunctionalInterface
 public interface Game {
+
     /**
      * Start of the game.
      */

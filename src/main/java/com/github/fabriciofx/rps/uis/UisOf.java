@@ -17,6 +17,7 @@ import java.util.Map;
  */
 @SuppressWarnings({"PMD.SystemPrintln", "PMD.DoNotTerminateVM"})
 public final class UisOf implements Uis {
+
     /**
      * Default user interfaces.
      */

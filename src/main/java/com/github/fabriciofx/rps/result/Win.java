@@ -14,6 +14,7 @@ import com.github.fabriciofx.rps.Result;
  * @since 1.0
  */
 public final class Win implements Result {
+
     /**
      * Winner player.
      */
@@ -21,6 +22,7 @@ public final class Win implements Result {
 
     /**
      * Winner player move.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Move move1;
@@ -32,18 +34,19 @@ public final class Win implements Result {
 
     /**
      * Looser player move.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Move move2;
 
     /**
      * Ctor.
+     *
      * @param winner Winner player
      * @param move1 Winner player move
      * @param looser Looser player
      * @param move2 Looser player move
      * @checkstyle ParameterNameCheck (7 lines)
-     * @checkstyle ParameterNumberCheck (7 lines)
      */
     public Win(
         final Player winner,
@@ -60,7 +63,7 @@ public final class Win implements Result {
     @Override
     public String asString() {
         return String.format(
-            "%s wins!! %s played %s and %s played %s\n",
+            "%s wins!! %s played %s and %s played %s%n",
             this.winner.name(),
             this.winner.name(),
             this.move1,

@@ -13,6 +13,7 @@ import com.github.fabriciofx.rps.Moves;
  * @since 1.0
  */
 public final class SafeMoves implements Moves {
+
     /**
      * Moves.
      */
@@ -20,6 +21,7 @@ public final class SafeMoves implements Moves {
 
     /**
      * Ctor.
+     *
      * @param moves Moves to be checked
      */
     public SafeMoves(final Moves moves) {
@@ -31,7 +33,6 @@ public final class SafeMoves implements Moves {
         if (this.origin == null) {
             throw new InvalidMovesException();
         }
-        // @checkstyle MagicNumberCheck (1 lines)
         if (code < 0 || code > 3) {
             throw new InvalidMoveCodeException(code);
         }

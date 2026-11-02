@@ -25,13 +25,8 @@ import java.util.List;
  * The game.
  *
  * @since 1.0
- * @checkstyle ClassDataAbstractionCouplingCheck (100 lines)
  */
 public final class RockPaperScissors implements Game {
-    /**
-     * Default attempts.
-     */
-    private static final int NUM_ATTEMPTS = 3;
 
     /**
      * Command line args.
@@ -40,6 +35,7 @@ public final class RockPaperScissors implements Game {
 
     /**
      * Ctor.
+     *
      * @param arguments Command line args
      */
     public RockPaperScissors(final String... arguments) {
@@ -48,6 +44,7 @@ public final class RockPaperScissors implements Game {
 
     /**
      * Ctor.
+     *
      * @param arguments Command line args
      */
     public RockPaperScissors(final List<String> arguments) {
@@ -76,7 +73,7 @@ public final class RockPaperScissors implements Game {
                 ),
                 iface
             ),
-            RockPaperScissors.NUM_ATTEMPTS
+            3
         ).matches();
     }
 }

@@ -15,6 +15,7 @@ import java.util.List;
  * @since 1.0
  */
 public final class MovesOf implements Moves {
+
     /**
      * Moves.
      */
@@ -33,7 +34,16 @@ public final class MovesOf implements Moves {
      * @param moves All possible moves
      */
     public MovesOf(final Move... moves) {
-        this.moves = Arrays.asList(moves);
+        this(Arrays.asList(moves));
+    }
+
+    /**
+     * Ctor.
+     *
+     * @param moves All possible moves
+     */
+    public MovesOf(final List<Move> moves) {
+        this.moves = moves;
     }
 
     @Override

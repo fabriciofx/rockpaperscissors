@@ -17,8 +17,10 @@ import com.github.fabriciofx.rps.ui.Filtered;
  * @since 1.0
  */
 public final class Human implements Player {
+
     /**
      * User interface.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Ui ui;
@@ -32,6 +34,7 @@ public final class Human implements Player {
 
     /**
      * Ctor.
+     *
      * @param ui User interface
      * @checkstyle ParameterNameCheck (2 lines)
      */

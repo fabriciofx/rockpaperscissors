@@ -14,38 +14,43 @@ import com.github.fabriciofx.rps.Result;
  * @since 1.0
  */
 public final class Tie implements Result {
+
     /**
      * Player 1.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Player player1;
 
     /**
      * Player 1 move.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Move move1;
 
     /**
      * Player 2.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Player player2;
 
     /**
      * Player 2 move.
+     *
      * @checkstyle MemberNameCheck (2 lines)
      */
     private final Move move2;
 
     /**
      * Ctor.
+     *
      * @param player1 Player 1
      * @param move1 Player 1 move
      * @param player2 Player 2
      * @param move2 Player 2 move
      * @checkstyle ParameterNameCheck (7 lines)
-     * @checkstyle ParameterNumberCheck (7 lines)
      */
     public Tie(
         final Player player1,
@@ -62,7 +67,7 @@ public final class Tie implements Result {
     @Override
     public String asString() {
         return String.format(
-            "Tie!! %s played %s and %s played %s\n",
+            "Tie!! %s played %s and %s played %s%n",
             this.player1.name(),
             this.move1,
             this.player2.name(),

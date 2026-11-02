@@ -17,15 +17,16 @@ import java.util.Scanner;
  * @since 1.0
  */
 public final class Cli implements Ui {
+
     /**
      * Cli input.
      */
-    private final InputStream input;
+    private final Scanner input;
 
     /**
      * Cli output.
      */
-    private final OutputStream output;
+    private final PrintStream output;
 
     /**
      * Ctor.
@@ -36,10 +37,25 @@ public final class Cli implements Ui {
 
     /**
      * Ctor.
+     *
      * @param input Cli input
      * @param output Cli output
      */
+    @SuppressWarnings("PMD.CloseInlineResourceRule")
     public Cli(final InputStream input, final OutputStream output) {
+        this(
+            new Scanner(input, StandardCharsets.UTF_8),
+            new PrintStream(output, true, StandardCharsets.UTF_8)
+        );
+    }
+
+    /**
+     * Ctor.
+     *
+     * @param input Cli input
+     * @param output Cli output
+     */
+    public Cli(final Scanner input, final PrintStream output) {
         this.input = input;
         this.output = output;
     }
@@ -51,16 +67,12 @@ public final class Cli implements Ui {
 
     @Override
     public void show(final String message) {
-        new PrintStream(
-            this.output,
-            true,
-            StandardCharsets.UTF_8
-        ).print(message);
+        this.output.print(message);
     }
 
     @Override
     public String value(final String message) {
         this.show(message);
-        return new Scanner(this.input, StandardCharsets.UTF_8).next();
+        return this.input.next();
     }
 }

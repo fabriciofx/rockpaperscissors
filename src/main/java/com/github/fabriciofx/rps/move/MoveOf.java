@@ -11,8 +11,8 @@ import com.github.fabriciofx.rps.Move;
  *
  * @since 1.0
  */
-@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public final class MoveOf implements Move {
+
     /**
      * Move's cod.
      */
@@ -25,6 +25,7 @@ public final class MoveOf implements Move {
 
     /**
      * Ctor.
+     *
      * @param code The cod of the move
      * @param name The name of the move
      */
@@ -51,7 +52,6 @@ public final class MoveOf implements Move {
         final int cmp;
         if (this.code == move.code()) {
             cmp = 0;
-            // @checkstyle MagicNumberCheck (1 lines)
         } else if ((this.code - move.code() + 3) % 3 == 1) {
             cmp = -1;
         } else {

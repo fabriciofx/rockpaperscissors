@@ -13,12 +13,14 @@ public interface Player {
 
     /**
      * The player's name.
+     *
      * @return The name of the player
      */
     String name();
 
     /**
      * The player's move.
+     *
      * @return The move of the player
      */
     Move move();

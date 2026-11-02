@@ -18,6 +18,7 @@ import java.util.stream.Stream;
  * @since 1.2
  */
 public final class MapOf<K, V> implements Map<K, V> {
+
     /**
      * Entries.
      */
@@ -25,16 +26,28 @@ public final class MapOf<K, V> implements Map<K, V> {
 
     /**
      * Ctor.
+     *
      * @param entries The entries
      */
     @SafeVarargs
     public MapOf(final Map.Entry<K, V>... entries) {
-        this.entries = Stream.of(entries).collect(
-            Collectors.toMap(
-                Map.Entry::getKey,
-                Map.Entry::getValue
+        this(
+            Stream.of(entries).collect(
+                Collectors.toMap(
+                    Map.Entry::getKey,
+                    Map.Entry::getValue
+                )
             )
         );
+    }
+
+    /**
+     * Ctor.
+     *
+     * @param entries The entries
+     */
+    public MapOf(final Map<K, V> entries) {
+        this.entries = entries;
     }
 
     @Override

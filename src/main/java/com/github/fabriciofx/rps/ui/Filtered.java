@@ -12,6 +12,7 @@ import com.github.fabriciofx.rps.Ui;
  * @since 1.0
  */
 public final class Filtered implements Ui {
+
     /**
      * User interface.
      */
@@ -24,6 +25,7 @@ public final class Filtered implements Ui {
 
     /**
      * Ctor.
+     *
      * @param ui The user interface
      * @param regex Regular expression filter
      * @checkstyle ParameterNameCheck (2 lines)
@@ -53,7 +55,7 @@ public final class Filtered implements Ui {
             } else {
                 this.origin.show(
                     String.format(
-                        "Invalid input '%s'. Try it again.\n",
+                        "Invalid input '%s'. Try it again.%n",
                         val
                     )
                 );

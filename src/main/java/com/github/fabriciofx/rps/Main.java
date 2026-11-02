@@ -12,6 +12,7 @@ import com.github.fabriciofx.rps.game.RockPaperScissors;
  * @since 1.4
  */
 public final class Main {
+
     /**
      * Private ctor.
      */
@@ -21,6 +22,7 @@ public final class Main {
 
     /**
      * Main method.
+     *
      * @param args The program arguments
      */
     public static void main(final String[] args) {

@@ -10,8 +10,10 @@ package com.github.fabriciofx.rps;
  * @since 1.0
  */
 public interface Move extends Comparable<Move> {
+
     /**
      * Perform the move's code.
+     *
      * @return The move's code
      */
     int code();
