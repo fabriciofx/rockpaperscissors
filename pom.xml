@@ -64,6 +64,14 @@
     <github.repo>fabriciofx/rockpaperscissors</github.repo>
     <maven.compiler.release>21</maven.compiler.release>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.llorllale</groupId>
+      <artifactId>cactoos-matchers</artifactId>
+      <version>0.25</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
   <build>
     <pluginManagement>
       <plugins>

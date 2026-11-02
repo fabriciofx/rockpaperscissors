@@ -6,9 +6,9 @@ package com.github.fabriciofx.rps.match;
 
 import com.github.fabriciofx.rps.Moves;
 import com.github.fabriciofx.rps.player.FakePlayer;
-import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
+import org.llorllale.cactoos.matchers.Assertion;
 
 /**
  * SmartMatch tests.
@@ -19,7 +19,7 @@ final class MatchOfTest {
 
     @Test
     void rocksTie() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't tie with two players playing rock",
             new MatchOf(
                 new FakePlayer(1, Moves.ROCK),
@@ -30,12 +30,12 @@ final class MatchOfTest {
                     "Tie!! Player 1 played Rock and Player 2 played Rock%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void papersTie() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't tie with two players playing paper",
             new MatchOf(
                 new FakePlayer(1, Moves.PAPER),
@@ -46,12 +46,12 @@ final class MatchOfTest {
                     "Tie!! Player 1 played Paper and Player 2 played Paper%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void scissorsTie() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't tie with two players playing scissors",
             new MatchOf(
                 new FakePlayer(1, Moves.SCISSORS),
@@ -62,12 +62,12 @@ final class MatchOfTest {
                     "Tie!! Player 1 played Scissors and Player 2 played Scissors%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void rockWinsScissors() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't rock win with two players playing rock and scissors",
             new MatchOf(
                 new FakePlayer(1, Moves.ROCK),
@@ -78,12 +78,12 @@ final class MatchOfTest {
                     "Player 1 wins!! Player 1 played Rock and Player 2 played Scissors%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void scissorsLoosesRock() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't rock win with two players playing scissors and rock",
             new MatchOf(
                 new FakePlayer(1, Moves.SCISSORS),
@@ -94,12 +94,12 @@ final class MatchOfTest {
                     "Player 2 wins!! Player 2 played Rock and Player 1 played Scissors%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void paperWinsRock() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't paper win with two players playing paper and rock",
             new MatchOf(
                 new FakePlayer(1, Moves.PAPER),
@@ -110,12 +110,12 @@ final class MatchOfTest {
                     "Player 1 wins!! Player 1 played Paper and Player 2 played Rock%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void rockLoosesPaper() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't paper win with two players playing rock and paper",
             new MatchOf(
                 new FakePlayer(1, Moves.ROCK),
@@ -126,12 +126,12 @@ final class MatchOfTest {
                     "Player 2 wins!! Player 2 played Paper and Player 1 played Rock%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void scissorsWinsPaper() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't scissors win with two players playing scissors and paper",
             new MatchOf(
                 new FakePlayer(1, Moves.SCISSORS),
@@ -142,12 +142,12 @@ final class MatchOfTest {
                     "Player 1 wins!! Player 1 played Scissors and Player 2 played Paper%n"
                 )
             )
-        );
+        ).affirm();
     }
 
     @Test
     void paperLoosesScissors() {
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "Can't scissors win with two players playing papers and scissors",
             new MatchOf(
                 new FakePlayer(1, Moves.PAPER),
@@ -158,6 +158,6 @@ final class MatchOfTest {
                     "Player 2 wins!! Player 2 played Scissors and Player 1 played Paper%n"
                 )
             )
-        );
+        ).affirm();
     }
 }

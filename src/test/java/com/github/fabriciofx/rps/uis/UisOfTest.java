@@ -4,7 +4,6 @@
  */
 package com.github.fabriciofx.rps.uis;
 
-import com.github.fabriciofx.rps.Ui;
 import com.github.fabriciofx.rps.map.MapEntry;
 import com.github.fabriciofx.rps.map.MapOf;
 import com.github.fabriciofx.rps.ui.Cli;
@@ -12,10 +11,10 @@ import com.github.fabriciofx.rps.ui.Gui;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
-import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.llorllale.cactoos.matchers.Assertion;
+import org.llorllale.cactoos.matchers.Throws;
 
 /**
  * UisOf tests.
@@ -26,52 +25,72 @@ final class UisOfTest {
 
     @Test
     void selectsCliWhenAskedByArgument() {
-        final Ui cli = new Cli(
-            new ByteArrayInputStream(
-                "w9q".getBytes(StandardCharsets.UTF_8)
-            ),
-            new ByteArrayOutputStream()
-        );
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "UisOf ignored the cli argument and picked another interface",
             new UisOf(
-                new MapEntry<>("--gui", new Gui()),
+                new MapEntry<>(
+                    "--gui",
+                    new Cli(
+                        new ByteArrayInputStream(
+                            "Gq0".getBytes(StandardCharsets.UTF_8)
+                        ),
+                        new ByteArrayOutputStream()
+                    )
+                ),
                 new MapOf<>(
-                    new MapEntry<>("--cli", cli),
+                    new MapEntry<>(
+                        "--cli",
+                        new Cli(
+                            new ByteArrayInputStream(
+                                "w9q".getBytes(StandardCharsets.UTF_8)
+                            ),
+                            new ByteArrayOutputStream()
+                        )
+                    ),
                     new MapEntry<>("--gui", new Gui())
                 ),
                 "--cli"
-            ).select(),
-            Matchers.sameInstance(cli)
-        );
+            ).select().value(""),
+            Matchers.equalTo("w9q")
+        ).affirm();
     }
 
     @Test
     void selectsInterfaceByItsArgumentKey() {
-        final Ui cli = new Cli(
-            new ByteArrayInputStream(
-                "Lp4".getBytes(StandardCharsets.UTF_8)
-            ),
-            new ByteArrayOutputStream()
-        );
-        MatcherAssert.assertThat(
+        new Assertion<>(
             "UisOf cannot find the interface registered under its key",
             new UisOf(
-                new MapEntry<>("--window", new Gui()),
+                new MapEntry<>(
+                    "--window",
+                    new Cli(
+                        new ByteArrayInputStream(
+                            "mT3".getBytes(StandardCharsets.UTF_8)
+                        ),
+                        new ByteArrayOutputStream()
+                    )
+                ),
                 new MapOf<>(
-                    new MapEntry<>("--terminal", cli),
+                    new MapEntry<>(
+                        "--terminal",
+                        new Cli(
+                            new ByteArrayInputStream(
+                                "Lp4".getBytes(StandardCharsets.UTF_8)
+                            ),
+                            new ByteArrayOutputStream()
+                        )
+                    ),
                     new MapEntry<>("--window", new Gui())
                 ),
                 "--terminal"
-            ).select(),
-            Matchers.sameInstance(cli)
-        );
+            ).select().value(""),
+            Matchers.equalTo("Lp4")
+        ).affirm();
     }
 
     @Test
     void rejectsArgumentThatOnlyContainsKey() {
-        Assertions.assertThrows(
-            InvalidUiException.class,
+        new Assertion<>(
+            "UisOf accepted an argument that is not a registered key",
             () -> new UisOf(
                 new MapEntry<>("--gui", new Gui()),
                 new MapOf<>(
@@ -80,7 +99,7 @@ final class UisOfTest {
                 ),
                 "--clix7"
             ).select(),
-            "UisOf accepted an argument that is not a registered key"
-        );
+            new Throws<>(InvalidUiException.class)
+        ).affirm();
     }
 }
