@@ -5,19 +5,18 @@ here](http://www.elegantobjects.org/badge.svg)](http://www.elegantobjects.org)
 [![We recommend IntelliJ
 IDEA](http://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
-[![Build
-Status](https://img.shields.io/travis/yegor256/takes/master.svg)](https://travis-ci.org/fabriciofx/rockpaperscissors)
+[![java-build](https://github.com/fabriciofx/rockpaperscissors/actions/workflows/java-build.yml/badge.svg)](https://github.com/fabriciofx/rockpaperscissors/actions/workflows/java-build.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/fabriciofx/rockpaperscissors/blob/main/LICENSE.txt)
 
-**rockpaperscissors** is a is a [true
+**rockpaperscissors** is a [true
 object-oriented](http://www.elegantobjects.org/) implementation of the famous
 [Rock, Paper and
 Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)
 game.
 
-## What does *true object-oriented* means?
+## What does *true object-oriented* mean?
 
-This application follows these four fundamental principles:
+This application follows these fundamental principles:
 
 - No `null` ([why?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html))
 - No code in constructors ([why?](http://www.yegor256.com/2015/05/07/ctors-must-be-code-free.html))
@@ -42,7 +41,9 @@ these books:
 Thinking](https://www.amazon.com/Object-Thinking-Developer-Reference-David/dp/0735619654)
 by [David West](http://davewest.us)
 
-## How use it?
+## How to use it?
+
+You need Java 21 or newer and Maven 3.6.3 or newer.
 
 First, build it:
 
@@ -50,13 +51,41 @@ First, build it:
 mvn clean package
 ```
 
-Then, run:
+Then, run it:
 
 ```bash
 java -jar target/rockpaperscissors-VERSION-jar-with-dependencies.jar
 ```
 
 Change *VERSION* for the version found in `pom.xml` file.
+
+You play three rounds against the computer. In each round, type `r` for Rock,
+`p` for Paper or `s` for Scissors (uppercase also works).
+
+By default, the game runs in the terminal. To pick the user interface, pass
+one of these options:
+
+| Option  | User interface                |
+|---------|-------------------------------|
+| `--cli` | Terminal (default)            |
+| `--gui` | Graphical dialog windows      |
+
+For example:
+
+```bash
+java -jar target/rockpaperscissors-VERSION-jar-with-dependencies.jar --gui
+```
+
+Any other option prints the valid ones and exits with status `1`.
+
+## How to contribute?
+
+Build the project with the [qulice](https://github.com/yegor256/qulice) static
+analysis enabled and make sure it passes before sending a pull request:
+
+```bash
+mvn clean install -Pqulice
+```
 
 ## License
 
