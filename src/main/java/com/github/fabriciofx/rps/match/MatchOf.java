@@ -48,33 +48,25 @@ public final class MatchOf implements Match {
         //@checkstyle LocalFinalVariableNameCheck (2 lines)
         final Move move1 = this.player1.move();
         final Move move2 = this.player2.move();
-        final Result result;
-        switch (move1.compareTo(move2)) {
-            case -1:
-                result = new Win(
-                    this.player1,
-                    move1,
-                    this.player2,
-                    move2
-                );
-                break;
-            case 1:
-                result = new Win(
-                    this.player2,
-                    move2,
-                    this.player1,
-                    move1
-                );
-                break;
-            default:
-                result = new Tie(
-                    this.player1,
-                    move1,
-                    this.player2,
-                    move2
-                );
-                break;
-        }
-        return result;
+        return switch (move1.compareTo(move2)) {
+            case -1 -> new Win(
+                this.player1,
+                move1,
+                this.player2,
+                move2
+            );
+            case 1 -> new Win(
+                this.player2,
+                move2,
+                this.player1,
+                move1
+            );
+            default -> new Tie(
+                this.player1,
+                move1,
+                this.player2,
+                move2
+            );
+        };
     }
 }
