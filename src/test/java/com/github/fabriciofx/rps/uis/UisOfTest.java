@@ -44,4 +44,26 @@ final class UisOfTest {
             Matchers.sameInstance(cli)
         );
     }
+
+    @Test
+    void selectsInterfaceByItsArgumentKey() {
+        final Ui cli = new Cli(
+            new ByteArrayInputStream(
+                "Lp4".getBytes(StandardCharsets.UTF_8)
+            ),
+            new ByteArrayOutputStream()
+        );
+        MatcherAssert.assertThat(
+            "UisOf cannot find the interface registered under its key",
+            new UisOf(
+                new MapEntry<>("--window", new Gui()),
+                new MapOf<>(
+                    new MapEntry<>("--terminal", cli),
+                    new MapEntry<>("--window", new Gui())
+                ),
+                "--terminal"
+            ).select(),
+            Matchers.sameInstance(cli)
+        );
+    }
 }

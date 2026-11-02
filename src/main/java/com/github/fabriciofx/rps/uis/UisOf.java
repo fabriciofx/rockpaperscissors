@@ -69,22 +69,16 @@ public final class UisOf implements Uis {
     public Ui select() {
         Ui selected = this.def.getValue();
         if (!this.arguments.isEmpty()) {
-            boolean found = false;
-            for (final Ui iface : this.all.values()) {
-                if (this.arguments.get(0).contains(iface.name())) {
-                    selected = iface;
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
+            final String key = this.arguments.get(0);
+            if (!this.all.containsKey(key)) {
                 System.err.printf(
                     "User interface '%s' not found! You must use %s%n",
-                    this.arguments.get(0),
+                    key,
                     this.all.keySet()
                 );
                 System.exit(1);
             }
+            selected = this.all.get(key);
         }
         return selected;
     }

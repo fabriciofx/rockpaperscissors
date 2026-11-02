@@ -36,11 +36,6 @@ public final class Filtered implements Ui {
     }
 
     @Override
-    public String name() {
-        return "filtered";
-    }
-
-    @Override
     public void show(final String message) {
         this.origin.show(message);
     }

@@ -61,11 +61,6 @@ public final class Cli implements Ui {
     }
 
     @Override
-    public String name() {
-        return "cli";
-    }
-
-    @Override
     public void show(final String message) {
         this.output.print(message);
     }

@@ -22,11 +22,6 @@ public final class Gui implements Ui {
     }
 
     @Override
-    public String name() {
-        return "gui";
-    }
-
-    @Override
     public void show(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
