@@ -118,5 +118,30 @@
         </plugins>
       </build>
     </profile>
+    <profile>
+      <id>sonar</id>
+      <properties>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.organization>fabriciofx</sonar.organization>
+        <sonar.projectKey>fabriciofx_rockpaperscissors</sonar.projectKey>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>5.8.0.7211</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>sonar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>
