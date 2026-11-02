@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (C) 2017-2026 Fabrício Barros Cabral
 # SPDX-License-Identifier: MIT
 ---
-# yamllint disable rule:line-length
 name: xml-lint
 'on':
   push:
@@ -16,4 +15,5 @@ permissions:
   contents: read
 jobs:
   xml-lint:
+    # yamllint disable-line rule:line-length
     uses: fabriciofx/github-workflows/.github/workflows/xml-lint-template.yml@main
