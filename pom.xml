@@ -59,14 +59,18 @@
       <url>https://github.com/fabriciofx/rockpaperscissors</url>
     </site>
   </distributionManagement>
+  <properties>
+    <maven.plugin.validation>VERBOSE</maven.plugin.validation>
+    <github.repo>fabriciofx/rockpaperscissors</github.repo>
+    <maven.compiler.release>21</maven.compiler.release>
+  </properties>
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <release>21</release>
-          </configuration>
+          <version>3.16.0</version>          
         </plugin>
       </plugins>
     </pluginManagement>
