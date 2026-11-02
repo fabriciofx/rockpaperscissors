@@ -5,12 +5,14 @@
 package com.github.fabriciofx.rps;
 
 import com.github.fabriciofx.rps.game.RockPaperScissors;
+import com.github.fabriciofx.rps.uis.InvalidUiException;
 
 /**
  * Main.
  *
  * @since 1.4
  */
+@SuppressWarnings("PMD.SystemPrintln")
 public final class Main {
 
     /**
@@ -26,6 +28,11 @@ public final class Main {
      * @param args The program arguments
      */
     public static void main(final String[] args) {
-        new RockPaperScissors(args).run();
+        try {
+            new RockPaperScissors(args).run();
+        } catch (final InvalidUiException ex) {
+            System.err.println(ex.getMessage());
+            System.exit(1);
+        }
     }
 }

@@ -15,7 +15,6 @@ import java.util.Map;
  *
  * @since 1.0
  */
-@SuppressWarnings({"PMD.SystemPrintln", "PMD.DoNotTerminateVM"})
 public final class UisOf implements Uis {
 
     /**
@@ -71,12 +70,7 @@ public final class UisOf implements Uis {
         if (!this.arguments.isEmpty()) {
             final String key = this.arguments.get(0);
             if (!this.all.containsKey(key)) {
-                System.err.printf(
-                    "User interface '%s' not found! You must use %s%n",
-                    key,
-                    this.all.keySet()
-                );
-                System.exit(1);
+                throw new InvalidUiException(key, this.all.keySet());
             }
             selected = this.all.get(key);
         }

@@ -14,6 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -64,6 +65,22 @@ final class UisOfTest {
                 "--terminal"
             ).select(),
             Matchers.sameInstance(cli)
+        );
+    }
+
+    @Test
+    void rejectsArgumentThatOnlyContainsKey() {
+        Assertions.assertThrows(
+            InvalidUiException.class,
+            () -> new UisOf(
+                new MapEntry<>("--gui", new Gui()),
+                new MapOf<>(
+                    new MapEntry<>("--cli", new Gui()),
+                    new MapEntry<>("--gui", new Gui())
+                ),
+                "--clix7"
+            ).select(),
+            "UisOf accepted an argument that is not a registered key"
         );
     }
 }
