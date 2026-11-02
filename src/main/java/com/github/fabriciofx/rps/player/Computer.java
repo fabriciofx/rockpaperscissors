@@ -9,7 +9,7 @@ import com.github.fabriciofx.rps.Moves;
 import com.github.fabriciofx.rps.Player;
 import com.github.fabriciofx.rps.move.MovesOf;
 import com.github.fabriciofx.rps.move.SafeMoves;
-import java.util.Random;
+import java.security.SecureRandom;
 
 /**
  * Computer Player.
@@ -17,6 +17,11 @@ import java.util.Random;
  * @since 1.0
  */
 public final class Computer implements Player {
+
+    /**
+     * The random.
+     */
+    private final SecureRandom random;
 
     /**
      * The moves.
@@ -30,7 +35,8 @@ public final class Computer implements Player {
         this(
             new SafeMoves(
                 new MovesOf()
-            )
+            ),
+            new SecureRandom()
         );
     }
 
@@ -40,7 +46,18 @@ public final class Computer implements Player {
      * @param moves All possible moves
      */
     public Computer(final Moves moves) {
+        this(moves, new SecureRandom());
+    }
+
+    /**
+     * Ctor.
+     *
+     * @param moves All possible moves
+     * @param random Pseudo aleatory random number generator
+     */
+    public Computer(final Moves moves, final SecureRandom random) {
         this.moves = moves;
+        this.random = random;
     }
 
     @Override
@@ -50,6 +67,6 @@ public final class Computer implements Player {
 
     @Override
     public Move move() {
-        return this.moves.move(new Random().nextInt(3));
+        return this.moves.move(this.random.nextInt(3));
     }
 }
