@@ -62,7 +62,7 @@ public final class Cli implements Ui {
 
     @Override
     public String name() {
-        return "console";
+        return "cli";
     }
 
     @Override
